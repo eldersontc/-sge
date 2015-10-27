@@ -1,0 +1,86 @@
+﻿using SGE.Entidades.Administracion;
+using SGE.Negocios.Administracion;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace SGE.Aplicacion.Administracion
+{
+    public partial class admReporte : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        { }
+
+        [WebMethod]
+        public static object ObtenerTodos()
+        {
+            object resultado = new { };
+            try
+            {
+                blReporte blReporte = new blReporte();
+                IList<Reporte> reportes = blReporte.ObtenerTodos();
+                resultado = new { correcto = true, reportes = reportes };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object Agregar(Reporte reporte)
+        {
+            object resultado = new { };
+            try
+            {
+                blReporte blReporte = new blReporte();
+                blReporte.Agregar(reporte);
+                resultado = new { correcto = true };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object Actualizar(Reporte reporte)
+        {
+            object resultado = new { };
+            try
+            {
+                blReporte blReporte = new blReporte();
+                blReporte.Actualizar(reporte);
+                resultado = new { correcto = true };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object Eliminar(int idReporte)
+        {
+            object resultado = new { };
+            try
+            {
+                blReporte blReporte = new blReporte();
+                blReporte.Eliminar(idReporte);
+                resultado = new { correcto = true };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+    }
+}

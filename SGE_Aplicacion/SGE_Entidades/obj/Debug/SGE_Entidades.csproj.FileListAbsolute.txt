@@ -1,0 +1,5 @@
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Entidades\bin\Debug\SGE.Entidades.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Entidades\bin\Debug\SGE.Entidades.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE.Entidades.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE.Entidades.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE_Entidades.csprojResolveAssemblyReference.cache

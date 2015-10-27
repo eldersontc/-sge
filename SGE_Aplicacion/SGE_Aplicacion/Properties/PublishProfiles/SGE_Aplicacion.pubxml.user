@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Administracion/admDocumentoIdentidad.aspx">
+      <publishTime>10/15/2015 22:21:33</publishTime>
+    </File>
+    <File Include="Administracion/admMoneda.aspx">
+      <publishTime>10/11/2015 16:54:59</publishTime>
+    </File>
+    <File Include="Administracion/admNumeracion.aspx">
+      <publishTime>10/17/2015 11:04:32</publishTime>
+    </File>
+    <File Include="Administracion/admPerfil.aspx">
+      <publishTime>10/09/2015 14:15:23</publishTime>
+    </File>
+    <File Include="Administracion/admReporte.aspx">
+      <publishTime>10/25/2015 00:27:43</publishTime>
+    </File>
+    <File Include="Administracion/admUsuario.aspx">
+      <publishTime>10/08/2015 12:19:18</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>03/17/2013 22:08:22</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>03/17/2013 22:08:54</publishTime>
+    </File>
+    <File Include="bin/SGE.AccesoDatos.dll">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="bin/SGE.AccesoDatos.pdb">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="bin/SGE.Aplicacion.dll">
+      <publishTime>10/26/2015 23:26:12</publishTime>
+    </File>
+    <File Include="bin/SGE.Aplicacion.pdb">
+      <publishTime>10/26/2015 23:26:12</publishTime>
+    </File>
+    <File Include="bin/SGE.Entidades.dll">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="bin/SGE.Entidades.pdb">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="bin/SGE.Negocios.dll">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="bin/SGE.Negocios.pdb">
+      <publishTime>10/26/2015 23:26:11</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/26/2015 23:26:16</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

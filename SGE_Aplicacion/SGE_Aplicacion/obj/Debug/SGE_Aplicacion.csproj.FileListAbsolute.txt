@@ -1,0 +1,13 @@
+c:\users\elderson\documents\visual studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Aplicacion.dll
+c:\users\elderson\documents\visual studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Aplicacion.pdb
+c:\users\elderson\documents\visual studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\obj\Debug\SGE_Aplicacion.csprojResolveAssemblyReference.cache
+c:\users\elderson\documents\visual studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\obj\Debug\SGE.Aplicacion.dll
+c:\users\elderson\documents\visual studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\obj\Debug\SGE.Aplicacion.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Entidades.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Negocios.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.AccesoDatos.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\NHibernate.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\Iesi.Collections.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Entidades.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.Negocios.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Aplicacion\bin\SGE.AccesoDatos.pdb

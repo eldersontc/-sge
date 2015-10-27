@@ -1,0 +1,9 @@
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE_AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.AccesoDatos.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.AccesoDatos.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\Iesi.Collections.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\NHibernate.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.Entidades.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.Entidades.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.pdb
