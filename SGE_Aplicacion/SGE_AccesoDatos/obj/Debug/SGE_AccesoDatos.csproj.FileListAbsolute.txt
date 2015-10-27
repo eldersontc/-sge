@@ -7,3 +7,10 @@ C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Acces
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.Entidades.pdb
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.dll
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.pdb
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.AccesoDatos.dll
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.AccesoDatos.pdb
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.Entidades.dll
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\bin\Debug\SGE.Entidades.pdb
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE_AccesoDatos.csprojResolveAssemblyReference.cache
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.dll
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_AccesoDatos\obj\Debug\SGE.AccesoDatos.pdb

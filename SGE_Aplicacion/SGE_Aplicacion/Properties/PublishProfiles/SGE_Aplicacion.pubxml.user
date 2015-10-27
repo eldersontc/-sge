@@ -35,31 +35,31 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/17/2013 22:08:54</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.dll">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:54:24</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.pdb">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:54:24</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.dll">
-      <publishTime>10/26/2015 23:26:12</publishTime>
+      <publishTime>10/27/2015 00:54:25</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.pdb">
-      <publishTime>10/26/2015 23:26:12</publishTime>
+      <publishTime>10/27/2015 00:54:25</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.dll">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:08:02</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.pdb">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:08:02</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.dll">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:54:25</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.pdb">
-      <publishTime>10/26/2015 23:26:11</publishTime>
+      <publishTime>10/27/2015 00:54:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/26/2015 23:26:16</publishTime>
+      <publishTime>10/27/2015 00:55:02</publishTime>
     </File>
   </ItemGroup>
 </Project>
