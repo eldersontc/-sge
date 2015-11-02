@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace SGE.Negocios.Administracion
 {
-    public class blMoneda
+    public class blMoneda : blBase
     {
+        public blMoneda(Sesion sesion) { base.sesion = sesion; }
+
         daMoneda daMoneda;
 
         public IList<Moneda> ObtenerTodos()

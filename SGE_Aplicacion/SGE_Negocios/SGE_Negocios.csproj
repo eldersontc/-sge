@@ -45,6 +45,7 @@
     <Compile Include="Administracion\blPerfil.cs" />
     <Compile Include="Administracion\blReporte.cs" />
     <Compile Include="Administracion\blUsuario.cs" />
+    <Compile Include="Base\blBase.cs" />
     <Compile Include="Base\constantes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

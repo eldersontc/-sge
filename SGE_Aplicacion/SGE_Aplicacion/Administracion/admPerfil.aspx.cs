@@ -16,12 +16,12 @@ namespace SGE.Aplicacion.Administracion
         { }
 
         [WebMethod]
-        public static object ObtenerTodos()
+        public static object ObtenerTodos(Sesion sesion)
         {
             object resultado = new { };
             try
             {
-                blPerfil blPerfil = new blPerfil();
+                blPerfil blPerfil = new blPerfil(sesion);
                 IList<Perfil> perfiles = blPerfil.ObtenerTodos();
                 resultado = new { correcto = true, perfiles = perfiles };
             }
@@ -33,12 +33,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object ObtenerActivos()
+        public static object ObtenerActivos(Sesion sesion)
         {
             object resultado = new { };
             try
             {
-                blPerfil blPerfil = new blPerfil();
+                blPerfil blPerfil = new blPerfil(sesion);
                 IList<Perfil> perfiles = blPerfil.ObtenerActivos();
                 resultado = new { correcto = true, perfiles = perfiles };
             }
@@ -50,12 +50,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Agregar(Perfil perfil)
+        public static object Agregar(Sesion sesion, Perfil perfil)
         {
             object resultado = new { };
             try
             {
-                blPerfil blPerfil = new blPerfil();
+                blPerfil blPerfil = new blPerfil(sesion);
                 blPerfil.Agregar(perfil);
                 resultado = new { correcto = true };
             }
@@ -67,12 +67,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Actualizar(Perfil perfil)
+        public static object Actualizar(Sesion sesion, Perfil perfil)
         {
             object resultado = new { };
             try
             {
-                blPerfil blPerfil = new blPerfil();
+                blPerfil blPerfil = new blPerfil(sesion);
                 blPerfil.Actualizar(perfil);
                 resultado = new { correcto = true };
             }
@@ -84,12 +84,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Eliminar(int idPerfil)
+        public static object Eliminar(Sesion sesion, int idPerfil)
         {
             object resultado = new { };
             try
             {
-                blPerfil blPerfil = new blPerfil();
+                blPerfil blPerfil = new blPerfil(sesion);
                 blPerfil.Eliminar(idPerfil);
                 resultado = new { correcto = true };
             }

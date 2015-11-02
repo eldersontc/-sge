@@ -11,11 +11,5 @@ namespace SGE.Negocios.Base
         public static class esquemas {
             public static string Administracion = "Administracion";
         }
-
-        public static class operaciones {
-            public static int Agregar = 0;
-            public static int Actualizar = 1;
-            public static int Eliminar = -1;
-        }
     }
 }

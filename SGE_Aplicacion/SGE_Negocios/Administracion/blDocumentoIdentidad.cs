@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace SGE.Negocios.Administracion
 {
-    public class blDocumentoIdentidad
+    public class blDocumentoIdentidad : blBase
     {
+        public blDocumentoIdentidad(Sesion sesion) { base.sesion = sesion; }
+
         daDocumentoIdentidad daDocumentoIdentidad;
 
         public IList<DocumentoIdentidad> ObtenerTodos()

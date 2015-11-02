@@ -13,6 +13,5 @@ namespace SGE.Entidades.Administracion
         public virtual string nombre { get; set; }
         public virtual bool asignarId { get; set; }
         public virtual string valor { get; set; }
-        public virtual int operacion { get; set; }
     }
 }

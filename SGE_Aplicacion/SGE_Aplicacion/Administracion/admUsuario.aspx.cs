@@ -16,12 +16,12 @@ namespace SGE.Aplicacion.Administracion
         { }
 
         [WebMethod]
-        public static object ObtenerTodos()
+        public static object ObtenerTodos(Sesion sesion)
         {
             object resultado = new { };
             try
             {
-                blUsuario blUsuario = new blUsuario();
+                blUsuario blUsuario = new blUsuario(sesion);
                 IList<Usuario> usuarios = blUsuario.ObtenerTodos();
                 resultado = new { correcto = true, usuarios = usuarios };
             }
@@ -33,12 +33,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Agregar(Usuario usuario)
+        public static object Agregar(Sesion sesion, Usuario usuario)
         {
             object resultado = new { };
             try
             {
-                blUsuario blUsuario = new blUsuario();
+                blUsuario blUsuario = new blUsuario(sesion);
                 blUsuario.Agregar(usuario);
                 resultado = new { correcto = true };
             }
@@ -50,12 +50,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Actualizar(Usuario usuario)
+        public static object Actualizar(Sesion sesion, Usuario usuario)
         {
             object resultado = new { };
             try
             {
-                blUsuario blUsuario = new blUsuario();
+                blUsuario blUsuario = new blUsuario(sesion);
                 blUsuario.Actualizar(usuario);
                 resultado = new { correcto = true };
             }
@@ -67,12 +67,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Eliminar(int idUsuario)
+        public static object Eliminar(Sesion sesion, int idUsuario)
         {
             object resultado = new { };
             try
             {
-                blUsuario blUsuario = new blUsuario();
+                blUsuario blUsuario = new blUsuario(sesion);
                 blUsuario.Eliminar(idUsuario);
                 resultado = new { correcto = true };
             }

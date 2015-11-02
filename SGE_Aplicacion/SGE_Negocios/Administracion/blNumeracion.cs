@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace SGE.Negocios.Administracion
 {
-    public class blNumeracion
+    public class blNumeracion : blBase
     {
+        public blNumeracion(Sesion sesion) { base.sesion = sesion; }
+
         daNumeracion daNumeracion;
 
         public IList<Numeracion> ObtenerTodos()

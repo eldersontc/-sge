@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace SGE.Negocios.Administracion
 {
-    public class blReporte
+    public class blReporte : blBase
     {
+        public blReporte(Sesion sesion) { base.sesion = sesion; }
+
         daReporte daReporte;
         daItemReporte daItemReporte;
 
@@ -32,6 +34,28 @@ namespace SGE.Negocios.Administracion
                 daReporte.CerrarSesion();
             }
             return reportes;
+        }
+
+        public IList<ItemReporte> ObtenerItems(int idReporte)
+        {
+            IList<ItemReporte> items;
+            try
+            {
+                daItemReporte = new daItemReporte();
+                daItemReporte.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "idReporte", idReporte });
+                items = daItemReporte.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daItemReporte.CerrarSesion();
+            }
+            return items;
         }
 
         public bool Agregar(Reporte reporte)
@@ -77,21 +101,22 @@ namespace SGE.Negocios.Administracion
                 daItemReporte.AsignarSesion(daReporte);
                 foreach (ItemReporte item in reporte.items)
                 {
-                    if (item.operacion == constantes.operaciones.Agregar) {
+                    if (item.idItemReporte == 0)
+                    {
                         item.idReporte = reporte.idReporte;
                         daItemReporte.Agregar(item);
                     }
-                    if (item.operacion == constantes.operaciones.Actualizar)
+                    else 
                     {
                         ItemReporte itemReporte_ = daItemReporte.ObtenerPorId(item.idItemReporte);
                         itemReporte_.nombre = item.nombre;
                         itemReporte_.asignarId = item.asignarId;
                         itemReporte_.valor = item.valor;
                     }
-                    if (item.operacion == constantes.operaciones.Eliminar)
-                    {
-                        daItemReporte.EliminarPorId(item.idItemReporte, constantes.esquemas.Administracion);
-                    }
+                }
+                foreach (int idItem in reporte.idsEliminar)
+                {
+                    daItemReporte.EliminarPorId(idItem, constantes.esquemas.Administracion);
                 }
                 daReporte.ConfirmarTransaccion();
             }

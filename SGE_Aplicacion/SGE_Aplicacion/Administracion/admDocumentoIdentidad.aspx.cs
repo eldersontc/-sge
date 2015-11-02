@@ -16,12 +16,12 @@ namespace SGE.Aplicacion.Administracion
         { }
 
         [WebMethod]
-        public static object ObtenerTodos()
+        public static object ObtenerTodos(Sesion sesion)
         {
             object resultado = new { };
             try
             {
-                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad();
+                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad(sesion);
                 IList<DocumentoIdentidad> documentosIdentidad = blDocumentoIdentidad.ObtenerTodos();
                 resultado = new { correcto = true, documentosIdentidad = documentosIdentidad };
             }
@@ -33,12 +33,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Agregar(DocumentoIdentidad documentoIdentidad)
+        public static object Agregar(Sesion sesion, DocumentoIdentidad documentoIdentidad)
         {
             object resultado = new { };
             try
             {
-                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad();
+                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad(sesion);
                 blDocumentoIdentidad.Agregar(documentoIdentidad);
                 resultado = new { correcto = true };
             }
@@ -50,12 +50,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Actualizar(DocumentoIdentidad documentoIdentidad)
+        public static object Actualizar(Sesion sesion, DocumentoIdentidad documentoIdentidad)
         {
             object resultado = new { };
             try
             {
-                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad();
+                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad(sesion);
                 blDocumentoIdentidad.Actualizar(documentoIdentidad);
                 resultado = new { correcto = true };
             }
@@ -67,12 +67,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Eliminar(int idDocumentoIdentidad)
+        public static object Eliminar(Sesion sesion, int idDocumentoIdentidad)
         {
             object resultado = new { };
             try
             {
-                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad();
+                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad(sesion);
                 blDocumentoIdentidad.Eliminar(idDocumentoIdentidad);
                 resultado = new { correcto = true };
             }

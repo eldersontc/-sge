@@ -16,12 +16,12 @@ namespace SGE.Aplicacion.Administracion
         { }
 
         [WebMethod]
-        public static object ObtenerTodos()
+        public static object ObtenerTodos(Sesion sesion)
         {
             object resultado = new { };
             try
             {
-                blMoneda blMoneda = new blMoneda();
+                blMoneda blMoneda = new blMoneda(sesion);
                 IList<Moneda> monedas = blMoneda.ObtenerTodos();
                 resultado = new { correcto = true, monedas = monedas };
             }
@@ -33,12 +33,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Agregar(Moneda moneda)
+        public static object Agregar(Sesion sesion, Moneda moneda)
         {
             object resultado = new { };
             try
             {
-                blMoneda blMoneda = new blMoneda();
+                blMoneda blMoneda = new blMoneda(sesion);
                 blMoneda.Agregar(moneda);
                 resultado = new { correcto = true };
             }
@@ -50,12 +50,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Actualizar(Moneda moneda)
+        public static object Actualizar(Sesion sesion, Moneda moneda)
         {
             object resultado = new { };
             try
             {
-                blMoneda blMoneda = new blMoneda();
+                blMoneda blMoneda = new blMoneda(sesion);
                 blMoneda.Actualizar(moneda);
                 resultado = new { correcto = true };
             }
@@ -67,12 +67,12 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object Eliminar(int idMoneda)
+        public static object Eliminar(Sesion sesion, int idMoneda)
         {
             object resultado = new { };
             try
             {
-                blMoneda blMoneda = new blMoneda();
+                blMoneda blMoneda = new blMoneda(sesion);
                 blMoneda.Eliminar(idMoneda);
                 resultado = new { correcto = true };
             }

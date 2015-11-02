@@ -51,6 +51,7 @@
     <Compile Include="Administracion\PerfilMenu.cs" />
     <Compile Include="Administracion\Provincia.cs" />
     <Compile Include="Administracion\Reporte.cs" />
+    <Compile Include="Administracion\Sesion.cs" />
     <Compile Include="Administracion\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

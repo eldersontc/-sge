@@ -124,6 +124,10 @@ thead {
 .form-group {
     margin-bottom: 10px;
 }
+/* TAB */
+.tab-content {
+    margin-top: 12px;
+}
 /* SGE */
 .title-center {
     padding: 40px 15px;

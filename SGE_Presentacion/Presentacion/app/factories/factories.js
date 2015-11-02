@@ -69,6 +69,7 @@ define(['app'], function (app) {
     }).factory('httpFactory', function($http) {
         return {
             post: function (url, params, success, error) {
+                params.sesion = { usuario: { idUsuario: 10 } };
                 $http.post(url, params).
                     success(function (data) {
                         if (angular.isDefined(data) && angular.isDefined(data.d)) {

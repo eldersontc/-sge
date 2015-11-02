@@ -14,12 +14,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>N°</th>
-                    <th>DESCRIPCIÓN</th>
-                    <th>DOCUMENTO</th>
-                    <th class="text-center">ACTIVO</th>
-                    <th class="text-center">EDITAR</th>
-                    <th class="text-center">ELIMINAR</th>
+                  <th>N°</th>
+                  <th>DESCRIPCIÓN</th>
+                  <th>DOCUMENTO</th>
+                  <th class="text-center">ACTIVO</th>
+                  <th class="text-center">EDITAR</th>
+                  <th class="text-center">ELIMINAR</th>
+                </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="reporte in reportes">
@@ -30,14 +31,14 @@
                       <input type="checkbox" data-ng-model="reporte.activo" data-ng-disabled="true">
                     </td>
                     <td class="text-center">
-                        <button class="btn btn_link" data-ng-click="verMdlActualizar(reporte)">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button> 
+                      <button class="btn btn_link" data-ng-click="verMdlActualizar(reporte)">
+                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                      </button> 
                     </td>
                     <td class="text-center">
-                        <button class="btn btn_link" data-ng-click="verMdlEliminar(reporte)">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </button>
+                      <button class="btn btn_link" data-ng-click="verMdlEliminar(reporte)">
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                      </button>
                     </td>
                 </tr>
             </tbody>
@@ -51,32 +52,81 @@
       <h4 class="modal-title"><strong>AGREGAR REPORTE</strong></h4>
   </div>
   <div class="modal-body">
-      <form class="form-horizontal" name="frmAgregar">
+      <form class="form-horizontal" name="frmAgregar" novalidate>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Descripción</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" data-ng-model="$parent.reporte.descripcion" data-ng-required="true">
-          </div>  
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Documento</label>
-          <div class="col-sm-9">
-            <select-document data-ng-model="$parent.reporte.documento" data-ng-required="true"></select-document>
-          </div>  
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Ubicación</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" data-ng-model="$parent.reporte.ubicacion" data-ng-required="true">
-          </div>  
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" data-ng-model="$parent.reporte.activo"> Activo
-              </label>
-            </div>
+          <div class="col-sm-12">
+            <uib-tabset>
+              <uib-tab heading="General">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Descripción</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" data-ng-model="reporte.descripcion" data-ng-required="true">
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Documento</label>
+                  <div class="col-sm-9">
+                    <select-document data-ng-model="reporte.documento" data-ng-required="true"></select-document>
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Ubicación</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" data-ng-model="reporte.ubicacion" data-ng-required="true">
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" data-ng-model="reporte.activo"> Activo
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </uib-tab>
+              <uib-tab heading="Items" select="clickItems()">
+                <div class="btn-right">
+                  <button class="btn btn-primary" data-ng-click="agregarItem()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    AGREGAR
+                  </button>
+                </div>
+                <div id="divAlertItem"></div>
+                <div data-ng-if="verTablaItem">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>NOMBRE</th>
+                          <th class="text-center">ID</th>
+                          <th>VALOR</th>
+                          <th class="text-center">ELIMINAR</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-ng-repeat="item in reporte.items">
+                        <ng-form name="frmItem">
+                          <td>
+                            <input type="text" class="form-control" data-ng-model="item.nombre" data-ng-required="true">
+                          </td>
+                          <td class="text-center">
+                            <input type="checkbox" data-ng-model="item.asignarId">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" data-ng-model="item.valor" data-ng-required="true">
+                          </td>
+                          <td class="text-center">
+                            <button class="btn btn_link" data-ng-click="eliminarItem($index, item)">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </button>
+                          </td>
+                        </ng-form>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </uib-tab>
+            </uib-tabset>
           </div>
         </div>
       </form>
@@ -93,32 +143,81 @@
       <h4 class="modal-title"><strong>ACTUALIZAR REPORTE</strong></h4>
   </div>
   <div class="modal-body">
-      <form class="form-horizontal" name="frmActualizar">
+      <form class="form-horizontal" name="frmActualizar" novalidate>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Descripción</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" data-ng-model="$parent.reporte.descripcion" data-ng-required="true">
-          </div>  
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Documento</label>
-          <div class="col-sm-9">
-            <select-document data-ng-model="$parent.reporte.documento" data-ng-required="true"></select-document>
-          </div>  
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Ubicación</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" data-ng-model="$parent.reporte.ubicacion" data-ng-required="true">
-          </div>  
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" data-ng-model="$parent.reporte.activo"> Activo
-              </label>
-            </div>
+          <div class="col-sm-12">
+            <uib-tabset>
+              <uib-tab heading="General">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Descripción</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" data-ng-model="reporte.descripcion" data-ng-required="true">
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Documento</label>
+                  <div class="col-sm-9">
+                    <select-document data-ng-model="reporte.documento" data-ng-required="true"></select-document>
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Ubicación</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" data-ng-model="reporte.ubicacion" data-ng-required="true">
+                  </div>  
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" data-ng-model="reporte.activo"> Activo
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </uib-tab>
+              <uib-tab heading="Items" select="clickItems()">
+                <div class="btn-right">
+                  <button class="btn btn-primary" data-ng-click="agregarItem()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    AGREGAR
+                  </button>
+                </div>
+                <div id="divAlertItem"></div>
+                <div data-ng-if="verTablaItem">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>NOMBRE</th>
+                          <th class="text-center">ID</th>
+                          <th>VALOR</th>
+                          <th class="text-center">ELIMINAR</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-ng-repeat="item in reporte.items">
+                        <ng-form name="frmItem">
+                          <td>
+                            <input type="text" class="form-control" data-ng-model="item.nombre" data-ng-required="true">
+                          </td>
+                          <td class="text-center">
+                            <input type="checkbox" data-ng-model="item.asignarId">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" data-ng-model="item.valor" data-ng-required="true">
+                          </td>
+                          <td class="text-center">
+                            <button class="btn btn_link" data-ng-click="eliminarItem($index, item)">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </button>
+                          </td>
+                        </ng-form>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </uib-tab>
+            </uib-tabset>
           </div>
         </div>
       </form>

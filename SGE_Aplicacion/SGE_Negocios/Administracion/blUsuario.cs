@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace SGE.Negocios.Administracion
 {
-    public class blUsuario
+    public class blUsuario : blBase
     {
+        public blUsuario(Sesion sesion) { base.sesion = sesion; }
+
         daUsuario daUsuario;
 
         public IList<Usuario> ObtenerTodos()
