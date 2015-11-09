@@ -14,10 +14,6 @@ namespace SGE.Entidades.Administracion
         public virtual string ubicacion { get; set; }
         public virtual List<ItemReporte> items { get; set; }
         public virtual bool activo { get; set; }
-        public virtual List<int> idsEliminar { get; set; }
-
-        public Reporte() {
-            items = new List<ItemReporte>();
-        }
+        public virtual List<int> idsItems { get; set; }
     }
 }

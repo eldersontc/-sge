@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administracion\daDocumentoIdentidad.cs" />
+    <Compile Include="Administracion\daEmpleado.cs" />
     <Compile Include="Administracion\daItemReporte.cs" />
     <Compile Include="Administracion\daMoneda.cs" />
     <Compile Include="Administracion\daNumeracion.cs" />
@@ -54,6 +55,11 @@
     <Compile Include="Administracion\daReporte.cs" />
     <Compile Include="Administracion\daUsuario.cs" />
     <Compile Include="Base\daBase.cs" />
+    <Compile Include="Inventarios\daAlmacen.cs" />
+    <Compile Include="Inventarios\daProducto.cs" />
+    <Compile Include="Inventarios\daProductoAlmacen.cs" />
+    <Compile Include="Inventarios\daProductoUnidad.cs" />
+    <Compile Include="Inventarios\daUnidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +88,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administracion\Mapeo\ItemReporte.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administracion\Mapeo\Empleado.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\Almacen.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\Unidad.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\Producto.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\ProductoUnidad.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\ProductoAlmacen.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

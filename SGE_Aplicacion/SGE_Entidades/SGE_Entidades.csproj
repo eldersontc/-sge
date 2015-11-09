@@ -53,6 +53,11 @@
     <Compile Include="Administracion\Reporte.cs" />
     <Compile Include="Administracion\Sesion.cs" />
     <Compile Include="Administracion\Usuario.cs" />
+    <Compile Include="Inventarios\Almacen.cs" />
+    <Compile Include="Inventarios\Producto.cs" />
+    <Compile Include="Inventarios\ProductoAlmacen.cs" />
+    <Compile Include="Inventarios\ProductoUnidad.cs" />
+    <Compile Include="Inventarios\Unidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

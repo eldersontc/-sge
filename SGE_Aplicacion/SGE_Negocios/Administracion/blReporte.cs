@@ -114,7 +114,7 @@ namespace SGE.Negocios.Administracion
                         itemReporte_.valor = item.valor;
                     }
                 }
-                foreach (int idItem in reporte.idsEliminar)
+                foreach (int idItem in reporte.idsItems)
                 {
                     daItemReporte.EliminarPorId(idItem, constantes.esquemas.Administracion);
                 }

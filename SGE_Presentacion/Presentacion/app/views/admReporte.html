@@ -85,7 +85,7 @@
                   </div>
                 </div>
               </uib-tab>
-              <uib-tab heading="Items" select="clickItems()">
+              <uib-tab heading="Items">
                 <div class="btn-right">
                   <button class="btn btn-primary" data-ng-click="agregarItem()">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -116,7 +116,7 @@
                             <input type="text" class="form-control" data-ng-model="item.valor" data-ng-required="true">
                           </td>
                           <td class="text-center">
-                            <button class="btn btn_link" data-ng-click="eliminarItem($index, item)">
+                            <button class="btn btn_link" data-ng-click="eliminarItem($index)">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </button>
                           </td>
@@ -176,13 +176,14 @@
                   </div>
                 </div>
               </uib-tab>
-              <uib-tab heading="Items" select="clickItems()">
+              <uib-tab heading="Items">
                 <div class="btn-right">
                   <button class="btn btn-primary" data-ng-click="agregarItem()">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     AGREGAR
                   </button>
                 </div>
+                <div id="divLoadingItem"></div>
                 <div id="divAlertItem"></div>
                 <div data-ng-if="verTablaItem">
                   <table class="table table-bordered">
@@ -207,7 +208,7 @@
                             <input type="text" class="form-control" data-ng-model="item.valor" data-ng-required="true">
                           </td>
                           <td class="text-center">
-                            <button class="btn btn_link" data-ng-click="eliminarItem($index, item)">
+                            <button class="btn btn_link" data-ng-click="eliminarItem($index)">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </button>
                           </td>

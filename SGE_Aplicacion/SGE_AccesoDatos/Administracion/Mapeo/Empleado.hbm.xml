@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Administracion">
+  <class name="Empleado" schema="Administracion">
+    <id name="idEmpleado">
+      <generator class="identity" />
+    </id>
+    <property name="codigo" column="codigo"/>
+    <property name="nombre" column="nombre"/>
+    <property name="apellidoPaterno" column="apellidoPaterno"/>
+    <property name="apellidoMaterno" column="apellidoMaterno"/>
+    <many-to-one name="documentoIdentidad" column="idDocumentoIdentidad" class="DocumentoIdentidad" lazy="false"/>
+    <property name="numeroDocumento" column="numeroDocumento"/>
+    <property name="activo" column="activo"/>
+  </class>
+</hibernate-mapping>

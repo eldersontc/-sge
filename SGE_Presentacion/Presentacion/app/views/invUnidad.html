@@ -1,0 +1,132 @@
+<div class="title-left">
+  <h1>LISTADO DE UNIDADES</h1>
+</div>
+<div class="row">
+    <div class="btn-right">
+        <button class="btn btn-primary" data-ng-click="verMdlAgregar()">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          AGREGAR
+        </button>
+    </div>
+    <div id="divLoading"></div>
+    <div id="divAlert"></div>
+    <div data-ng-if="verTabla">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>ABREVIACIÓN</th>
+                    <th class="text-center">ACTIVO</th>
+                    <th class="text-center">EDITAR</th>
+                    <th class="text-center">ELIMINAR</th>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="unidad in unidades">
+                    <td>{{$index + 1}}</td>
+                    <td>{{unidad.descripcion}}</td>
+                    <td>{{unidad.abreviacion}}</td>
+                    <td class="text-center">
+                      <input type="checkbox" data-ng-model="unidad.activo" data-ng-disabled="true">
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn_link" data-ng-click="verMdlActualizar(unidad)">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </button> 
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn_link" data-ng-click="verMdlEliminar(unidad)">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- AGREGAR -->
+<script type="text/ng-template" id="mdlAgregar">
+  <div class="modal-header">
+      <button type="button" class="close" data-ng-click="cerrarMdlAgregar()">&times;</button>
+      <h4 class="modal-title"><strong>AGREGAR UNIDAD</strong></h4>
+  </div>
+  <div class="modal-body">
+      <form class="form-horizontal" name="frmAgregar">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Descripción</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" data-ng-model="$parent.unidad.descripcion" data-ng-required="true">
+          </div>  
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Abreviación</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" data-ng-model="$parent.unidad.abreviacion" data-ng-required="true">
+          </div>  
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" data-ng-model="$parent.unidad.activo"> Activo
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" data-ng-click="agregar(frmAgregar)" data-ng-disabled="frmAgregar.$invalid">AGREGAR</button>
+      <button class="btn btn-default" data-ng-click="cerrarMdlAgregar()">CANCELAR</button>
+  </div>
+</script>
+<!-- ACTUALIZAR -->
+<script type="text/ng-template" id="mdlActualizar">
+  <div class="modal-header">
+      <button type="button" class="close" data-ng-click="cerrarMdlActualizar()">&times;</button>
+      <h4 class="modal-title"><strong>ACTUALIZAR UNIDAD</strong></h4>
+  </div>
+  <div class="modal-body">
+      <form class="form-horizontal" name="frmActualizar">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Descripción</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" data-ng-model="$parent.unidad.descripcion" data-ng-required="true">
+          </div>  
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Abreviación</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" data-ng-model="$parent.unidad.abreviacion" data-ng-required="true">
+          </div>  
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" data-ng-model="$parent.unidad.activo"> Activo
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" data-ng-click="actualizar(frmActualizar)" data-ng-disabled="frmActualizar.$invalid">ACTUALIZAR</button>
+      <button class="btn btn-default" data-ng-click="cerrarMdlActualizar()">CANCELAR</button>
+  </div>
+</script>
+<!-- ELIMINAR -->
+<script type="text/ng-template" id="mdlEliminar">
+  <div class="modal-header">
+      <button type="button" class="close" data-ng-click="cerrarMdlEliminar()">&times;</button>
+      <h4 class="modal-title"><strong>ELIMINAR UNIDAD</strong></h4>
+  </div>
+  <div class="modal-body">
+    ¿Confirma la eliminación de la unidad <strong>{{undiad.descripcion}}</strong> ?
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" data-ng-click="eliminar()" >ELIMINAR</button>
+      <button class="btn btn-default" data-ng-click="cerrarMdlEliminar()">CANCELAR</button>
+  </div>
+</script>

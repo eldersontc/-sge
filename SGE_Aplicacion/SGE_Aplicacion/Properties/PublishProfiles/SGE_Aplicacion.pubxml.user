@@ -13,6 +13,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Administracion/admDocumentoIdentidad.aspx">
       <publishTime>10/15/2015 22:21:33</publishTime>
     </File>
+    <File Include="Administracion/admEmpleado.aspx">
+      <publishTime>11/08/2015 12:08:38</publishTime>
+    </File>
     <File Include="Administracion/admMoneda.aspx">
       <publishTime>10/11/2015 16:54:59</publishTime>
     </File>
@@ -35,31 +38,43 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/17/2013 22:08:54</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.dll">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:50</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.pdb">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:50</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.dll">
-      <publishTime>11/01/2015 19:38:16</publishTime>
+      <publishTime>11/09/2015 00:33:51</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.pdb">
-      <publishTime>11/01/2015 19:38:16</publishTime>
+      <publishTime>11/09/2015 00:33:51</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.dll">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:50</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.pdb">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:50</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.dll">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:51</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.pdb">
-      <publishTime>11/01/2015 19:38:15</publishTime>
+      <publishTime>11/09/2015 00:33:51</publishTime>
+    </File>
+    <File Include="Inventarios/admAlmacen.aspx">
+      <publishTime>11/08/2015 12:57:43</publishTime>
+    </File>
+    <File Include="Inventarios/invAlmacen.aspx">
+      <publishTime>11/08/2015 13:01:24</publishTime>
+    </File>
+    <File Include="Inventarios/invProducto.aspx">
+      <publishTime>11/08/2015 23:46:12</publishTime>
+    </File>
+    <File Include="Inventarios/invUnidad.aspx">
+      <publishTime>11/08/2015 16:11:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/01/2015 19:38:19</publishTime>
+      <publishTime>11/09/2015 00:33:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

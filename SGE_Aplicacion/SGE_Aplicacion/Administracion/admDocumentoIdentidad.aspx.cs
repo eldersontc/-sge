@@ -33,6 +33,23 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blDocumentoIdentidad blDocumentoIdentidad = new blDocumentoIdentidad(sesion);
+                IList<DocumentoIdentidad> documentosIdentidad = blDocumentoIdentidad.ObtenerActivos();
+                resultado = new { correcto = true, documentosIdentidad = documentosIdentidad };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, DocumentoIdentidad documentoIdentidad)
         {
             object resultado = new { };

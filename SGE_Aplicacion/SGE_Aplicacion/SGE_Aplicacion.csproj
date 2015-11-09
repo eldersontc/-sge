@@ -58,11 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\admDocumentoIdentidad.aspx" />
+    <Content Include="Administracion\admEmpleado.aspx" />
     <Content Include="Administracion\admMoneda.aspx" />
     <Content Include="Administracion\admNumeracion.aspx" />
     <Content Include="Administracion\admPerfil.aspx" />
     <Content Include="Administracion\admReporte.aspx" />
     <Content Include="Administracion\admUsuario.aspx" />
+    <Content Include="Inventarios\invAlmacen.aspx" />
+    <Content Include="Inventarios\invProducto.aspx" />
+    <Content Include="Inventarios\invUnidad.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -74,6 +78,13 @@
     </Compile>
     <Compile Include="Administracion\admDocumentoIdentidad.aspx.designer.cs">
       <DependentUpon>admDocumentoIdentidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\admEmpleado.aspx.cs">
+      <DependentUpon>admEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\admEmpleado.aspx.designer.cs">
+      <DependentUpon>admEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administracion\admMoneda.aspx.cs">
       <DependentUpon>admMoneda.aspx</DependentUpon>
@@ -109,6 +120,27 @@
     </Compile>
     <Compile Include="Administracion\admUsuario.aspx.designer.cs">
       <DependentUpon>admUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\invAlmacen.aspx.cs">
+      <DependentUpon>invAlmacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\invAlmacen.aspx.designer.cs">
+      <DependentUpon>invAlmacen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\invProducto.aspx.cs">
+      <DependentUpon>invProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\invProducto.aspx.designer.cs">
+      <DependentUpon>invProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\invUnidad.aspx.cs">
+      <DependentUpon>invUnidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\invUnidad.aspx.designer.cs">
+      <DependentUpon>invUnidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

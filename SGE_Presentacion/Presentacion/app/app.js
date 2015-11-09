@@ -29,6 +29,10 @@ define(['services/routeResolver'], function () {
                     .when('/admDocumentoIdentidad', route.resolve('admDocumentoIdentidad'))
                     .when('/admNumeracion', route.resolve('admNumeracion'))
                     .when('/admReporte', route.resolve('admReporte'))
+                    .when('/admEmpleado', route.resolve('admEmpleado'))
+                    .when('/invAlmacen', route.resolve('invAlmacen'))
+                    .when('/invUnidad', route.resolve('invUnidad'))
+                    .when('/invProducto', route.resolve('invProducto'))
                     .when('/', { redirectTo: '/inicio' })
                     .otherwise({ redirectTo: '/404' });
 
@@ -46,16 +50,17 @@ define(['services/routeResolver'], function () {
                     { nombre: 'MONEDA', path: 'admMoneda', imagen: 'text-file-16.png' },
                     { nombre: 'DOCUMENTO IDENTIDAD', path: 'admDocumentoIdentidad', imagen: 'text-file-16.png' },
                     { nombre: 'NUMERACIÓN', path: 'admNumeracion', imagen: 'text-file-16.png' },
-                    { nombre: 'REPORTE', path: 'admReporte', imagen: 'text-file-16.png' }
+                    { nombre: 'REPORTE', path: 'admReporte', imagen: 'text-file-16.png' },
+                    { nombre: 'EMPLEADO', path: 'admEmpleado', imagen: 'text-file-16.png' }
                 ]
             },
             {
-                nombre: 'VENTAS',
+                nombre: 'INVENTARIOS',
                 imagen: 'buy-16.png',
                 subMenus: [
-                    { nombre: 'SOLICITUD DE COTIZACIÓN', path: 'lisSolicitudCotizacion', imagen: 'text-file-16.png' },
-                    { nombre: 'COTIZACIÓN', path: 'lisCotizacion', imagen: 'text-file-16.png' },
-                    { nombre: 'PRESUPUESTO', path: 'lisPresupuesto', imagen: 'text-file-16.png' }
+                    { nombre: 'ALMACÉN', path: 'invAlmacen', imagen: 'text-file-16.png' },
+                    { nombre: 'UNIDAD', path: 'invUnidad', imagen: 'text-file-16.png' },
+                    { nombre: 'PRODUCTO', path: 'invProducto', imagen: 'text-file-16.png' }
                 ]
             }
         ];

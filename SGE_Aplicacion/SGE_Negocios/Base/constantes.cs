@@ -10,6 +10,7 @@ namespace SGE.Negocios.Base
     {
         public static class esquemas {
             public static string Administracion = "Administracion";
+            public static string Inventarios = "Inventarios";
         }
     }
 }

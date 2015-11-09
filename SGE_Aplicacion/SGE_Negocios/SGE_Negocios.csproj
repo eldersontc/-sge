@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administracion\blDocumentoIdentidad.cs" />
+    <Compile Include="Administracion\blEmpleado.cs" />
     <Compile Include="Administracion\blMoneda.cs" />
     <Compile Include="Administracion\blNumeracion.cs" />
     <Compile Include="Administracion\blPerfil.cs" />
@@ -47,6 +48,9 @@
     <Compile Include="Administracion\blUsuario.cs" />
     <Compile Include="Base\blBase.cs" />
     <Compile Include="Base\constantes.cs" />
+    <Compile Include="Inventarios\blAlmacen.cs" />
+    <Compile Include="Inventarios\blProducto.cs" />
+    <Compile Include="Inventarios\blUnidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
