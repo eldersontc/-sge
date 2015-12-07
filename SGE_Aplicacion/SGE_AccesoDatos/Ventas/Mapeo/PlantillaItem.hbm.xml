@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Ventas">
+  <class name="PlantillaItem" schema="Ventas">
+    <id name="idPlantillaItem">
+      <generator class="identity" />
+    </id>
+    <property name="idPlantillaGrupo" column="idPlantillaGrupo"/>
+    <property name="titulo" column="titulo"/>
+    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
+    <many-to-one name="material" column="idMaterial" class="Material" lazy="false"/>
+    <property name="conMdA" column="conMdA"/>
+    <property name="conMdC" column="conMdC"/>
+    <property name="conTyr" column="conTyr"/>
+    <property name="conGrf" column="conGrf"/>
+    <property name="conMat" column="conMat"/>
+    <property name="conSrv" column="conSrv"/>
+    <property name="conFnd" column="conFnd"/>
+  </class>
+</hibernate-mapping>

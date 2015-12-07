@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Ventas">
+  <class name="Linea" schema="Ventas">
+    <id name="idLinea">
+      <generator class="identity" />
+    </id>
+    <property name="descripcion" column="descripcion"/>
+    <property name="activo" column="activo"/>
+  </class>
+</hibernate-mapping>

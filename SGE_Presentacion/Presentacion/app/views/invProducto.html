@@ -92,27 +92,66 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                          <th>UNIDAD</th>
-                          <th>FACTOR</th>
-                          <th class="text-center">ELIMINAR</th>
+                          <th class="col-sm-6">UNIDAD</th>
+                          <th class="col-sm-3">FACTOR</th>
+                          <th class="col-sm-3 text-center">ELIMINAR</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr data-ng-repeat="unidad in producto.unidades">
-                        <ng-form name="frmUnidad">
-                          <td>
-                            <input type="text" class="form-control" data-ng-model="unidad.abreviacion" data-ng-required="true">
-                          </td>
-                          <td>
-                            <input type="text" class="form-control" name="factor" data-ng-model="unidad.factor" data-ng-pattern="/^[0-9]+$/" data-ng-required="true">
-                            <span class="help-block" data-ng-show="!frmUnidad.factor.$valid" data-ng-text="SOLO_ENTEROS">
-                          </td>
-                          <td class="text-center">
-                            <button class="btn btn_link" data-ng-click="eliminarUnidad($index)">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </button>
-                          </td>
-                        </ng-form>
+                      	<td class="col-sm-6">{{unidad.abreviacion}}</td>
+                      	<td class="col-sm-3">
+	                      	<ng-form name="frmUnidad">
+	                          	<div class="form-group" data-ng-class="{'has-error': frmUnidad.factor.$invalid}">
+		                            <div class="col-sm-12">
+			                            <input type="text" class="form-control" name="factor" data-ng-model="unidad.factor" data-ng-pattern="/^[0-9]+$/" data-ng-required="true">
+			                            <span class="help-block" data-ng-show="frmUnidad.factor.$invalid" data-ng-text="SOLO_ENTEROS">
+		                            </div>
+	                            </div>
+	                        </ng-form>
+                      	</td>
+                      	<td class="col-sm-3 text-center">
+                        	<button class="btn btn_link" data-ng-click="eliminarUnidad($index)">
+	                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+	                        </button>
+                      	</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </uib-tab>
+              <uib-tab heading="Almacenes">
+                <div class="btn-right">
+                  <button class="btn btn-primary" data-ng-click="agregarAlmacen()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    AGREGAR
+                  </button>
+                </div>
+                <div id="divAlertAlmacen"></div>
+                <div data-ng-if="verTablaAlmacen">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>ALMACEN</th>
+                          <th>S.FÍSICO</th>
+                          <th>S.COMPROMETIDO</th>
+                          <th>S.SOLICITADO</th>
+                          <th>S.DISPONIBLE</th>
+                          <th class="text-center">ELIMINAR</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-ng-repeat="almacen in producto.almacenes">
+                    	<td>{{almacen.almacen.descripcion}}</td>
+                      	<td>{{almacen.stockFisico}}</td>
+                      	<td>{{almacen.stockComprometido}}</td>
+                      	<td>{{almacen.stockSolicitado}}</td>
+                      	<td>{{almacen.stockDisponible}}</td>
+                      	<td class="text-center">
+	                        <button class="btn btn_link" data-ng-click="eliminarAlmacen($index)">
+	                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+	                        </button>
+                      	</td>
                       </tr>
                     </tbody>
                   </table>

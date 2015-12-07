@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Ventas">
+  <class name="SolCotizacion" schema="Ventas">
+    <id name="idSolCotizacion">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/>
+    <property name="numero" column="numero"/>
+    <property name="fechaCreacion" column="fechaCreacion"/>
+    <property name="descripcion" column="descripcion"/>
+    <many-to-one name="cliente" column="idCliente" class="Cliente" lazy="false"/>
+    <many-to-one name="linea" column="idLinea" class="Linea" lazy="false"/>
+    <many-to-one name="lpMaterial" column="idLpMaterial" class="LpMaterial" lazy="false"/>
+    <many-to-one name="lpServicio" column="idLpServicio" class="LpServicio" lazy="false"/>
+    <many-to-one name="lpMaquina" column="idLpMaquina" class="LpMaquina" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
+    <many-to-one name="vendedor" column="idVendedor" class="Empleado" lazy="false"/>
+    <many-to-one name="formaPago" column="idFormaPago" class="FormaPago" lazy="false"/>
+    <many-to-one name="contacto" column="idContacto" class="ClienteContacto" lazy="false"/>
+    <property name="observacion" column="observacion"/>
+    <property name="estado" column="estado"/>
+  </class>
+</hibernate-mapping>

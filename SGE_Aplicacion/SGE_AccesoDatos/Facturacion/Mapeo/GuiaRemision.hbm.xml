@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Facturacion">
+  <class name="GuiaRemision" schema="Facturacion">
+    <id name="idGuiaRemision">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/>
+    <property name="numero" column="numero"/>
+    <property name="fechaCreacion" column="fechaCreacion"/>
+    <many-to-one name="cliente" column="idCliente" class="Cliente" lazy="false"/>
+    <many-to-one name="responsable" column="idResponsable" class="Empleado" lazy="false"/>
+    <many-to-one name="chofer" column="idChofer" class="Empleado" lazy="false"/>
+    <property name="licencia" column="licencia"/>
+    <property name="placa" column="placa"/>
+    <many-to-one name="contacto" column="idClienteContacto" class="ClienteContacto" lazy="false"/>
+    <many-to-one name="departamento" column="idDepartamento" class="Departamento" lazy="false"/>
+    <many-to-one name="provincia" column="idProvincia" class="Provincia" lazy="false"/>
+    <many-to-one name="distrito" column="idDistrito" class="Distrito" lazy="false"/>
+    <property name="direccion" column="direccion"/>
+    <property name="observacion" column="observacion"/>
+  </class>
+</hibernate-mapping>

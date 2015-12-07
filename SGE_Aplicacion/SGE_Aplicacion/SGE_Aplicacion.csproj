@@ -65,7 +65,7 @@
     <Content Include="Administracion\admReporte.aspx" />
     <Content Include="Administracion\admUsuario.aspx" />
     <Content Include="Inventarios\invAlmacen.aspx" />
-    <Content Include="Inventarios\invProducto.aspx" />
+    <Content Include="Inventarios\invMaterial.aspx" />
     <Content Include="Inventarios\invUnidad.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -128,12 +128,12 @@
     <Compile Include="Inventarios\invAlmacen.aspx.designer.cs">
       <DependentUpon>invAlmacen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inventarios\invProducto.aspx.cs">
-      <DependentUpon>invProducto.aspx</DependentUpon>
+    <Compile Include="Inventarios\invMaterial.aspx.cs">
+      <DependentUpon>invMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventarios\invProducto.aspx.designer.cs">
-      <DependentUpon>invProducto.aspx</DependentUpon>
+    <Compile Include="Inventarios\invMaterial.aspx.designer.cs">
+      <DependentUpon>invMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventarios\invUnidad.aspx.cs">
       <DependentUpon>invUnidad.aspx</DependentUpon>

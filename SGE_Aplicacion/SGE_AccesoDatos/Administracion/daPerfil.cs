@@ -9,7 +9,5 @@ using System.Threading.Tasks;
 namespace SGE.AccesoDatos.Administracion
 {
     public class daPerfil : daBase<Perfil>
-    {
-        
-    }
+    { }
 }

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Finanzas">
+  <class name="SalCajaItem" schema="Finanzas">
+    <id name="idSalCajaItem">
+      <generator class="identity" />
+    </id>
+    <property name="idSalCaja" column="idSalCaja"/>
+    <property name="descripcion" column="descripcion"/>
+    <property name="cantidad" column="cantidad"/>
+    <property name="precio" column="precio"/>
+    <property name="total" column="total"/>
+  </class>
+</hibernate-mapping>

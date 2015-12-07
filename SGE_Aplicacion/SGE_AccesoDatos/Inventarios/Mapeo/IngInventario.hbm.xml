@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Inventarios">
+  <class name="IngInventario" schema="Inventarios">
+    <id name="idIngInventario">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/> 
+    <property name="numero" column="numero"/>
+    <many-to-one name="proveedor" column="idProveedor" class="Proveedor" lazy="false"/>
+    <many-to-one name="responsable" column="idResponsable" class="Empleado" lazy="false"/>
+    <property name="fechaCreacion" column="fechaCreacion"/>
+    <many-to-one name="almacen" column="idAlmacen" class="Almacen" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
+    <property name="tipoCambio" column="tipoCambio"/>
+    <property name="observacion" column="observacion"/>
+    <property name="subTotal" column="subTotal"/>
+    <property name="pcjImpuesto" column="pcjImpuesto"/>
+    <property name="monImpuesto" column="monImpuesto"/>
+    <property name="total" column="total"/>
+  </class>
+</hibernate-mapping>

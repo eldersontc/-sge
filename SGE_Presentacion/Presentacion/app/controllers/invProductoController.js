@@ -21,7 +21,7 @@ define(['app'], function (app) {
             mdlEliminar;
         
         $scope.verMdlAgregar = function () {
-            $scope.proeucto = { unidades: [], almacenes: [] };
+            $scope.producto = { unidades: [], almacenes: [] };
             mdlAgregar = $uibModal.open({
                 animation: true,
                 templateUrl: 'mdlAgregar',
@@ -31,6 +31,8 @@ define(['app'], function (app) {
             $timeout(function() {
             	$scope.verTablaUnidad = false;
                 alertFactory.showStatic('info', TEXTOS.SIN_REGISTROS, '#divAlertUnidad');
+                $scope.verTablaAlmacen = false;
+                alertFactory.showStatic('info', TEXTOS.SIN_REGISTROS, '#divAlertAlmacen');
             }, 500);
         };
 
@@ -111,10 +113,10 @@ define(['app'], function (app) {
                 });
         };
         
-        $scope.agregarItem = function () {
-            $scope.reporte.items.push({ asignarId: false });
-            $scope.verTablaItem = true;
-            alertFactory.hideStatic('#divAlertItem');
+        $scope.agregarUnidad = function () {
+            $scope.producto.unidades.push({ factor: 1 });
+            $scope.verTablaUnidad = true;
+            alertFactory.hideStatic('#divAlertUnidad');
         };
         
         $scope.eliminarItem = function (index) {

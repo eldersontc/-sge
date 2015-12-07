@@ -49,9 +49,13 @@
     <Compile Include="Base\blBase.cs" />
     <Compile Include="Base\constantes.cs" />
     <Compile Include="Inventarios\blAlmacen.cs" />
-    <Compile Include="Inventarios\blProducto.cs" />
+    <Compile Include="Inventarios\blIngInventario.cs" />
+    <Compile Include="Inventarios\blMaterial.cs" />
+    <Compile Include="Inventarios\blSalInventario.cs" />
     <Compile Include="Inventarios\blUnidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\blCliente.cs" />
+    <Compile Include="Ventas\blPlantilla.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SGE_AccesoDatos\SGE_AccesoDatos.csproj">
@@ -63,6 +67,7 @@
       <Name>SGE_Entidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

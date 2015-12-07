@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Inventarios">
+  <class name="MaterialAlmacen" schema="Inventarios">
+    <id name="idMaterialAlmacen">
+      <generator class="identity" />
+    </id>
+    <property name="idMaterial" column="idMaterial"/>
+    <many-to-one name="almacen" column="idAlmacen" class="Almacen" lazy="false"/>
+    <property name="stockFisico" column="stockFisico"/>
+    <property name="stockComprometido" column="stockComprometido"/>
+    <property name="stockSolicitado" column="stockSolicitado"/>
+    <property name="stockDisponible" column="stockDisponible"/>
+  </class>
+</hibernate-mapping>

@@ -14,7 +14,7 @@ namespace SGE.Negocios.Administracion
         public blReporte(Sesion sesion) { base.sesion = sesion; }
 
         daReporte daReporte;
-        daItemReporte daItemReporte;
+        daReporteItem daItemReporte;
 
         public IList<Reporte> ObtenerTodos()
         {
@@ -36,16 +36,18 @@ namespace SGE.Negocios.Administracion
             return reportes;
         }
 
-        public IList<ItemReporte> ObtenerItems(int idReporte)
+        public Reporte ObtenerPorId(int idReporte)
         {
-            IList<ItemReporte> items;
+            Reporte reporte;
             try
             {
-                daItemReporte = new daItemReporte();
-                daItemReporte.AbrirSesion();
+                daReporte = new daReporte();
+                reporte = daReporte.ObtenerPorId(idReporte);
+                daItemReporte = new daReporteItem();
+                daItemReporte.AsignarSesion(daReporte);
                 List<object[]> filtros = new List<object[]>();
                 filtros.Add(new object[] { "idReporte", idReporte });
-                items = daItemReporte.ObtenerLista(filtros);
+                reporte.items = daItemReporte.ObtenerLista(filtros);
             }
             catch (Exception)
             {
@@ -53,9 +55,9 @@ namespace SGE.Negocios.Administracion
             }
             finally
             {
-                daItemReporte.CerrarSesion();
+                daReporte.CerrarSesion();
             }
-            return items;
+            return reporte;
         }
 
         public bool Agregar(Reporte reporte)
@@ -65,9 +67,9 @@ namespace SGE.Negocios.Administracion
                 daReporte = new daReporte();
                 daReporte.IniciarTransaccion();
                 daReporte.Agregar(reporte);
-                daItemReporte = new daItemReporte();
+                daItemReporte = new daReporteItem();
                 daItemReporte.AsignarSesion(daReporte);
-                foreach (ItemReporte  item in reporte.items)
+                foreach (ReporteItem  item in reporte.items)
                 {
                     item.idReporte = reporte.idReporte;
                     daItemReporte.Agregar(item);
@@ -97,18 +99,18 @@ namespace SGE.Negocios.Administracion
                 reporte_.documento = reporte.documento;
                 reporte_.ubicacion = reporte.ubicacion;
                 reporte_.activo = reporte.activo;
-                daItemReporte = new daItemReporte();
+                daItemReporte = new daReporteItem();
                 daItemReporte.AsignarSesion(daReporte);
-                foreach (ItemReporte item in reporte.items)
+                foreach (ReporteItem item in reporte.items)
                 {
-                    if (item.idItemReporte == 0)
+                    if (item.idReporteItem == 0)
                     {
                         item.idReporte = reporte.idReporte;
                         daItemReporte.Agregar(item);
                     }
                     else 
                     {
-                        ItemReporte itemReporte_ = daItemReporte.ObtenerPorId(item.idItemReporte);
+                        ReporteItem itemReporte_ = daItemReporte.ObtenerPorId(item.idReporteItem);
                         itemReporte_.nombre = item.nombre;
                         itemReporte_.asignarId = item.asignarId;
                         itemReporte_.valor = item.valor;
@@ -139,7 +141,7 @@ namespace SGE.Negocios.Administracion
                 daReporte = new daReporte();
                 daReporte.IniciarTransaccion();
                 daReporte.EliminarPorId(idReporte, constantes.esquemas.Administracion);
-                daItemReporte = new daItemReporte();
+                daItemReporte = new daReporteItem();
                 daItemReporte.AsignarSesion(daReporte);
                 daItemReporte.EliminarPorIdReporte(idReporte);
                 daReporte.ConfirmarTransaccion();

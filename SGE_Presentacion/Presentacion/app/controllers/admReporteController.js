@@ -2,7 +2,7 @@
 
 define(['app'], function (app) {
 
-    app.register.controller('admReporteController', ['$scope', '$http', '$uibModal', '$timeout', 'preloadFactory', 'httpFactory', 'alertFactory', function ($scope, $http, $uibModal, $timeout, preloadFactory, httpFactory, alertFactory) {
+    app.register.controller('admReporteController', ['$scope', '$http', '$uibModal', 'preloadFactory', 'httpFactory', 'alertFactory', function ($scope, $http, $uibModal, preloadFactory, httpFactory, alertFactory) {
 
         var urlObtenerTodos = URL_BASE + 'Administracion/admReporte.aspx/ObtenerTodos',
             urlObtenerItems = URL_BASE + 'Administracion/admReporte.aspx/ObtenerItems',
@@ -13,7 +13,6 @@ define(['app'], function (app) {
         $scope.reportes = [];
         $scope.reporte = {};
         $scope.verTabla = false;
-        $scope.verTablaItem = false;
 
         var mdlAgregar,
             mdlActualizar,
@@ -28,9 +27,6 @@ define(['app'], function (app) {
                 scope: $scope,
                 size: '500'
             });
-            $timeout(function() {
-                alertFactory.showStatic('info', TEXTOS.SIN_REGISTROS, '#divAlertItem');
-            }, 500);
         };
 
         $scope.cerrarMdlAgregar = function () {
@@ -38,22 +34,12 @@ define(['app'], function (app) {
         };
         
         var obtenerItems = function (idReporte) {
-            $scope.verTablaItem = false;
-            preloadFactory.showLoading(true, '#divLoadingItem');
             httpFactory.post(urlObtenerItems, { idReporte: idReporte }, 
                 function (data) {
                     $scope.reporte.items = data.items;
-                    if ($scope.reporte.items.length > 0) {
-                        $scope.verTablaItem = true;
-                    }
-                    else {
-                        alertFactory.showStatic('info', TEXTOS.SIN_REGISTROS, '#divAlertItem');
-                    }
-                    preloadFactory.showLoading(false, '#divLoadingItem');
                 }, 
                 function () {
-                    preloadFactory.showLoading(false, '#divLoadingItem');
-                    alertFactory.showStatic('danger', TEXTOS.ERROR_SERVIDOR, '#divAlertItem');
+                    alertFactory.showFloating('danger', TEXTOS.ERROR_SERVIDOR);
                 });
         };
 
@@ -66,11 +52,9 @@ define(['app'], function (app) {
                 scope: $scope,
                 size: '500'
             });
-            $timeout(function () { 
-                obtenerItems($scope.reporte.idReporte);
-            }, 500);
+            obtenerItems($scope.reporte.idReporte);
         };
-
+        
         $scope.cerrarMdlActualizar = function () {
             mdlActualizar.close();
         };

@@ -9,7 +9,5 @@ using System.Threading.Tasks;
 namespace SGE.AccesoDatos.Inventarios
 {
     public class daUnidad : daBase<Unidad>
-    {
-
-    }
+    { }
 }

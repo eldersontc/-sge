@@ -9,7 +9,6 @@ C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Negoc
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Negocios\bin\Debug\Iesi.Collections.dll
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.AccesoDatos.pdb
 C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.Entidades.pdb
-D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\obj\Debug\SGE_Negocios.csprojResolveAssemblyReference.cache
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.Negocios.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.Negocios.pdb
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.AccesoDatos.dll
@@ -18,5 +17,6 @@ D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\NHibernate.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\Iesi.Collections.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.AccesoDatos.pdb
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\bin\Debug\SGE.Entidades.pdb
+D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\obj\Debug\SGE_Negocios.csprojResolveAssemblyReference.cache
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\obj\Debug\SGE.Negocios.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Negocios\obj\Debug\SGE.Negocios.pdb

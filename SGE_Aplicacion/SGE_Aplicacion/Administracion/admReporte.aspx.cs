@@ -33,14 +33,14 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
-        public static object ObtenerItems(Sesion sesion, int idReporte)
+        public static object ObtenerPorId(Sesion sesion, int idReporte)
         {
             object resultado = new { };
             try
             {
                 blReporte blReporte = new blReporte(sesion);
-                IList<ItemReporte> items = blReporte.ObtenerItems(idReporte);
-                resultado = new { correcto = true, items = items };
+                Reporte reporte = blReporte.ObtenerPorId(idReporte);
+                resultado = new { correcto = true, reporte = reporte };
             }
             catch (Exception)
             {

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Facturacion">
+  <class name="FacturaItem" schema="Facturacion">
+    <id name="idFacturaItem">
+      <generator class="identity" />
+    </id>
+    <property name="idFactura" column="idFactura"/>
+    <many-to-one name="ordenTrabajo" column="idOrdenTrabajo" class="OrdenTrabajo" lazy="false"/>
+    <property name="cantidad" column="cantidad"/>
+    <property name="precio" column="precio"/>
+    <property name="total" column="total"/>
+  </class>
+</hibernate-mapping>

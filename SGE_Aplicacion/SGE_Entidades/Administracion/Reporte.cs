@@ -12,7 +12,7 @@ namespace SGE.Entidades.Administracion
         public virtual string descripcion { get; set; }
         public virtual int? documento { get; set; }
         public virtual string ubicacion { get; set; }
-        public virtual List<ItemReporte> items { get; set; }
+        public virtual List<ReporteItem> items { get; set; }
         public virtual bool activo { get; set; }
         public virtual List<int> idsItems { get; set; }
     }

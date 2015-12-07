@@ -48,19 +48,59 @@
   <ItemGroup>
     <Compile Include="Administracion\daDocumentoIdentidad.cs" />
     <Compile Include="Administracion\daEmpleado.cs" />
-    <Compile Include="Administracion\daItemReporte.cs" />
     <Compile Include="Administracion\daMoneda.cs" />
     <Compile Include="Administracion\daNumeracion.cs" />
     <Compile Include="Administracion\daPerfil.cs" />
     <Compile Include="Administracion\daReporte.cs" />
+    <Compile Include="Administracion\daReporteItem.cs" />
     <Compile Include="Administracion\daUsuario.cs" />
     <Compile Include="Base\daBase.cs" />
+    <Compile Include="Facturacion\daFactura.cs" />
+    <Compile Include="Facturacion\daFacturaItem.cs" />
+    <Compile Include="Facturacion\daGuiaRemision.cs" />
+    <Compile Include="Facturacion\daGuiaRemisionItem.cs" />
+    <Compile Include="Finanzas\daCaja.cs" />
+    <Compile Include="Finanzas\daIngCaja.cs" />
+    <Compile Include="Finanzas\daIngCajaItem.cs" />
+    <Compile Include="Finanzas\daSalCaja.cs" />
+    <Compile Include="Finanzas\daSalCajaItem.cs" />
     <Compile Include="Inventarios\daAlmacen.cs" />
-    <Compile Include="Inventarios\daProducto.cs" />
-    <Compile Include="Inventarios\daProductoAlmacen.cs" />
-    <Compile Include="Inventarios\daProductoUnidad.cs" />
+    <Compile Include="Inventarios\daIngInventario.cs" />
+    <Compile Include="Inventarios\daIngInventarioItem.cs" />
+    <Compile Include="Inventarios\daMaterial.cs" />
+    <Compile Include="Inventarios\daMaterialAlmacen.cs" />
+    <Compile Include="Inventarios\daMaterialUnidad.cs" />
+    <Compile Include="Inventarios\daSalInventario.cs" />
+    <Compile Include="Inventarios\daSalInventarioItem.cs" />
     <Compile Include="Inventarios\daUnidad.cs" />
+    <Compile Include="Produccion\daOrdenProduccion.cs" />
+    <Compile Include="Produccion\daOrdenProduccionItem.cs" />
+    <Compile Include="Produccion\daOrdenTrabajo.cs" />
+    <Compile Include="Produccion\daOrdenTrabajoItem.cs" />
+    <Compile Include="Produccion\daOrdenTrabajoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\daCliente.cs" />
+    <Compile Include="Ventas\daClienteContacto.cs" />
+    <Compile Include="Ventas\daClienteDireccion.cs" />
+    <Compile Include="Ventas\daCotizacion.cs" />
+    <Compile Include="Ventas\daCotizacionItem.cs" />
+    <Compile Include="Ventas\daCotizacionServicio.cs" />
+    <Compile Include="Ventas\daFormaPago.cs" />
+    <Compile Include="Ventas\daLinea.cs" />
+    <Compile Include="Ventas\daLpMaquina.cs" />
+    <Compile Include="Ventas\daLpMaterial.cs" />
+    <Compile Include="Ventas\daLpServicio.cs" />
+    <Compile Include="Ventas\daMaquina.cs" />
+    <Compile Include="Ventas\daMetodoImpresion.cs" />
+    <Compile Include="Ventas\daPlantilla.cs" />
+    <Compile Include="Ventas\daPlantillaGrupo.cs" />
+    <Compile Include="Ventas\daPlantillaItem.cs" />
+    <Compile Include="Ventas\daPresupuesto.cs" />
+    <Compile Include="Ventas\daPresupuestoItem.cs" />
+    <Compile Include="Ventas\daServicio.cs" />
+    <Compile Include="Ventas\daSolCotizacion.cs" />
+    <Compile Include="Ventas\daSolCotizacionGrupo.cs" />
+    <Compile Include="Ventas\daSolCotizacionItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SGE_Entidades\SGE_Entidades.csproj">
@@ -69,43 +109,56 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\Usuario.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\Perfil.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\Moneda.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Administracion\Mapeo\DocumentoIdentidad.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\Numeracion.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\Reporte.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Administracion\Mapeo\ItemReporte.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Administracion\Mapeo\Empleado.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Administracion\Mapeo\Moneda.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Numeracion.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Perfil.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Reporte.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\ReporteItem.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Usuario.hbm.xml" />
+    <EmbeddedResource Include="Facturacion\Mapeo\Factura.hbm.xml" />
+    <EmbeddedResource Include="Facturacion\Mapeo\FacturaItem.hbm.xml" />
+    <EmbeddedResource Include="Facturacion\Mapeo\GuiaRemision.hbm.xml" />
+    <EmbeddedResource Include="Facturacion\Mapeo\GuiaRemisionItem.hbm.xml" />
+    <EmbeddedResource Include="Finanzas\Mapeo\Caja.hbm.xml" />
+    <EmbeddedResource Include="Finanzas\Mapeo\IngCaja.hbm.xml" />
+    <EmbeddedResource Include="Finanzas\Mapeo\IngCajaItem.hbm.xml" />
+    <EmbeddedResource Include="Finanzas\Mapeo\SalCaja.hbm.xml" />
+    <EmbeddedResource Include="Finanzas\Mapeo\SalCajaItem.hbm.xml" />
     <EmbeddedResource Include="Inventarios\Mapeo\Almacen.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Inventarios\Mapeo\IngInventario.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\IngInventarioItem.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\Material.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\MaterialAlmacen.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\MaterialUnidad.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\SalInventario.hbm.xml" />
+    <EmbeddedResource Include="Inventarios\Mapeo\SalInventarioItem.hbm.xml" />
     <EmbeddedResource Include="Inventarios\Mapeo\Unidad.hbm.xml" />
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenProduccion.hbm.xml" />
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenProduccionItem.hbm.xml" />
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenTrabajo.hbm.xml" />
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenTrabajoItem.hbm.xml" />
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenTrabajoServicio.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Cliente.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\ClienteContacto.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\ClienteDireccion.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Cotizacion.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\CotizacionItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\CotizacionServicio.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\FormaPago.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Linea.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\MetodoImpresion.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Plantilla.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\PlantillaItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Presupuesto.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\PresupuestoItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\SolCotizacion.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\SolCotizacionGrupo.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\SolCotizacionItem.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Inventarios\Mapeo\Producto.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Inventarios\Mapeo\ProductoUnidad.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Inventarios\Mapeo\ProductoAlmacen.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\PlantillaGrupo.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

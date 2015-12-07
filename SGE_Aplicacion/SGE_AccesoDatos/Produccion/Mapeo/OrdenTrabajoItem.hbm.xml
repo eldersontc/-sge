@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Produccion">
+  <class name="OrdenTrabajoItem" schema="Produccion">
+    <id name="idOrdenTrabajoItem">
+      <generator class="identity" />
+    </id>
+    <property name="idOrdenTrabajo" column="idOrdenTrabajo"/>
+    <property name="titulo" column="titulo"/>
+    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
+    <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>
+    <many-to-one name="material" column="idMaterial" class="Material" lazy="false"/>
+    <property name="conMdA" column="conMdA"/>
+    <property name="conMdC" column="conMdC"/>
+    <property name="conTyr" column="conTyr"/>
+    <property name="conGrf" column="conGrf"/>
+    <property name="conMat" column="conMat"/>
+    <property name="conSrv" column="conSrv"/>
+    <property name="conFnd" column="conFnd"/>
+    <property name="xMa" column="xMa"/>
+    <property name="yMa" column="yMa"/>
+    <property name="xMc" column="xMc"/>
+    <property name="yMc" column="yMc"/>
+    <property name="tC" column="tC"/>
+    <property name="rC" column="rC"/>
+    <property name="fnd" column="fnd"/>
+    <property name="xFI" column="xFI"/>
+    <property name="yFI" column="yFI"/>
+    <property name="sX" column="sX"/>
+    <property name="sY" column="sY"/>
+    <property name="pliegos" column="pliegos"/>
+    <property name="gp180" column="gp180"/>
+    <property name="gi180" column="gi180"/>
+    <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="MetodoImpresion" lazy="false"/>
+    <property name="scntMat" column="scntMat"/>
+    <property name="cntDem" column="cntDem"/>
+    <property name="cntMat" column="cntMat"/>
+    <property name="cntPrd" column="cntPrd"/>
+    <property name="cantidad" column="cantidad"/>
+    <property name="cntPs" column="cntPs"/>
+    <property name="observacion" column="observacion"/>
+  </class>
+</hibernate-mapping>

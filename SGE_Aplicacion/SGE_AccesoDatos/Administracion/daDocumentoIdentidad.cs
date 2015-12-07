@@ -9,6 +9,5 @@ using System.Threading.Tasks;
 namespace SGE.AccesoDatos.Administracion
 {
     public class daDocumentoIdentidad : daBase<DocumentoIdentidad>
-    {
-    }
+    { }
 }

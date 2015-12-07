@@ -1,5 +1,5 @@
 /* URLs */
-var URL_BASE = 'http://192.168.1.109/SGE_Aplicacion/';
+var URL_BASE = 'http://192.168.1.111/SGE_Aplicacion/';
 
 /* TEXTOS */
 var TEXTOS = {
