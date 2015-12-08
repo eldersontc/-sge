@@ -6,8 +6,9 @@
     </id>
     <property name="razonSocial" column="razonSocial"/>
     <many-to-one name="documentoIdentidad" column="idDocumentoIdentidad" class="DocumentoIdentidad" lazy="false"/>
+    <property name="nroDocumento" column="nroDocumento"/>
     <property name="nombreComercial" column="nombreComercial"/>
-    <property name="fechaUltimaCompra" column="fechaUltimaCompra"/>
+    <property name="fechaUltimaVenta" column="fechaUltimaVenta"/>
     <property name="telefono" column="telefono"/>
     <property name="correo" column="correo"/>
     <many-to-one name="vendedor" column="idVendedor" class="Empleado" lazy="false"/>

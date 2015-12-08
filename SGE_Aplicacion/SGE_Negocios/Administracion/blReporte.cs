@@ -110,10 +110,10 @@ namespace SGE.Negocios.Administracion
                     }
                     else 
                     {
-                        ReporteItem itemReporte_ = daItemReporte.ObtenerPorId(item.idReporteItem);
-                        itemReporte_.nombre = item.nombre;
-                        itemReporte_.asignarId = item.asignarId;
-                        itemReporte_.valor = item.valor;
+                        ReporteItem item_ = daItemReporte.ObtenerPorId(item.idReporteItem);
+                        item_.nombre = item.nombre;
+                        item_.asignarId = item.asignarId;
+                        item_.valor = item.valor;
                     }
                 }
                 foreach (int idItem in reporte.idsItems)

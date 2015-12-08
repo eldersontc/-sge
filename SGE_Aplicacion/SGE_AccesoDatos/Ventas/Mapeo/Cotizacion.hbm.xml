@@ -24,6 +24,7 @@
     <property name="monUtilidad" column="monUtilidad"/>
     <property name="subTotal" column="subTotal"/>
     <property name="total" column="total"/>
+    <property name="observacion" column="observacion"/>
     <property name="estado" column="estado"/>
   </class>
 </hibernate-mapping>

@@ -10,9 +10,9 @@ namespace SGE.AccesoDatos.Ventas
 {
     public class daCotizacionServicio : daBase<CotizacionServicio>
     {
-        public void EliminarPorIdCotizacion(int idCotizacion)
+        public void EliminarPorIdCotizacionItem(int idCotizacionItem)
         {
-            string sql = string.Format("DELETE Ventas.CotizacionServicio WHERE idCotizacion = {0}", idCotizacion);
+            string sql = string.Format("DELETE Ventas.CotizacionServicio WHERE idCotizacionItem = {0}", idCotizacionItem);
             Ejecutar(sql);
         }
     }

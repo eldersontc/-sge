@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Produccion">
+  <class name="OrdenTrabajoGrupo" schema="Produccion">
+    <id name="idOrdenTrabajoGrupo">
+      <generator class="identity" />
+    </id>
+    <property name="idOrdenTrabajo" column="idOrdenTrabajo"/>
+    <property name="titulo" column="titulo"/>
+    <property name="cantidad" column="cantidad"/>
+  </class>
+</hibernate-mapping>

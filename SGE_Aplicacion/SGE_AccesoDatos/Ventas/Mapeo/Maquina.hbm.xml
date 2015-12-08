@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Ventas">
+  <class name="Maquina" schema="Ventas">
+    <id name="idMaquina">
+      <generator class="identity" />
+    </id>
+    <property name="descripcion" column="descripcion"/>
+    <property name="cntCrp" column="cntCrp"/>
+    <property name="minGrj" column="minGrj"/>
+    <property name="maxGrj" column="maxGrj"/>
+    <property name="xMinPlg" column="xMinPlg"/>
+    <property name="xMaxPlg" column="xMaxPlg"/>
+    <property name="yMinPlg" column="yMinPlg"/>
+    <property name="yMaxPlg" column="yMaxPlg"/>
+    <property name="mrgPnz" column="mrgPnz"/>
+    <property name="mrgSal" column="mrgSal"/>
+    <property name="mrgEsc" column="mrgEsc"/>
+    <property name="mrgCes" column="mrgCes"/>
+    <property name="mrgCll" column="mrgCll"/>
+    <property name="minRsl" column="minRsl"/>
+    <property name="maxRsl" column="maxRsl"/>
+    <property name="activo" column="activo"/>
+  </class>
+</hibernate-mapping>

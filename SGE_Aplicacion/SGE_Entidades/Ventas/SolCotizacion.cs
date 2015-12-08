@@ -26,5 +26,6 @@ namespace SGE.Entidades.Ventas
         public virtual string observacion { get; set; }
         public virtual int estado { get; set; }
         public virtual List<SolCotizacionGrupo> grupos { get; set; }
+        public virtual List<int> idsGrupos { get; set; }
     }
 }

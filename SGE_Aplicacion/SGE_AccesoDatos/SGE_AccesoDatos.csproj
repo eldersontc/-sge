@@ -55,6 +55,7 @@
     <Compile Include="Administracion\daReporteItem.cs" />
     <Compile Include="Administracion\daUsuario.cs" />
     <Compile Include="Base\daBase.cs" />
+    <Compile Include="Compras\daProveedor.cs" />
     <Compile Include="Facturacion\daFactura.cs" />
     <Compile Include="Facturacion\daFacturaItem.cs" />
     <Compile Include="Facturacion\daGuiaRemision.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Produccion\daOrdenProduccion.cs" />
     <Compile Include="Produccion\daOrdenProduccionItem.cs" />
     <Compile Include="Produccion\daOrdenTrabajo.cs" />
+    <Compile Include="Produccion\daOrdenTrabajoGrupo.cs" />
     <Compile Include="Produccion\daOrdenTrabajoItem.cs" />
     <Compile Include="Produccion\daOrdenTrabajoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,13 +85,22 @@
     <Compile Include="Ventas\daClienteContacto.cs" />
     <Compile Include="Ventas\daClienteDireccion.cs" />
     <Compile Include="Ventas\daCotizacion.cs" />
+    <Compile Include="Ventas\daCotizacionGrupo.cs" />
     <Compile Include="Ventas\daCotizacionItem.cs" />
     <Compile Include="Ventas\daCotizacionServicio.cs" />
     <Compile Include="Ventas\daFormaPago.cs" />
     <Compile Include="Ventas\daLinea.cs" />
     <Compile Include="Ventas\daLpMaquina.cs" />
+    <Compile Include="Ventas\daLpMaquinaEscala.cs" />
+    <Compile Include="Ventas\daLpMaquinaItem.cs" />
     <Compile Include="Ventas\daLpMaterial.cs" />
+    <Compile Include="Ventas\daLpMaterialEscala.cs" />
+    <Compile Include="Ventas\daLpMaterialItem.cs" />
+    <Compile Include="Ventas\daLpMaterialUnidad.cs" />
     <Compile Include="Ventas\daLpServicio.cs" />
+    <Compile Include="Ventas\daLpServicioEscala.cs" />
+    <Compile Include="Ventas\daLpServicioItem.cs" />
+    <Compile Include="Ventas\daLpServicioUnidad.cs" />
     <Compile Include="Ventas\daMaquina.cs" />
     <Compile Include="Ventas\daMetodoImpresion.cs" />
     <Compile Include="Ventas\daPlantilla.cs" />
@@ -98,6 +109,7 @@
     <Compile Include="Ventas\daPresupuesto.cs" />
     <Compile Include="Ventas\daPresupuestoItem.cs" />
     <Compile Include="Ventas\daServicio.cs" />
+    <Compile Include="Ventas\daServicioUnidad.cs" />
     <Compile Include="Ventas\daSolCotizacion.cs" />
     <Compile Include="Ventas\daSolCotizacionGrupo.cs" />
     <Compile Include="Ventas\daSolCotizacionItem.cs" />
@@ -159,6 +171,29 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ventas\Mapeo\PlantillaGrupo.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ventas\Mapeo\CotizacionGrupo.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaquina.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaquinaEscala.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaquinaItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaterial.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaterialEscala.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaterialItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpMaterialUnidad.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpServicio.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpServicioEscala.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpServicioItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\LpServicioUnidad.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Maquina.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\Servicio.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\ServicioUnidad.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Produccion\Mapeo\OrdenTrabajoGrupo.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Compras\Mapeo\Proveedor.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

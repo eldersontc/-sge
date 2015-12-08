@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGE.Entidades" namespace="SGE.Entidades.Ventas">
+  <class name="LpMaquinaItem" schema="Ventas">
+    <id name="idLpMaquinaItem">
+      <generator class="identity" />
+    </id>
+    <property name="idLpMaquina" column="idLpMaquina"/>
+    <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>
+    <property name="factor" column="factor"/>
+  </class>
+</hibernate-mapping>

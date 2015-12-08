@@ -13,5 +13,6 @@ namespace SGE.Entidades.Ventas
         public virtual string titulo { get; set; }
         public virtual int cantidad { get; set; }
         public virtual List<SolCotizacionItem> items { get; set; }
+        public virtual List<int> idsItems { get; set; }
     }
 }

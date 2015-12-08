@@ -18,5 +18,6 @@ namespace SGE.Entidades.Produccion
         public virtual Empleado responsable { get; set; }
         public virtual int estado { get; set; }
         public virtual List<OrdenProduccionItem> items { get; set; }
+        public virtual List<int> idsItems { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace SGE.AccesoDatos.Produccion
 {
     public class daOrdenTrabajoItem : daBase<OrdenTrabajoItem>
     {
-        public void EliminarPorIdOrdenTrabajo(int idOrdenTrabajo)
+        public void EliminarPorIdOrdenTrabajoGrupo(int idOrdenTrabajoGrupo)
         {
-            string sql = string.Format("DELETE Produccion.OrdenTrabajoItem WHERE idOrdenTrabajo = {0}", idOrdenTrabajo);
+            string sql = string.Format("DELETE Produccion.OrdenTrabajoItem WHERE idOrdenTrabajoGrupo = {0}", idOrdenTrabajoGrupo);
             Ejecutar(sql);
         }
     }

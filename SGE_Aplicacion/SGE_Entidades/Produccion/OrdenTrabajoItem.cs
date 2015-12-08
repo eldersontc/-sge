@@ -11,7 +11,7 @@ namespace SGE.Entidades.Produccion
     public class OrdenTrabajoItem
     {
         public virtual int idOrdenTrabajoItem { get; set; }
-        public virtual int idOrdenTrabajo { get; set; }
+        public virtual int idOrdenTrabajoGrupo { get; set; }
         public virtual string titulo { get; set; }
         public virtual Servicio servicio { get; set; }
         public virtual Maquina maquina { get; set; }
@@ -46,5 +46,6 @@ namespace SGE.Entidades.Produccion
         public virtual int cntPs { get; set; }
         public virtual string observacion { get; set; }
         public virtual List<OrdenTrabajoServicio> servicios { get; set; }
+        public virtual List<int> idsServicios { get; set; }
     }
 }

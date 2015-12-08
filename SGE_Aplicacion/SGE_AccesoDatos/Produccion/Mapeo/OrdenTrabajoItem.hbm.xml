@@ -4,7 +4,7 @@
     <id name="idOrdenTrabajoItem">
       <generator class="identity" />
     </id>
-    <property name="idOrdenTrabajo" column="idOrdenTrabajo"/>
+    <property name="idOrdenTrabajoGrupo" column="idOrdenTrabajoGrupo"/>
     <property name="titulo" column="titulo"/>
     <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
     <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>

@@ -185,17 +185,17 @@ namespace SGE.Negocios.Ventas
             {
                 daPlantilla = new daPlantilla();
                 daPlantilla.IniciarTransaccion();
-                daPlantilla.EliminarPorId(idPlantilla, constantes.esquemas.Administracion);
+                daPlantilla.EliminarPorId(idPlantilla, constantes.esquemas.Ventas);
                 daPlantillaGrupo = new daPlantillaGrupo();
                 daPlantillaGrupo.AsignarSesion(daPlantilla);
                 List<object[]> filtros = new List<object[]>();
                 filtros.Add(new object[] { "idPlantilla", idPlantilla });
                 List<PlantillaGrupo> grupos = daPlantillaGrupo.ObtenerLista(filtros);
+                daPlantillaGrupo.EliminarPorIdPlantilla(idPlantilla);
                 daPlantillaItem = new daPlantillaItem();
                 daPlantillaItem.AsignarSesion(daPlantilla);
                 foreach (PlantillaGrupo grupo in grupos)
                 {
-                    daPlantillaGrupo.EliminarPorIdPlantilla(idPlantilla);
                     daPlantillaItem.EliminarPorIdPlantillaGrupo(grupo.idPlantillaGrupo);
                 }
                 daPlantilla.ConfirmarTransaccion();

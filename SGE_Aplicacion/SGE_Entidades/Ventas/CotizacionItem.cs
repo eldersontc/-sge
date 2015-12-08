@@ -10,7 +10,7 @@ namespace SGE.Entidades.Ventas
     public class CotizacionItem
     {
         public virtual int idCotizacionItem { get; set; }
-        public virtual int idCotizacion { get; set; }
+        public virtual int idCotizacionGrupo { get; set; }
         public virtual string titulo { get; set; }
         public virtual Servicio servicio { get; set; }
         public virtual Maquina maquina { get; set; }
@@ -51,5 +51,6 @@ namespace SGE.Entidades.Ventas
         public virtual decimal ttlSrv { get; set; }
         public virtual decimal total { get; set; }
         public virtual List<CotizacionServicio> servicios { get; set; }
+        public virtual List<int> idsServicios { get; set; }
     }
 }

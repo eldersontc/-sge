@@ -32,6 +32,7 @@ namespace SGE.Entidades.Produccion
         public virtual DateTime fechaEntrega { get; set; }
         public virtual int prioridad { get; set; }
         public virtual int estado { get; set; }
-        public virtual List<OrdenTrabajoItem> items { get; set; }
+        public virtual List<OrdenTrabajoGrupo> grupos { get; set; }
+        public virtual List<int> idsGrupos { get; set; }
     }
 }

@@ -12,8 +12,9 @@ namespace SGE.Entidades.Ventas
         public virtual int idCliente { get; set; }
         public virtual string razonSocial { get; set; }
         public virtual DocumentoIdentidad documentoIdentidad { get; set; }
+        public virtual string nroDocumento { get; set; }
         public virtual string nombreComercial { get; set; }
-        public virtual DateTime? fechaUltimaCompra { get; set; }
+        public virtual DateTime? fechaUltimaVenta { get; set; }
         public virtual string telefono { get; set; }
         public virtual string correo { get; set; }
         public virtual Empleado vendedor { get; set; }

@@ -19,5 +19,6 @@ namespace SGE.Entidades.Ventas
         public virtual decimal total { get; set; }
         public virtual int estado { get; set; }
         public virtual List<PresupuestoItem> items { get; set; }
+        public virtual List<int> idsItems { get; set; }
     }
 }

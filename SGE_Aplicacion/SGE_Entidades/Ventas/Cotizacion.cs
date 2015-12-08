@@ -30,7 +30,9 @@ namespace SGE.Entidades.Ventas
         public virtual decimal monUtilidad { get; set; }
         public virtual decimal subTotal { get; set; }
         public virtual decimal total { get; set; }
+        public virtual string observacion { get; set; }
         public virtual int estado { get; set; }
-        public virtual List<CotizacionItem> items { get; set; }
+        public virtual List<CotizacionGrupo> grupos { get; set; }
+        public virtual List<int> idsGrupos { get; set; }
     }
 }
