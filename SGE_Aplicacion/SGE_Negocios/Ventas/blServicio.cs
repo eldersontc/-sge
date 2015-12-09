@@ -37,6 +37,28 @@ namespace SGE.Negocios.Ventas
             return servicios;
         }
 
+        public IList<Servicio> ObtenerActivos()
+        {
+            IList<Servicio> servicios;
+            try
+            {
+                daServicio = new daServicio();
+                daServicio.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                servicios = daServicio.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daServicio.CerrarSesion();
+            }
+            return servicios;
+        }
+
         public Servicio ObtenerPorId(int idServicio)
         {
             Servicio servicio;

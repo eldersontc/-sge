@@ -39,6 +39,28 @@ namespace SGE.Negocios.Ventas
             return listas;
         }
 
+        public IList<LpMaterial> ObtenerActivos()
+        {
+            IList<LpMaterial> listas;
+            try
+            {
+                daLpMaterial = new daLpMaterial();
+                daLpMaterial.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                listas = daLpMaterial.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daLpMaterial.CerrarSesion();
+            }
+            return listas;
+        }
+
         public LpMaterial ObtenerPorId(int idLpMaterial)
         {
             LpMaterial lista;

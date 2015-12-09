@@ -38,6 +38,28 @@ namespace SGE.Negocios.Ventas
             return plantillas;
         }
 
+        public IList<Plantilla> ObtenerActivos()
+        {
+            IList<Plantilla> plantillas;
+            try
+            {
+                daPlantilla = new daPlantilla();
+                daPlantilla.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                plantillas = daPlantilla.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daPlantilla.CerrarSesion();
+            }
+            return plantillas;
+        }
+
         public Plantilla ObtenerPorId(int idPlantilla)
         {
             Plantilla plantilla;

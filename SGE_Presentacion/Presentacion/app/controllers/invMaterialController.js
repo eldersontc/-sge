@@ -2,16 +2,16 @@
 
 define(['app'], function (app) {
 
-    app.register.controller('invProductoController', ['$scope', '$http', '$uibModal', '$timeout', 'preloadFactory', 'httpFactory', 'alertFactory', function ($scope, $http, $uibModal, $timeout, preloadFactory, httpFactory, alertFactory) {
+    app.register.controller('invMaterialController', ['$scope', '$http', '$uibModal', '$timeout', 'preloadFactory', 'httpFactory', 'alertFactory', function ($scope, $http, $uibModal, $timeout, preloadFactory, httpFactory, alertFactory) {
 
-        var urlObtenerTodos = URL_BASE + 'Inventarios/invProducto.aspx/ObtenerTodos',
-            urlObtenerPorId = URL_BASE + 'Inventarios/invProducto.aspx/ObtenerPorId',
-            urlAgregar = URL_BASE + 'Inventarios/invProducto.aspx/Agregar',
-            urlActualizar = URL_BASE + 'Inventarios/invProducto.aspx/Actualizar',
-            urlEliminar = URL_BASE + 'Inventarios/invProducto.aspx/Eliminar';
+        var urlObtenerTodos = URL_BASE + 'Inventarios/invMaterial.aspx/ObtenerTodos',
+            urlObtenerPorId = URL_BASE + 'Inventarios/invMaterial.aspx/ObtenerPorId',
+            urlAgregar = URL_BASE + 'Inventarios/invMaterial.aspx/Agregar',
+            urlActualizar = URL_BASE + 'Inventarios/invMaterial.aspx/Actualizar',
+            urlEliminar = URL_BASE + 'Inventarios/invMaterial.aspx/Eliminar';
         
-        $scope.productos = [];
-        $scope.producto = {};
+        $scope.materiales = [];
+        $scope.material = {};
         $scope.verTabla = false;
         $scope.verTablaUnidad = false;
         $scope.verTablaAlmacen = false;
@@ -21,7 +21,7 @@ define(['app'], function (app) {
             mdlEliminar;
         
         $scope.verMdlAgregar = function () {
-            $scope.producto = { unidades: [], almacenes: [] };
+            $scope.material = { unidades: [], almacenes: [] };
             mdlAgregar = $uibModal.open({
                 animation: true,
                 templateUrl: 'mdlAgregar',
@@ -97,8 +97,8 @@ define(['app'], function (app) {
             preloadFactory.showLoading(true);
             httpFactory.post(urlObtenerTodos, {}, 
                 function (data) {
-                    $scope.productos = data.productos;
-                    if ($scope.productos.length > 0) {
+                    $scope.materiales = data.materiales;
+                    if ($scope.materiales.length > 0) {
                         $scope.verTabla = true;
                         alertFactory.hideStatic();
                     }
@@ -114,7 +114,7 @@ define(['app'], function (app) {
         };
         
         $scope.agregarUnidad = function () {
-            $scope.producto.unidades.push({ factor: 1 });
+            $scope.material.unidades.push({ factor: 1 });
             $scope.verTablaUnidad = true;
             alertFactory.hideStatic('#divAlertUnidad');
         };

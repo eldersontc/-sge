@@ -25,6 +25,7 @@ namespace SGE.Entidades.Facturacion
         public virtual Distrito distrito { get; set; }
         public virtual string direccion { get; set; }
         public virtual string observacion { get; set; }
+        public virtual int estado { get; set; }
         public virtual List<GuiaRemisionItem> items { get; set; }
     }
 }

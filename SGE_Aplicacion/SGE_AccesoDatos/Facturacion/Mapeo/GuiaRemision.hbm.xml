@@ -18,5 +18,6 @@
     <many-to-one name="distrito" column="idDistrito" class="Distrito" lazy="false"/>
     <property name="direccion" column="direccion"/>
     <property name="observacion" column="observacion"/>
+    <property name="estado" column="estado"/>
   </class>
 </hibernate-mapping>

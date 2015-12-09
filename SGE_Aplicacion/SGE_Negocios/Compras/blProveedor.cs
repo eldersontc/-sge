@@ -36,6 +36,28 @@ namespace SGE.Negocios.Compras
             return proveedores;
         }
 
+        public IList<Proveedor> ObtenerActivos()
+        {
+            IList<Proveedor> proveedores;
+            try
+            {
+                daProveedor = new daProveedor();
+                daProveedor.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                proveedores = daProveedor.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daProveedor.CerrarSesion();
+            }
+            return proveedores;
+        }
+
         public Proveedor ObtenerPorId(int idProveedor)
         {
             Proveedor proveedor;

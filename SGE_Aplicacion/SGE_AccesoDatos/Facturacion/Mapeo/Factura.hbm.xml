@@ -16,5 +16,6 @@
     <property name="monImpuesto" column="monImpuesto"/>
     <property name="tipoCambio" column="tipoCambio"/>
     <property name="total" column="total"/>
+    <property name="estado" column="estado"/>
   </class>
 </hibernate-mapping>

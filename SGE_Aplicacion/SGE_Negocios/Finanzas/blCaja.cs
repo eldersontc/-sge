@@ -36,6 +36,28 @@ namespace SGE.Negocios.Finanzas
             return cajas;
         }
 
+        public IList<Caja> ObtenerActivos()
+        {
+            IList<Caja> cajas;
+            try
+            {
+                daCaja = new daCaja();
+                daCaja.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                cajas = daCaja.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daCaja.CerrarSesion();
+            }
+            return cajas;
+        }
+
         public bool Agregar(Caja caja)
         {
             try

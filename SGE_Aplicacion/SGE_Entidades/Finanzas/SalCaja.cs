@@ -24,6 +24,7 @@ namespace SGE.Entidades.Finanzas
         public virtual decimal monImpuesto { get; set; }
         public virtual decimal tipoCambio { get; set; }
         public virtual decimal total { get; set; }
+        public virtual int estado { get; set; }
         public virtual List<SalCajaItem> items { get; set; }
     }
 }

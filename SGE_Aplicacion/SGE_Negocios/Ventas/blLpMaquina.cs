@@ -38,6 +38,28 @@ namespace SGE.Negocios.Ventas
             return listas;
         }
 
+        public IList<LpMaquina> ObtenerActivos()
+        {
+            IList<LpMaquina> listas;
+            try
+            {
+                daLpMaquina = new daLpMaquina();
+                daLpMaquina.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                listas = daLpMaquina.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daLpMaquina.CerrarSesion();
+            }
+            return listas;
+        }
+
         public LpMaquina ObtenerPorId(int idLpMaquina)
         {
             LpMaquina lista;

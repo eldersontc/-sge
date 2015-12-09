@@ -64,9 +64,32 @@
     <Content Include="Administracion\admPerfil.aspx" />
     <Content Include="Administracion\admReporte.aspx" />
     <Content Include="Administracion\admUsuario.aspx" />
+    <Content Include="Compras\comProveedor.aspx" />
+    <Content Include="Facturacion\facFactura.aspx" />
+    <Content Include="Facturacion\facGuiaRemision.aspx" />
+    <Content Include="Finanzas\finCaja.aspx" />
+    <Content Include="Finanzas\finIngCaja.aspx" />
+    <Content Include="Finanzas\finSalCaja.aspx" />
     <Content Include="Inventarios\invAlmacen.aspx" />
+    <Content Include="Inventarios\invIngInventario.aspx" />
     <Content Include="Inventarios\invMaterial.aspx" />
+    <Content Include="Inventarios\invSalInventario.aspx" />
     <Content Include="Inventarios\invUnidad.aspx" />
+    <Content Include="Produccion\prdOrdenProduccion.aspx" />
+    <Content Include="Produccion\prdOrdenTrabajo.aspx" />
+    <Content Include="Ventas\venCliente.aspx" />
+    <Content Include="Ventas\venCotizacion.aspx" />
+    <Content Include="Ventas\venFormaPago.aspx" />
+    <Content Include="Ventas\venLinea.aspx" />
+    <Content Include="Ventas\venLpMaquina.aspx" />
+    <Content Include="Ventas\venLpMaterial.aspx" />
+    <Content Include="Ventas\venLpServicio.aspx" />
+    <Content Include="Ventas\venMaquina.aspx" />
+    <Content Include="Ventas\venMetodoImpresion.aspx" />
+    <Content Include="Ventas\venPlantilla.aspx" />
+    <Content Include="Ventas\venPresupuesto.aspx" />
+    <Content Include="Ventas\venServicio.aspx" />
+    <Content Include="Ventas\venSolCotizacion.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -121,12 +144,61 @@
     <Compile Include="Administracion\admUsuario.aspx.designer.cs">
       <DependentUpon>admUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Compras\comProveedor.aspx.cs">
+      <DependentUpon>comProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\comProveedor.aspx.designer.cs">
+      <DependentUpon>comProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\facFactura.aspx.cs">
+      <DependentUpon>facFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturacion\facFactura.aspx.designer.cs">
+      <DependentUpon>facFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\facGuiaRemision.aspx.cs">
+      <DependentUpon>facGuiaRemision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturacion\facGuiaRemision.aspx.designer.cs">
+      <DependentUpon>facGuiaRemision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finanzas\finCaja.aspx.cs">
+      <DependentUpon>finCaja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\finCaja.aspx.designer.cs">
+      <DependentUpon>finCaja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finanzas\finIngCaja.aspx.cs">
+      <DependentUpon>finIngCaja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\finIngCaja.aspx.designer.cs">
+      <DependentUpon>finIngCaja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finanzas\finSalCaja.aspx.cs">
+      <DependentUpon>finSalCaja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finanzas\finSalCaja.aspx.designer.cs">
+      <DependentUpon>finSalCaja.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inventarios\invAlmacen.aspx.cs">
       <DependentUpon>invAlmacen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inventarios\invAlmacen.aspx.designer.cs">
       <DependentUpon>invAlmacen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\invIngInventario.aspx.cs">
+      <DependentUpon>invIngInventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\invIngInventario.aspx.designer.cs">
+      <DependentUpon>invIngInventario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventarios\invMaterial.aspx.cs">
       <DependentUpon>invMaterial.aspx</DependentUpon>
@@ -135,6 +207,13 @@
     <Compile Include="Inventarios\invMaterial.aspx.designer.cs">
       <DependentUpon>invMaterial.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inventarios\invSalInventario.aspx.cs">
+      <DependentUpon>invSalInventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\invSalInventario.aspx.designer.cs">
+      <DependentUpon>invSalInventario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inventarios\invUnidad.aspx.cs">
       <DependentUpon>invUnidad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -142,7 +221,112 @@
     <Compile Include="Inventarios\invUnidad.aspx.designer.cs">
       <DependentUpon>invUnidad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Produccion\prdOrdenProduccion.aspx.cs">
+      <DependentUpon>prdOrdenProduccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Produccion\prdOrdenProduccion.aspx.designer.cs">
+      <DependentUpon>prdOrdenProduccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\prdOrdenTrabajo.aspx.cs">
+      <DependentUpon>prdOrdenTrabajo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Produccion\prdOrdenTrabajo.aspx.designer.cs">
+      <DependentUpon>prdOrdenTrabajo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\venCliente.aspx.cs">
+      <DependentUpon>venCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venCliente.aspx.designer.cs">
+      <DependentUpon>venCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venCotizacion.aspx.cs">
+      <DependentUpon>venCotizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venCotizacion.aspx.designer.cs">
+      <DependentUpon>venCotizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venFormaPago.aspx.cs">
+      <DependentUpon>venFormaPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venFormaPago.aspx.designer.cs">
+      <DependentUpon>venFormaPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venLinea.aspx.cs">
+      <DependentUpon>venLinea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venLinea.aspx.designer.cs">
+      <DependentUpon>venLinea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venLpMaquina.aspx.cs">
+      <DependentUpon>venLpMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venLpMaquina.aspx.designer.cs">
+      <DependentUpon>venLpMaquina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venLpMaterial.aspx.cs">
+      <DependentUpon>venLpMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venLpMaterial.aspx.designer.cs">
+      <DependentUpon>venLpMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venLpServicio.aspx.cs">
+      <DependentUpon>venLpServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venLpServicio.aspx.designer.cs">
+      <DependentUpon>venLpServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venMaquina.aspx.cs">
+      <DependentUpon>venMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venMaquina.aspx.designer.cs">
+      <DependentUpon>venMaquina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venMetodoImpresion.aspx.cs">
+      <DependentUpon>venMetodoImpresion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venMetodoImpresion.aspx.designer.cs">
+      <DependentUpon>venMetodoImpresion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venPlantilla.aspx.cs">
+      <DependentUpon>venPlantilla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venPlantilla.aspx.designer.cs">
+      <DependentUpon>venPlantilla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venPresupuesto.aspx.cs">
+      <DependentUpon>venPresupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venPresupuesto.aspx.designer.cs">
+      <DependentUpon>venPresupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venServicio.aspx.cs">
+      <DependentUpon>venServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venServicio.aspx.designer.cs">
+      <DependentUpon>venServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\venSolCotizacion.aspx.cs">
+      <DependentUpon>venSolCotizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\venSolCotizacion.aspx.designer.cs">
+      <DependentUpon>venSolCotizacion.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\SGE_Aplicacion.pubxml" />
