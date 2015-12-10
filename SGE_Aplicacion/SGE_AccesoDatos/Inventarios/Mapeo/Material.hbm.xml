@@ -14,7 +14,7 @@
     <property name="costoReferencia" column="costoReferencia"/>
     <property name="alto" column="alto"/>
     <property name="largo" column="largo"/>
-    <many-to-one name="unidadBase" column="idUnidadBase" class="Unidad" lazy="false"/>
+    <many-to-one name="unidadBase" column="idUnidadBase" class="SGE.Entidades.Inventarios.Unidad" lazy="false"/>
     <property name="activo" column="activo"/>
   </class>
 </hibernate-mapping>

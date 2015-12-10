@@ -24,6 +24,6 @@ namespace SGE.Entidades.Inventarios
         public virtual decimal pcjImpuesto { get; set; }
         public virtual decimal monImpuesto { get; set; }
         public virtual decimal total { get; set; }
-        public List<SalInventarioItem> items { get; set; }
+        public virtual List<SalInventarioItem> items { get; set; }
     }
 }

@@ -5,8 +5,8 @@
       <generator class="identity" />
     </id>
     <property name="idOrdenTrabajoItem" column="idOrdenTrabajoItem"/>
-    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
-    <many-to-one name="unidad" column="idUnidad" class="Unidad" lazy="false"/>
+    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
+    <many-to-one name="unidad" column="idUnidad" class="SGE.Entidades.Inventarios.Unidad" lazy="false"/>
     <property name="cantidad" column="cantidad"/>
   </class>
 </hibernate-mapping>

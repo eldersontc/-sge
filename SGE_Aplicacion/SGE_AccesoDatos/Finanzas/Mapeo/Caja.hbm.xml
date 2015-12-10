@@ -6,7 +6,7 @@
     </id>
     <property name="descripcion" column="descripcion"/>
     <property name="monto" column="monto"/>
-    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="SGE.Entidades.Administracion.Moneda" lazy="false"/>
     <property name="activo" column="activo"/>
   </class>
 </hibernate-mapping>

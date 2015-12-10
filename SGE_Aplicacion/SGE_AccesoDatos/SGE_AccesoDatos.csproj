@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\daDepartamento.cs" />
+    <Compile Include="Administracion\daDistrito.cs" />
     <Compile Include="Administracion\daDocumentoIdentidad.cs" />
     <Compile Include="Administracion\daEmpleado.cs" />
     <Compile Include="Administracion\daMoneda.cs" />
     <Compile Include="Administracion\daNumeracion.cs" />
     <Compile Include="Administracion\daPerfil.cs" />
+    <Compile Include="Administracion\daProvincia.cs" />
     <Compile Include="Administracion\daReporte.cs" />
     <Compile Include="Administracion\daReporteItem.cs" />
     <Compile Include="Administracion\daUsuario.cs" />
@@ -194,6 +197,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Compras\Mapeo\Proveedor.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administracion\Mapeo\Departamento.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Distrito.hbm.xml" />
+    <EmbeddedResource Include="Administracion\Mapeo\Provincia.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,4 +7,3 @@ D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Entidades\bin\Debug\SGE.Entidades.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Entidades\bin\Debug\SGE.Entidades.pdb
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE.Entidades.dll
 D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE.Entidades.pdb
-D:\PROY-GIT\xyzsge\SGE_Aplicacion\SGE_Entidades\obj\Debug\SGE_Entidades.csprojResolveAssemblyReference.cache

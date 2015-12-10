@@ -6,9 +6,9 @@
     </id>
     <property name="idSolCotizacionGrupo" column="idSolCotizacionGrupo"/>
     <property name="titulo" column="titulo"/>
-    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
-    <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>
-    <many-to-one name="material" column="idMaterial" class="Material" lazy="false"/>
+    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
+    <many-to-one name="maquina" column="idMaquina" class="SGE.Entidades.Ventas.Maquina" lazy="false"/>
+    <many-to-one name="material" column="idMaterial" class="SGE.Entidades.Inventarios.Material" lazy="false"/>
     <property name="conMdA" column="conMdA"/>
     <property name="conMdC" column="conMdC"/>
     <property name="conTyr" column="conTyr"/>

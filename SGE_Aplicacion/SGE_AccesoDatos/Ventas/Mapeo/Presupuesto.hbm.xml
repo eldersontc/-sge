@@ -4,10 +4,10 @@
     <id name="idPresupuesto">
       <generator class="identity" />
     </id>
-    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/>
+    <many-to-one name="numeracion" column="idNumeracion" class="SGE.Entidades.Administracion.Numeracion" lazy="false"/>
     <property name="numero" column="numero"/>
-    <many-to-one name="cliente" column="idCliente" class="Cliente" lazy="false"/>
-    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
+    <many-to-one name="cliente" column="idCliente" class="SGE.Entidades.Ventas.Cliente" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="SGE.Entidades.Administracion.Moneda" lazy="false"/>
     <property name="fechaCreacion" column="fechaCreacion"/>
     <property name="instrucciones" column="instrucciones"/>
     <property name="total" column="total"/>

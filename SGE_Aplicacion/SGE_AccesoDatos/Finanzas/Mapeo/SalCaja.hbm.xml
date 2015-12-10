@@ -4,13 +4,13 @@
     <id name="idSalCaja">
       <generator class="identity" />
     </id>
-    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/>
+    <many-to-one name="numeracion" column="idNumeracion" class="SGE.Entidades.Administracion.Numeracion" lazy="false"/>
     <property name="numero" column="numero"/>
     <property name="fechaCreacion" column="fechaCreacion"/>
-    <many-to-one name="responsable" column="idResponsable" class="Empleado" lazy="false"/>
-    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
+    <many-to-one name="responsable" column="idResponsable" class="SGE.Entidades.Administracion.Empleado" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="SGE.Entidades.Administracion.Moneda" lazy="false"/>
     <many-to-one name="caja" column="idCaja" class="Caja" lazy="false"/>
-    <many-to-one name="ordenProduccion" column="idOrdenProduccion" class="OrdenProduccion" lazy="false"/>
+    <many-to-one name="ordenProduccion" column="idOrdenProduccion" class="SGE.Entidades.Produccion.OrdenProduccion" lazy="false"/>
     <property name="observacion" column="observacion"/>
     <property name="subTotal" column="subTotal"/>
     <property name="pcjImpuesto" column="pcjImpuesto"/>

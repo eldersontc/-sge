@@ -8,7 +8,7 @@
     <property name="nombre" column="nombre"/>
     <property name="apellidoPaterno" column="apellidoPaterno"/>
     <property name="apellidoMaterno" column="apellidoMaterno"/>
-    <many-to-one name="documentoIdentidad" column="idDocumentoIdentidad" class="DocumentoIdentidad" lazy="false"/>
+    <many-to-one name="documentoIdentidad" column="idDocumentoIdentidad" class="SGE.Entidades.Administracion.DocumentoIdentidad" lazy="false"/>
     <property name="numeroDocumento" column="numeroDocumento"/>
     <property name="activo" column="activo"/>
   </class>

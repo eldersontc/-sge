@@ -5,9 +5,9 @@
       <generator class="identity" />
     </id>
     <property name="idCliente" column="idCliente"/>
-    <many-to-one name="departamento" column="idDepartamento" class="Departamento" lazy="false"/>
-    <many-to-one name="provincia" column="idProvincia" class="Provincia" lazy="false"/>
-    <many-to-one name="distrito" column="idDistrito" class="Distrito" lazy="false"/>
+    <many-to-one name="departamento" column="idDepartamento" class="SGE.Entidades.Administracion.Departamento" lazy="false"/>
+    <many-to-one name="provincia" column="idProvincia" class="SGE.Entidades.Administracion.Provincia" lazy="false"/>
+    <many-to-one name="distrito" column="idDistrito" class="SGE.Entidades.Administracion.Distrito" lazy="false"/>
     <property name="direccion" column="direccion"/>
   </class>
 </hibernate-mapping>

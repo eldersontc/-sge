@@ -13,7 +13,9 @@ namespace SGE.Aplicacion.Administracion
     public partial class admUsuario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { }
+        {
+            ObtenerTodos(new Sesion());
+        }
 
         [WebMethod]
         public static object ObtenerTodos(Sesion sesion)

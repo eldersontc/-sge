@@ -6,9 +6,9 @@
     </id>
     <property name="idCotizacionGrupo" column="idCotizacionGrupo"/>
     <property name="titulo" column="titulo"/>
-    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
-    <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>
-    <many-to-one name="material" column="idMaterial" class="Material" lazy="false"/>
+    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
+    <many-to-one name="maquina" column="idMaquina" class="SGE.Entidades.Ventas.Maquina" lazy="false"/>
+    <many-to-one name="material" column="idMaterial" class="SGE.Entidades.Inventarios.Material" lazy="false"/>
     <property name="conMdA" column="conMdA"/>
     <property name="conMdC" column="conMdC"/>
     <property name="conTyr" column="conTyr"/>
@@ -30,7 +30,7 @@
     <property name="pliegos" column="pliegos"/>
     <property name="gp180" column="gp180"/>
     <property name="gi180" column="gi180"/>
-    <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="MetodoImpresion" lazy="false"/>
+    <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="SGE.Entidades.Ventas.MetodoImpresion" lazy="false"/>
     <property name="scntMat" column="scntMat"/>
     <property name="cntDem" column="cntDem"/>
     <property name="cntMat" column="cntMat"/>

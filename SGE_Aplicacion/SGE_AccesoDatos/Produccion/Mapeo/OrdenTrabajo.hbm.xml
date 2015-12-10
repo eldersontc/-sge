@@ -4,24 +4,24 @@
     <id name="idOrdenTrabajo">
       <generator class="identity" />
     </id>
-    <many-to-one name="numeracion" column="idNumeracion" class="Numeracion" lazy="false"/>
+    <many-to-one name="numeracion" column="idNumeracion" class="SGE.Entidades.Administracion.Numeracion" lazy="false"/>
     <property name="numero" column="numero"/>
     <property name="fechaCreacion" column="fechaCreacion"/>
     <property name="descripcion" column="descripcion"/>
-    <many-to-one name="cliente" column="idCliente" class="Cliente" lazy="false"/>
-    <many-to-one name="lpMaterial" column="idLpMaterial" class="LpMaterial" lazy="false"/>
-    <many-to-one name="lpServicio" column="idLpServicio" class="LpServicio" lazy="false"/>
-    <many-to-one name="lpMaquina" column="idLpMaquina" class="LpMaquina" lazy="false"/>
-    <many-to-one name="moneda" column="idMoneda" class="Moneda" lazy="false"/>
-    <many-to-one name="vendedor" column="idVendedor" class="Empleado" lazy="false"/>
-    <many-to-one name="cotizador" column="idCotizador" class="Empleado" lazy="false"/>
-    <many-to-one name="responsable" column="idResponsable" class="Empleado" lazy="false"/>
-    <many-to-one name="contacto" column="idContacto" class="ClienteContacto" lazy="false"/>
-    <many-to-one name="linea" column="idLinea" class="Linea" lazy="false"/>
+    <many-to-one name="cliente" column="idCliente" class="SGE.Entidades.Ventas.Cliente" lazy="false"/>
+    <many-to-one name="lpMaterial" column="idLpMaterial" class="SGE.Entidades.Ventas.LpMaterial" lazy="false"/>
+    <many-to-one name="lpServicio" column="idLpServicio" class="SGE.Entidades.Ventas.LpServicio" lazy="false"/>
+    <many-to-one name="lpMaquina" column="idLpMaquina" class="SGE.Entidades.Ventas.LpMaquina" lazy="false"/>
+    <many-to-one name="moneda" column="idMoneda" class="SGE.Entidades.Administracion.Moneda" lazy="false"/>
+    <many-to-one name="vendedor" column="idVendedor" class="SGE.Entidades.Administracion.Empleado" lazy="false"/>
+    <many-to-one name="cotizador" column="idCotizador" class="SGE.Entidades.Administracion.Empleado" lazy="false"/>
+    <many-to-one name="responsable" column="idResponsable" class="SGE.Entidades.Administracion.Empleado" lazy="false"/>
+    <many-to-one name="contacto" column="idContacto" class="SGE.Entidades.Ventas.ClienteContacto" lazy="false"/>
+    <many-to-one name="linea" column="idLinea" class="SGE.Entidades.Ventas.Linea" lazy="false"/>
     <property name="cantidad" column="cantidad"/>
     <property name="observacion" column="observacion"/>
-    <many-to-one name="cotizacion" column="idCotizacion" class="Cotizacion" lazy="false"/>
-    <many-to-one name="presupuesto" column="idPresupuesto" class="Presupuesto" lazy="false"/>
+    <many-to-one name="cotizacion" column="idCotizacion" class="SGE.Entidades.Ventas.Cotizacion" lazy="false"/>
+    <many-to-one name="presupuesto" column="idPresupuesto" class="SGE.Entidades.Ventas.Presupuesto" lazy="false"/>
     <property name="fechaEntrega" column="fechaEntrega"/>
     <property name="prioridad" column="prioridad"/>
     <property name="estado" column="estado"/>

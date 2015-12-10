@@ -5,6 +5,6 @@
       <generator class="identity" />
     </id>
     <property name="idLpServicio" column="idLpServicio"/>
-    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
+    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
   </class>
 </hibernate-mapping>
