@@ -18,14 +18,14 @@ namespace SGE.Negocios.Ventas
         daPlantillaGrupo daPlantillaGrupo;
         daPlantillaItem daPlantillaItem;
 
-        public IList<Plantilla> ObtenerTodos()
+        public object[] ObtenerTodos(Paginacion paginacion, Orden orden)
         {
-            IList<Plantilla> plantillas;
+            object[] datos;
             try
             {
                 daPlantilla = new daPlantilla();
                 daPlantilla.AbrirSesion();
-                plantillas = daPlantilla.ObtenerTodos();
+                datos = daPlantilla.ObtenerPaginacion(new List<object[]>(), paginacion, orden);
             }
             catch (Exception)
             {
@@ -35,7 +35,7 @@ namespace SGE.Negocios.Ventas
             {
                 daPlantilla.CerrarSesion();
             }
-            return plantillas;
+            return datos;
         }
 
         public IList<Plantilla> ObtenerActivos()
@@ -66,6 +66,7 @@ namespace SGE.Negocios.Ventas
             try
             {
                 daPlantilla = new daPlantilla();
+                daPlantilla.AbrirSesion();
                 plantilla = daPlantilla.ObtenerPorId(idPlantilla);
                 daPlantillaGrupo = new daPlantillaGrupo();
                 daPlantillaGrupo.AsignarSesion(daPlantilla);
@@ -160,6 +161,7 @@ namespace SGE.Negocios.Ventas
                         {
                             if (item.idPlantillaItem == 0)
                             {
+                                item.idPlantillaGrupo = grupo.idPlantillaGrupo;
                                 daPlantillaItem.Agregar(item);
                             }
                             else { 
@@ -167,13 +169,13 @@ namespace SGE.Negocios.Ventas
                                 item_.titulo = item.titulo;
                                 item_.servicio = item.servicio;
                                 item_.material = item.material;
-                                item_.conMdA = item.conMdA;
-                                item_.conMdC = item.conMdC;
-                                item_.conTyr = item.conTyr;
-                                item_.conGrf = item.conGrf;
-                                item_.conMat = item.conMat;
-                                item_.conSrv = item.conSrv;
-                                item_.conFnd = item.conFnd;
+                                item_.flagMA = item.flagMA;
+                                item_.flagMC = item.flagMC;
+                                item_.flagTYR = item.flagTYR;
+                                item_.flagGRF = item.flagGRF;
+                                item_.flagMAT = item.flagMAT;
+                                item_.flagSRV = item.flagSRV;
+                                item_.flagFND = item.flagFND;
                             }
                         }
                         foreach (int idItem in grupo.idsItems)
@@ -201,24 +203,27 @@ namespace SGE.Negocios.Ventas
             return true;
         }
 
-        public bool Eliminar(int idPlantilla)
+        public bool Eliminar(List<int> ids)
         {
             try
             {
                 daPlantilla = new daPlantilla();
                 daPlantilla.IniciarTransaccion();
-                daPlantilla.EliminarPorId(idPlantilla, constantes.esquemas.Ventas);
-                daPlantillaGrupo = new daPlantillaGrupo();
-                daPlantillaGrupo.AsignarSesion(daPlantilla);
-                List<object[]> filtros = new List<object[]>();
-                filtros.Add(new object[] { "idPlantilla", idPlantilla });
-                List<PlantillaGrupo> grupos = daPlantillaGrupo.ObtenerLista(filtros);
-                daPlantillaGrupo.EliminarPorIdPlantilla(idPlantilla);
-                daPlantillaItem = new daPlantillaItem();
-                daPlantillaItem.AsignarSesion(daPlantilla);
-                foreach (PlantillaGrupo grupo in grupos)
+                foreach (int id in ids)
                 {
-                    daPlantillaItem.EliminarPorIdPlantillaGrupo(grupo.idPlantillaGrupo);
+                    daPlantilla.EliminarPorId(id, constantes.esquemas.Ventas);
+                    daPlantillaGrupo = new daPlantillaGrupo();
+                    daPlantillaGrupo.AsignarSesion(daPlantilla);
+                    List<object[]> filtros = new List<object[]>();
+                    filtros.Add(new object[] { "idPlantilla", id });
+                    List<PlantillaGrupo> grupos = daPlantillaGrupo.ObtenerLista(filtros);
+                    daPlantillaGrupo.EliminarPorIdPlantilla(id);
+                    daPlantillaItem = new daPlantillaItem();
+                    daPlantillaItem.AsignarSesion(daPlantilla);
+                    foreach (PlantillaGrupo grupo in grupos)
+                    {
+                        daPlantillaItem.EliminarPorIdPlantillaGrupo(grupo.idPlantillaGrupo);
+                    }
                 }
                 daPlantilla.ConfirmarTransaccion();
             }

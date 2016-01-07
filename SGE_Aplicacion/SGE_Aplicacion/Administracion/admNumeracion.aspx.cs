@@ -33,6 +33,23 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blNumeracion blNumeracion = new blNumeracion(sesion);
+                IList<Numeracion> numeraciones = blNumeracion.ObtenerActivos();
+                resultado = new { correcto = true, numeraciones = numeraciones };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, Numeracion numeracion)
         {
             object resultado = new { };

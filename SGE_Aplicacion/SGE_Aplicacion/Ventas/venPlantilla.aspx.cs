@@ -17,14 +17,14 @@ namespace SGE.Aplicacion.Ventas
         { }
 
         [WebMethod]
-        public static object ObtenerTodos(Sesion sesion)
+        public static object ObtenerTodos(Sesion sesion, Paginacion paginacion, Orden orden)
         {
             object resultado = new { };
             try
             {
                 blPlantilla blPlantilla = new blPlantilla(sesion);
-                IList<Plantilla> plantillas = blPlantilla.ObtenerTodos();
-                resultado = new { correcto = true, plantillas = plantillas };
+                object[] datos = blPlantilla.ObtenerTodos(paginacion, orden);
+                resultado = new { correcto = true, plantillas = datos[0], total = datos[1] };
             }
             catch (Exception)
             {
@@ -40,8 +40,25 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blPlantilla blPlantilla = new blPlantilla(sesion);
-                IList<Plantilla> plantillaes = blPlantilla.ObtenerActivos();
-                resultado = new { correcto = true, plantillaes = plantillaes };
+                IList<Plantilla> plantillas = blPlantilla.ObtenerActivos();
+                resultado = new { correcto = true, plantillas = plantillas };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerPorId(Sesion sesion, int idPlantilla)
+        {
+            object resultado = new { };
+            try
+            {
+                blPlantilla blPlantilla = new blPlantilla(sesion);
+                Plantilla plantilla = blPlantilla.ObtenerPorId(idPlantilla);
+                resultado = new { correcto = true, plantilla = plantilla };
             }
             catch (Exception)
             {
@@ -85,13 +102,13 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
-        public static object Eliminar(Sesion sesion, int idPlantilla)
+        public static object Eliminar(Sesion sesion, List<int> ids)
         {
             object resultado = new { };
             try
             {
                 blPlantilla blPlantilla = new blPlantilla(sesion);
-                blPlantilla.Eliminar(idPlantilla);
+                blPlantilla.Eliminar(ids);
                 resultado = new { correcto = true };
             }
             catch (Exception)

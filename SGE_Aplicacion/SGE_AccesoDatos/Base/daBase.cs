@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
+using SGE.Entidades.Administracion;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -109,6 +110,38 @@ namespace SGE.AccesoDatos.Base
                 criteria.Add(Restrictions.Eq(filtro[0].ToString(), filtro[1]));
             }
             return (List<T>)criteria.List<T>();
+        }
+
+        public object[] ObtenerPaginacion(List<Object[]> filtros, Paginacion paginacion, Orden orden)
+        {
+            ICriteria criteria = sesion.CreateCriteria(typeof(T));
+            foreach (Object[] filtro in filtros)
+            {
+                criteria.Add(Restrictions.Eq(filtro[0].ToString(), filtro[1]));
+            }
+
+            if (!string.IsNullOrEmpty(orden.columna)) {
+                if (orden.asc)
+                {
+                    criteria.AddOrder(Order.Asc(orden.columna));
+                }
+                else {
+                    criteria.AddOrder(Order.Desc(orden.columna));
+                }
+            }
+
+            List<T> lista = (List<T>)criteria.SetFirstResult((paginacion.pagActual -1) * paginacion.nroRegistros).SetMaxResults(paginacion.nroRegistros).List<T>();
+            
+            return new object[]{ lista, ObtenerTotal(filtros) };
+        }
+
+        public int ObtenerTotal(List<Object[]> filtros) {
+            ICriteria criteria = sesion.CreateCriteria(typeof(T));
+            foreach (Object[] filtro in filtros)
+            {
+                criteria.Add(Restrictions.Eq(filtro[0].ToString(), filtro[1]));
+            }
+            return criteria.SetProjection(Projections.RowCount()).UniqueResult<int>();
         }
     }
 }

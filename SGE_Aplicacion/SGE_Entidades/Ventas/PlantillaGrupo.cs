@@ -13,5 +13,10 @@ namespace SGE.Entidades.Ventas
         public virtual string titulo { get; set; }
         public virtual List<PlantillaItem> items { get; set; }
         public virtual List<int> idsItems { get; set; }
+
+        public PlantillaGrupo() {
+            items = new List<PlantillaItem>();
+            idsItems = new List<int>();
+        }
     }
 }

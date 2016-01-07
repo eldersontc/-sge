@@ -17,14 +17,31 @@ namespace SGE.Aplicacion.Ventas
         { }
 
         [WebMethod]
-        public static object ObtenerTodos(Sesion sesion)
+        public static object ObtenerTodos(Sesion sesion, Paginacion paginacion, Orden orden)
         {
             object resultado = new { };
             try
             {
                 blSolCotizacion blSolCotizacion = new blSolCotizacion(sesion);
-                IList<SolCotizacion> solicitudes = blSolCotizacion.ObtenerTodos();
-                resultado = new { correcto = true, solicitudes = solicitudes };
+                object[] datos = blSolCotizacion.ObtenerTodos(paginacion, orden);
+                resultado = new { correcto = true, solicitudes = datos[0], total = datos[1] };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerPorId(Sesion sesion, int idSolCotizacion)
+        {
+            object resultado = new { };
+            try
+            {
+                blSolCotizacion blSolCotizacion = new blSolCotizacion(sesion);
+                SolCotizacion solicitud = blSolCotizacion.ObtenerPorId(idSolCotizacion);
+                resultado = new { correcto = true, solicitud = solicitud };
             }
             catch (Exception)
             {
@@ -68,13 +85,13 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
-        public static object Eliminar(Sesion sesion, int idSolCotizacion)
+        public static object Eliminar(Sesion sesion, List<int> ids)
         {
             object resultado = new { };
             try
             {
                 blSolCotizacion blSolCotizacion = new blSolCotizacion(sesion);
-                blSolCotizacion.Eliminar(idSolCotizacion);
+                blSolCotizacion.Eliminar(ids);
                 resultado = new { correcto = true };
             }
             catch (Exception)

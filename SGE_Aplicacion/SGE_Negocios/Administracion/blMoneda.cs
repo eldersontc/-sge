@@ -17,12 +17,12 @@ namespace SGE.Negocios.Administracion
 
         public IList<Moneda> ObtenerTodos()
         {
-            IList<Moneda> monedaes;
+            IList<Moneda> monedas;
             try
             {
                 daMoneda = new daMoneda();
                 daMoneda.AbrirSesion();
-                monedaes = daMoneda.ObtenerTodos();
+                monedas = daMoneda.ObtenerTodos();
             }
             catch (Exception)
             {
@@ -32,7 +32,29 @@ namespace SGE.Negocios.Administracion
             {
                 daMoneda.CerrarSesion();
             }
-            return monedaes;
+            return monedas;
+        }
+
+        public IList<Moneda> ObtenerActivos()
+        {
+            IList<Moneda> monedas;
+            try
+            {
+                daMoneda = new daMoneda();
+                daMoneda.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                monedas = daMoneda.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daMoneda.CerrarSesion();
+            }
+            return monedas;
         }
 
         public bool Agregar(Moneda moneda)

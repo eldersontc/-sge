@@ -40,8 +40,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blMaquina blMaquina = new blMaquina(sesion);
-                IList<Maquina> maquinaes = blMaquina.ObtenerActivos();
-                resultado = new { correcto = true, maquinaes = maquinaes };
+                IList<Maquina> maquinas = blMaquina.ObtenerActivos();
+                resultado = new { correcto = true, maquinas = maquinas };
             }
             catch (Exception)
             {

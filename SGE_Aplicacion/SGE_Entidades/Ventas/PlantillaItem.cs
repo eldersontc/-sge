@@ -14,12 +14,12 @@ namespace SGE.Entidades.Ventas
         public virtual string titulo { get; set; }
         public virtual Servicio servicio { get; set; }
         public virtual Material material { get; set; }
-        public virtual bool conMdA { get; set; }
-        public virtual bool conMdC { get; set; }
-        public virtual bool conTyr { get; set; }
-        public virtual bool conGrf { get; set; }
-        public virtual bool conMat { get; set; }
-        public virtual bool conSrv { get; set; }
-        public virtual bool conFnd { get; set; }
+        public virtual bool flagMA { get; set; }
+        public virtual bool flagMC { get; set; }
+        public virtual bool flagTYR { get; set; }
+        public virtual bool flagGRF { get; set; }
+        public virtual bool flagMAT { get; set; }
+        public virtual bool flagSRV { get; set; }
+        public virtual bool flagFND { get; set; }
     }
 }

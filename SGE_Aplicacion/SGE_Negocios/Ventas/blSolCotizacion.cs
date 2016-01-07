@@ -18,14 +18,14 @@ namespace SGE.Negocios.Ventas
         daSolCotizacionGrupo daSolCotizacionGrupo;
         daSolCotizacionItem daSolCotizacionItem;
 
-        public IList<SolCotizacion> ObtenerTodos()
+        public object[] ObtenerTodos(Paginacion paginacion, Orden orden)
         {
-            IList<SolCotizacion> solicitudes;
+            object[] datos;
             try
             {
                 daSolCotizacion = new daSolCotizacion();
                 daSolCotizacion.AbrirSesion();
-                solicitudes = daSolCotizacion.ObtenerTodos();
+                datos = daSolCotizacion.ObtenerPaginacion(new List<object[]>(), paginacion, orden);
             }
             catch (Exception)
             {
@@ -35,7 +35,7 @@ namespace SGE.Negocios.Ventas
             {
                 daSolCotizacion.CerrarSesion();
             }
-            return solicitudes;
+            return datos;
         }
 
         public SolCotizacion ObtenerPorId(int idSolCotizacion)
@@ -44,6 +44,7 @@ namespace SGE.Negocios.Ventas
             try
             {
                 daSolCotizacion = new daSolCotizacion();
+                daSolCotizacion.AbrirSesion();
                 solicitud = daSolCotizacion.ObtenerPorId(idSolCotizacion);
                 daSolCotizacionGrupo = new daSolCotizacionGrupo();
                 daSolCotizacionGrupo.AsignarSesion(daSolCotizacion);
@@ -76,6 +77,10 @@ namespace SGE.Negocios.Ventas
             {
                 daSolCotizacion = new daSolCotizacion();
                 daSolCotizacion.IniciarTransaccion();
+                if (string.IsNullOrEmpty(solicitud.numero)) {
+                    solicitud.numero = generarNumeracion(daSolCotizacion, solicitud.numeracion.idNumeracion);    
+                }
+                solicitud.fechaCreacion = DateTime.Now;
                 daSolCotizacion.Agregar(solicitud);
                 daSolCotizacionGrupo = new daSolCotizacionGrupo();
                 daSolCotizacionGrupo.AsignarSesion(daSolCotizacion);
@@ -115,9 +120,6 @@ namespace SGE.Negocios.Ventas
                 solicitud_.descripcion = solicitud.descripcion;
                 solicitud_.cliente = solicitud.cliente;
                 solicitud_.linea = solicitud.linea;
-                solicitud_.lpMaterial = solicitud.lpMaterial;
-                solicitud_.lpServicio = solicitud.lpServicio;
-                solicitud_.lpMaquina = solicitud.lpMaquina;
                 solicitud_.moneda = solicitud.moneda;
                 solicitud_.vendedor = solicitud.vendedor;
                 solicitud_.formaPago = solicitud.formaPago;
@@ -147,6 +149,7 @@ namespace SGE.Negocios.Ventas
                         {
                             if (item.idSolCotizacionItem == 0)
                             {
+                                item.idSolCotizacionGrupo = grupo.idSolCotizacionGrupo;
                                 daSolCotizacionItem.Agregar(item);
                             }
                             else { 
@@ -155,20 +158,20 @@ namespace SGE.Negocios.Ventas
                                 item_.servicio = item.servicio;
                                 item_.maquina = item.maquina;
                                 item_.material = item.material;
-                                item_.conMdA = item.conMdA;
-                                item_.conMdC = item.conMdC;
-                                item_.conTyr = item.conTyr;
-                                item_.conGrf = item.conGrf;
-                                item_.conMat = item.conMat;
-                                item_.conSrv = item.conSrv;
-                                item_.conFnd = item.conFnd;
-                                item_.xMa = item.xMa;
-                                item_.yMa = item.yMa;
-                                item_.xMc = item.xMc;
-                                item_.yMc = item.yMc;
-                                item_.tC = item.tC;
-                                item_.rC = item.rC;
-                                item_.fnd = item.fnd;
+                                item_.flagMA = item.flagMA;
+                                item_.flagMC = item.flagMC;
+                                item_.flagTYR = item.flagTYR;
+                                item_.flagGRF = item.flagGRF;
+                                item_.flagMAT = item.flagMAT;
+                                item_.flagSRV = item.flagSRV;
+                                item_.flagFND = item.flagFND;
+                                item_.valXMA = item.valXMA;
+                                item_.valYMA = item.valYMA;
+                                item_.valXMC = item.valXMC;
+                                item_.valYMC = item.valYMC;
+                                item_.valTC = item.valTC;
+                                item_.valRT = item.valRT;
+                                item_.valFND = item.valFND;
                                 item_.acabados = item.acabados;
                             }
                         }
@@ -197,24 +200,27 @@ namespace SGE.Negocios.Ventas
             return true;
         }
 
-        public bool Eliminar(int idSolCotizacion)
+        public bool Eliminar(List<int> ids)
         {
             try
             {
                 daSolCotizacion = new daSolCotizacion();
                 daSolCotizacion.IniciarTransaccion();
-                daSolCotizacion.EliminarPorId(idSolCotizacion, constantes.esquemas.Ventas);
-                daSolCotizacionGrupo = new daSolCotizacionGrupo();
-                daSolCotizacionGrupo.AsignarSesion(daSolCotizacion);
-                List<object[]> filtros = new List<object[]>();
-                filtros.Add(new object[] { "idSolCotizacion", idSolCotizacion });
-                List<SolCotizacionGrupo> grupos = daSolCotizacionGrupo.ObtenerLista(filtros);
-                daSolCotizacionGrupo.EliminarPorIdSolCotizacion(idSolCotizacion);
-                daSolCotizacionItem = new daSolCotizacionItem();
-                daSolCotizacionItem.AsignarSesion(daSolCotizacion);
-                foreach (SolCotizacionGrupo grupo in grupos)
+                foreach (int idSolCotizacion in ids)
                 {
-                    daSolCotizacionItem.EliminarPorIdSolCotizacionGrupo(grupo.idSolCotizacionGrupo);
+                    daSolCotizacion.EliminarPorId(idSolCotizacion, constantes.esquemas.Ventas);
+                    daSolCotizacionGrupo = new daSolCotizacionGrupo();
+                    daSolCotizacionGrupo.AsignarSesion(daSolCotizacion);
+                    List<object[]> filtros = new List<object[]>();
+                    filtros.Add(new object[] { "idSolCotizacion", idSolCotizacion });
+                    List<SolCotizacionGrupo> grupos = daSolCotizacionGrupo.ObtenerLista(filtros);
+                    daSolCotizacionGrupo.EliminarPorIdSolCotizacion(idSolCotizacion);
+                    daSolCotizacionItem = new daSolCotizacionItem();
+                    daSolCotizacionItem.AsignarSesion(daSolCotizacion);
+                    foreach (SolCotizacionGrupo grupo in grupos)
+                    {
+                        daSolCotizacionItem.EliminarPorIdSolCotizacionGrupo(grupo.idSolCotizacionGrupo);
+                    }
                 }
                 daSolCotizacion.ConfirmarTransaccion();
             }

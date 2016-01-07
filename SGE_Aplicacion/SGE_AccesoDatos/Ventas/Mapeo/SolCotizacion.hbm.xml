@@ -10,9 +10,6 @@
     <property name="descripcion" column="descripcion"/>
     <many-to-one name="cliente" column="idCliente" class="SGE.Entidades.Ventas.Cliente" lazy="false"/>
     <many-to-one name="linea" column="idLinea" class="SGE.Entidades.Ventas.Linea" lazy="false"/>
-    <many-to-one name="lpMaterial" column="idLpMaterial" class="SGE.Entidades.Ventas.LpMaterial" lazy="false"/>
-    <many-to-one name="lpServicio" column="idLpServicio" class="SGE.Entidades.Ventas.LpServicio" lazy="false"/>
-    <many-to-one name="lpMaquina" column="idLpMaquina" class="SGE.Entidades.Ventas.LpMaquina" lazy="false"/>
     <many-to-one name="moneda" column="idMoneda" class="SGE.Entidades.Administracion.Moneda" lazy="false"/>
     <many-to-one name="vendedor" column="idVendedor" class="SGE.Entidades.Administracion.Empleado" lazy="false"/>
     <many-to-one name="formaPago" column="idFormaPago" class="SGE.Entidades.Ventas.FormaPago" lazy="false"/>

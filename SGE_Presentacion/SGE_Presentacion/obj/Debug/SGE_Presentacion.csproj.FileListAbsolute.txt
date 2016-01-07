@@ -1,0 +1,9 @@
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.dll
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.pdb
+C:\Users\Elderson\Documents\Visual Studio 2012\Projects\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.csprojResolveAssemblyReference.cache
+D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.dll
+D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.pdb
+D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.dll
+D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.pdb

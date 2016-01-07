@@ -38,6 +38,28 @@ namespace SGE.Negocios.Inventarios
             return materiales;
         }
 
+        public IList<Material> ObtenerActivos()
+        {
+            IList<Material> materiales;
+            try
+            {
+                daMaterial = new daMaterial();
+                daMaterial.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                materiales = daMaterial.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daMaterial.CerrarSesion();
+            }
+            return materiales;
+        }
+
         public Material ObtenerPorId(int idMaterial)
         {
             Material material;

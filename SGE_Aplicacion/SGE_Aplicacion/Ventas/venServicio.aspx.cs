@@ -40,8 +40,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blServicio blServicio = new blServicio(sesion);
-                IList<Servicio> servicioes = blServicio.ObtenerActivos();
-                resultado = new { correcto = true, servicioes = servicioes };
+                IList<Servicio> servicios = blServicio.ObtenerActivos();
+                resultado = new { correcto = true, servicios = servicios };
             }
             catch (Exception)
             {

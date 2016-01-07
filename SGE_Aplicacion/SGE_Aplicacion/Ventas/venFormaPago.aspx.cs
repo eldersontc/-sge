@@ -23,8 +23,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blFormaPago blFormaPago = new blFormaPago(sesion);
-                IList<FormaPago> formas = blFormaPago.ObtenerTodos();
-                resultado = new { correcto = true, formas = formas };
+                IList<FormaPago> formasPago = blFormaPago.ObtenerTodos();
+                resultado = new { correcto = true, formasPago = formasPago };
             }
             catch (Exception)
             {
@@ -40,8 +40,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blFormaPago blFormaPago = new blFormaPago(sesion);
-                IList<FormaPago> formaes = blFormaPago.ObtenerActivos();
-                resultado = new { correcto = true, formaes = formaes };
+                IList<FormaPago> formasPago = blFormaPago.ObtenerActivos();
+                resultado = new { correcto = true, formasPago = formasPago };
             }
             catch (Exception)
             {

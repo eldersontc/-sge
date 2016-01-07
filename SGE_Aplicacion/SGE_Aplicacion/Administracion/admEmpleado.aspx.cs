@@ -33,6 +33,40 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blEmpleado blEmpleado = new blEmpleado(sesion);
+                IList<Empleado> empleados = blEmpleado.ObtenerActivos();
+                resultado = new { correcto = true, empleados = empleados };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerVendedores(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blEmpleado blEmpleado = new blEmpleado(sesion);
+                IList<Empleado> vendedores = blEmpleado.ObtenerActivos();
+                resultado = new { correcto = true, vendedores = vendedores };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, Empleado empleado)
         {
             object resultado = new { };

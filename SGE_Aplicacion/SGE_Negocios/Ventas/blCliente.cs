@@ -38,6 +38,50 @@ namespace SGE.Negocios.Ventas
             return clientes;
         }
 
+        public IList<Cliente> ObtenerActivos()
+        {
+            IList<Cliente> clientes;
+            try
+            {
+                daCliente = new daCliente();
+                daCliente.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                clientes = daCliente.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daCliente.CerrarSesion();
+            }
+            return clientes;
+        }
+
+        public IList<ClienteContacto> ObtenerContactos(int idCliente)
+        {
+            IList<ClienteContacto> contactos;
+            try
+            {
+                daClienteContacto = new daClienteContacto();
+                daClienteContacto.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "idCliente", idCliente });
+                contactos = daClienteContacto.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daClienteContacto.CerrarSesion();
+            }
+            return contactos;
+        }
+
         public Cliente ObtenerPorId(int idCliente)
         {
             Cliente cliente;

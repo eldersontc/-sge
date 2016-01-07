@@ -35,6 +35,28 @@ namespace SGE.Negocios.Administracion
             return numeraciones;
         }
 
+        public IList<Numeracion> ObtenerActivos()
+        {
+            IList<Numeracion> numeraciones;
+            try
+            {
+                daNumeracion = new daNumeracion();
+                daNumeracion.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                numeraciones = daNumeracion.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daNumeracion.CerrarSesion();
+            }
+            return numeraciones;
+        }
+
         public bool Agregar(Numeracion numeracion)
         {
             try

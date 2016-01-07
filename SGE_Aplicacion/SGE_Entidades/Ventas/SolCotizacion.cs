@@ -16,9 +16,6 @@ namespace SGE.Entidades.Ventas
         public virtual string descripcion { get; set; }
         public virtual Cliente cliente { get; set; }
         public virtual Linea linea { get; set; }
-        public virtual LpMaterial lpMaterial { get; set; }
-        public virtual LpServicio lpServicio { get; set; }
-        public virtual LpMaquina lpMaquina { get; set; }
         public virtual Moneda moneda { get; set; }
         public virtual Empleado vendedor { get; set; }
         public virtual FormaPago formaPago { get; set; }
@@ -27,5 +24,15 @@ namespace SGE.Entidades.Ventas
         public virtual int estado { get; set; }
         public virtual List<SolCotizacionGrupo> grupos { get; set; }
         public virtual List<int> idsGrupos { get; set; }
+        public virtual string fechaCreacionStr 
+        { 
+            get { return (fechaCreacion == null) ? "" : fechaCreacion.ToShortDateString(); } 
+        }
+
+        public SolCotizacion()
+        {
+            grupos = new List<SolCotizacionGrupo>();
+            idsGrupos = new List<int>();
+        }
     }
 }

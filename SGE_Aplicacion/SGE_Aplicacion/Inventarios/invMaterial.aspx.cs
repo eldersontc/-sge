@@ -24,7 +24,24 @@ namespace SGE.Aplicacion.Inventarios
             {
                 blMaterial blMaterial = new blMaterial(sesion);
                 IList<Material> materiales = blMaterial.ObtenerTodos();
-                resultado = new { correcto = true, productos = materiales };
+                resultado = new { correcto = true, materiales = materiales };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blMaterial blMaterial = new blMaterial(sesion);
+                IList<Material> materiales = blMaterial.ObtenerActivos();
+                resultado = new { correcto = true, materiales = materiales };
             }
             catch (Exception)
             {

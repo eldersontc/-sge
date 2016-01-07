@@ -40,8 +40,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blLinea blLinea = new blLinea(sesion);
-                IList<Linea> lineaes = blLinea.ObtenerActivos();
-                resultado = new { correcto = true, lineaes = lineaes };
+                IList<Linea> lineas = blLinea.ObtenerActivos();
+                resultado = new { correcto = true, lineas = lineas };
             }
             catch (Exception)
             {

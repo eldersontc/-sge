@@ -35,6 +35,28 @@ namespace SGE.Negocios.Administracion
             return empleados;
         }
 
+        public IList<Empleado> ObtenerActivos()
+        {
+            IList<Empleado> empleados;
+            try
+            {
+                daEmpleado = new daEmpleado();
+                daEmpleado.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "activo", true });
+                empleados = daEmpleado.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daEmpleado.CerrarSesion();
+            }
+            return empleados;
+        }
+
         public bool Agregar(Empleado empleado)
         {
             try

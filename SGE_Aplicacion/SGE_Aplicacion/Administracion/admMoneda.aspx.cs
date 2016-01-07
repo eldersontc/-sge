@@ -33,6 +33,23 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blMoneda blMoneda = new blMoneda(sesion);
+                IList<Moneda> monedas = blMoneda.ObtenerActivos();
+                resultado = new { correcto = true, monedas = monedas };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, Moneda moneda)
         {
             object resultado = new { };

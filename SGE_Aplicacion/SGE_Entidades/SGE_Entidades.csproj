@@ -46,6 +46,8 @@
     <Compile Include="Administracion\Menu.cs" />
     <Compile Include="Administracion\Moneda.cs" />
     <Compile Include="Administracion\Numeracion.cs" />
+    <Compile Include="Administracion\Orden.cs" />
+    <Compile Include="Administracion\Paginacion.cs" />
     <Compile Include="Administracion\Perfil.cs" />
     <Compile Include="Administracion\PerfilMenu.cs" />
     <Compile Include="Administracion\Provincia.cs" />

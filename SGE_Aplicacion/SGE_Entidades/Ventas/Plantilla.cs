@@ -14,5 +14,10 @@ namespace SGE.Entidades.Ventas
         public virtual bool activo { get; set; }
         public virtual List<PlantillaGrupo> grupos { get; set; }
         public virtual List<int> idsGrupos { get; set; }
+
+        public Plantilla() {
+            grupos = new List<PlantillaGrupo>();
+            idsGrupos = new List<int>();
+        }
     }
 }

@@ -34,6 +34,40 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
+        public static object ObtenerActivos(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blCliente blCliente = new blCliente(sesion);
+                IList<Cliente> clientes = blCliente.ObtenerActivos();
+                resultado = new { correcto = true, clientes = clientes };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerContactos(Sesion sesion, int idCliente)
+        {
+            object resultado = new { };
+            try
+            {
+                blCliente blCliente = new blCliente(sesion);
+                IList<ClienteContacto> contactos = blCliente.ObtenerContactos(idCliente);
+                resultado = new { correcto = true, contactos = contactos };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, Cliente cliente)
         {
             object resultado = new { };
