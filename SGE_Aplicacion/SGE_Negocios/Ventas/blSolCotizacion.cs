@@ -38,6 +38,28 @@ namespace SGE.Negocios.Ventas
             return datos;
         }
 
+        public List<SolCotizacion> ObtenerPendientes()
+        {
+            List<SolCotizacion> solicitudes;
+            try
+            {
+                daSolCotizacion = new daSolCotizacion();
+                daSolCotizacion.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "estado", 0 });
+                solicitudes = daSolCotizacion.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daSolCotizacion.CerrarSesion();
+            }
+            return solicitudes;
+        }
+
         public SolCotizacion ObtenerPorId(int idSolCotizacion)
         {
             SolCotizacion solicitud;

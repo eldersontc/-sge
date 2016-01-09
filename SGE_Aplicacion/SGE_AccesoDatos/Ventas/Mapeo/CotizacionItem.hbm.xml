@@ -6,43 +6,42 @@
     </id>
     <property name="idCotizacionGrupo" column="idCotizacionGrupo"/>
     <property name="titulo" column="titulo"/>
-    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
-    <many-to-one name="maquina" column="idMaquina" class="SGE.Entidades.Ventas.Maquina" lazy="false"/>
+    <many-to-one name="servicio" column="idServicio" class="Servicio" lazy="false"/>
+    <many-to-one name="maquina" column="idMaquina" class="Maquina" lazy="false"/>
     <many-to-one name="material" column="idMaterial" class="SGE.Entidades.Inventarios.Material" lazy="false"/>
-    <property name="conMdA" column="conMdA"/>
-    <property name="conMdC" column="conMdC"/>
-    <property name="conTyr" column="conTyr"/>
-    <property name="conGrf" column="conGrf"/>
-    <property name="conMat" column="conMat"/>
-    <property name="conSrv" column="conSrv"/>
-    <property name="conFnd" column="conFnd"/>
-    <property name="xMa" column="xMa"/>
-    <property name="yMa" column="yMa"/>
-    <property name="xMc" column="xMc"/>
-    <property name="yMc" column="yMc"/>
-    <property name="tC" column="tC"/>
-    <property name="rC" column="rC"/>
-    <property name="fnd" column="fnd"/>
-    <property name="xFI" column="xFI"/>
-    <property name="yFI" column="yFI"/>
-    <property name="sX" column="sX"/>
-    <property name="sY" column="sY"/>
-    <property name="pliegos" column="pliegos"/>
-    <property name="gp180" column="gp180"/>
-    <property name="gi180" column="gi180"/>
-    <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="SGE.Entidades.Ventas.MetodoImpresion" lazy="false"/>
-    <property name="scntMat" column="scntMat"/>
-    <property name="cntDem" column="cntDem"/>
-    <property name="cntMat" column="cntMat"/>
-    <property name="cntPrd" column="cntPrd"/>
-    <property name="cantidad" column="cantidad"/>
-    <property name="cntPs" column="cntPs"/>
+    <property name="flagMA" column="flagMA"/>
+    <property name="flagMC" column="flagMC"/>
+    <property name="flagTYR" column="flagTYR"/>
+    <property name="flagGRF" column="flagGRF"/>
+    <property name="flagMAT" column="flagMAT"/>
+    <property name="flagSRV" column="flagSRV"/>
+    <property name="flagFND" column="flagFND"/>
+    <property name="valXMA" column="valXMA"/>
+    <property name="valYMA" column="valYMA"/>
+    <property name="valXMC" column="valXMC"/>
+    <property name="valYMC" column="valYMC"/>
+    <property name="valTC" column="valTC"/>
+    <property name="valRT" column="valRT"/>
+    <property name="valFND" column="valFND"/>
+    <property name="valXFI" column="valXFI"/>
+    <property name="valYFI" column="valYFI"/>
+    <property name="valSEPX" column="valSEPX"/>
+    <property name="valSEPY" column="valSEPY"/>
+    <property name="valPLG" column="valPLG"/>
+    <property name="flagGPR" column="flagGPR"/>
+    <property name="flagGIR" column="flagGIR"/>
+    <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="MetodoImpresion" lazy="false"/>
+    <property name="valMAT" column="valMAT"/>
+    <property name="valDEM" column="valDEM"/>
+    <property name="valPRD" column="valPRD"/>
+    <property name="valCNT" column="valCNT"/>
+    <property name="valPGS" column="valPGS"/>
     <property name="observacion" column="observacion"/>
-    <property name="incPresupuesto" column="incPresupuesto"/>
-    <property name="prcPresupuesto" column="prcPresupuesto"/>
-    <property name="ttlMaq" column="ttlMaq"/>
-    <property name="ttlMat" column="ttlMat"/>
-    <property name="ttlSrv" column="ttlSrv"/>
-    <property name="total" column="total"/>
+    <property name="flagINCP" column="flagINCP"/>
+    <property name="flagPRECP" column="flagPRECP"/>
+    <property name="valTLMAQ" column="valTLMAQ"/>
+    <property name="valTLMAT" column="valTLMAT"/>
+    <property name="valTLSRV" column="valTLSRV"/>
+    <property name="valTOTAL" column="valTOTAL"/>
   </class>
 </hibernate-mapping>

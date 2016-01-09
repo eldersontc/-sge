@@ -14,5 +14,11 @@ namespace SGE.Entidades.Ventas
         public virtual int cantidad { get; set; }
         public virtual List<CotizacionItem> items { get; set; }
         public virtual List<int> idsItems { get; set; }
+
+        public CotizacionGrupo()
+        {
+            items = new List<CotizacionItem>();
+            idsItems = new List<int>();
+        }
     }
 }

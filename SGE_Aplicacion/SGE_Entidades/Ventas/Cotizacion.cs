@@ -34,5 +34,15 @@ namespace SGE.Entidades.Ventas
         public virtual int estado { get; set; }
         public virtual List<CotizacionGrupo> grupos { get; set; }
         public virtual List<int> idsGrupos { get; set; }
+        public virtual string fechaCreacionStr 
+        { 
+            get { return (fechaCreacion == null) ? "" : fechaCreacion.ToShortDateString(); } 
+        }
+
+        public Cotizacion()
+        {
+            grupos = new List<CotizacionGrupo>();
+            idsGrupos = new List<int>();
+        }
     }
 }

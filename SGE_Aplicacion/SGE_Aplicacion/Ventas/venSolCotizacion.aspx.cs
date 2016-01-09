@@ -34,6 +34,23 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
+        public static object ObtenerPendientes(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blSolCotizacion blSolCotizacion = new blSolCotizacion(sesion);
+                List<SolCotizacion> solicitudes = blSolCotizacion.ObtenerPendientes();
+                resultado = new { correcto = true, solicitudes = solicitudes };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object ObtenerPorId(Sesion sesion, int idSolCotizacion)
         {
             object resultado = new { };

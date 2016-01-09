@@ -17,16 +17,16 @@ namespace SGE.Negocios.Ventas
         daCotizacion daCotizacion;
         daCotizacionGrupo daCotizacionGrupo;
         daCotizacionItem daCotizacionItem;
-        daCotizacionServicio daCotizacionServicio; 
+        daCotizacionServicio daCotizacionServicio;
 
-        public IList<Cotizacion> ObtenerTodos()
+        public object[] ObtenerTodos(Paginacion paginacion, Orden orden)
         {
-            IList<Cotizacion> cotizaciones;
+            object[] datos;
             try
             {
                 daCotizacion = new daCotizacion();
                 daCotizacion.AbrirSesion();
-                cotizaciones = daCotizacion.ObtenerTodos();
+                datos = daCotizacion.ObtenerPaginacion(new List<object[]>(), paginacion, orden);
             }
             catch (Exception)
             {
@@ -36,7 +36,7 @@ namespace SGE.Negocios.Ventas
             {
                 daCotizacion.CerrarSesion();
             }
-            return cotizaciones;
+            return datos;
         }
 
         public Cotizacion ObtenerPorId(int idCotizacion)
@@ -45,6 +45,7 @@ namespace SGE.Negocios.Ventas
             try
             {
                 daCotizacion = new daCotizacion();
+                daCotizacion.AbrirSesion();
                 cotizacion = daCotizacion.ObtenerPorId(idCotizacion);
                 daCotizacionGrupo = new daCotizacionGrupo();
                 daCotizacionGrupo.AsignarSesion(daCotizacion);
@@ -85,6 +86,11 @@ namespace SGE.Negocios.Ventas
             {
                 daCotizacion = new daCotizacion();
                 daCotizacion.IniciarTransaccion();
+                if (string.IsNullOrEmpty(cotizacion.numero))
+                {
+                    cotizacion.numero = generarNumeracion(daCotizacion, cotizacion.numeracion.idNumeracion);
+                }
+                cotizacion.fechaCreacion = DateTime.Now;
                 daCotizacion.Agregar(cotizacion);
                 daCotizacionGrupo = new daCotizacionGrupo();
                 daCotizacionGrupo.AsignarSesion(daCotizacion);
@@ -131,7 +137,6 @@ namespace SGE.Negocios.Ventas
                 cotizacion_.descripcion = cotizacion.descripcion;
                 cotizacion_.cliente = cotizacion.cliente;
                 cotizacion_.cotizador = cotizacion.cotizador;
-                cotizacion_.linea = cotizacion.linea;
                 cotizacion_.lpMaterial = cotizacion.lpMaterial;
                 cotizacion_.lpServicio = cotizacion.lpServicio;
                 cotizacion_.lpMaquina = cotizacion.lpMaquina;
@@ -167,7 +172,8 @@ namespace SGE.Negocios.Ventas
                             }
                         }
                     }
-                    else {
+                    else
+                    {
                         CotizacionGrupo grupo_ = daCotizacionGrupo.ObtenerPorId(grupo.idCotizacionGrupo);
                         grupo_.titulo = grupo.titulo;
                         grupo_.cantidad = grupo.cantidad;
@@ -183,47 +189,47 @@ namespace SGE.Negocios.Ventas
                                     daCotizacionServicio.Agregar(servicio);
                                 }
                             }
-                            else { 
+                            else
+                            {
                                 CotizacionItem item_ = daCotizacionItem.ObtenerPorId(item.idCotizacionItem);
                                 item_.titulo = item.titulo;
                                 item_.servicio = item.servicio;
                                 item_.maquina = item.maquina;
                                 item_.material = item.material;
-                                item_.conMdA = item.conMdA;
-                                item_.conMdC = item.conMdC;
-                                item_.conTyr = item.conTyr;
-                                item_.conGrf = item.conGrf;
-                                item_.conMat = item.conMat;
-                                item_.conSrv = item.conSrv;
-                                item_.conFnd = item.conFnd;
-                                item_.xMa = item.xMa;
-                                item_.yMa = item.yMa;
-                                item_.xMc = item.xMc;
-                                item_.yMc = item.yMc;
-                                item_.tC = item.tC;
-                                item_.rC = item.rC;
-                                item_.fnd = item.fnd;
-                                item_.xFI = item.xFI;
-                                item_.yFI = item.yFI;
-                                item_.sX = item.sX;
-                                item_.sY = item.sY;
-                                item_.pliegos = item.pliegos;
-                                item_.gp180 = item.gp180;
-                                item_.gi180 = item.gi180;
+                                item_.flagMA = item.flagMA;
+                                item_.flagMC = item.flagMC;
+                                item_.flagTYR = item.flagTYR;
+                                item_.flagGRF = item.flagGRF;
+                                item_.flagMAT = item.flagMAT;
+                                item_.flagSRV = item.flagSRV;
+                                item_.flagFND = item.flagFND;
+                                item_.valXMA = item.valXMA;
+                                item_.valYMA = item.valYMA;
+                                item_.valXMC = item.valXMC;
+                                item_.valYMC = item.valYMC;
+                                item_.valTC = item.valTC;
+                                item_.valRT = item.valRT;
+                                item_.valFND = item.valFND;
+                                item_.valXFI = item.valXFI;
+                                item_.valYFI = item.valYFI;
+                                item_.valSEPX = item.valSEPX;
+                                item_.valSEPY = item.valSEPY;
+                                item_.valPLG = item.valPLG;
+                                item_.flagGPR = item.flagGPR;
+                                item_.flagGIR = item.flagGIR;
                                 item_.metodoImpresion = item.metodoImpresion;
-                                item_.scntMat = item.scntMat;
-                                item_.cntDem = item.cntDem;
-                                item_.cntMat = item.cntMat;
-                                item_.cntPrd = item.cntPrd;
-                                item_.cantidad = item.cantidad;
-                                item_.cntPs = item.cntPs;
+                                item_.valMAT = item.valMAT;
+                                item_.valDEM = item.valDEM;
+                                item_.valPRD = item.valPRD;
+                                item_.valCNT = item.valCNT;
+                                item_.valPGS = item.valPGS;
                                 item_.observacion = item.observacion;
-                                item_.incPresupuesto = item.incPresupuesto;
-                                item_.prcPresupuesto = item.prcPresupuesto;
-                                item_.ttlMaq = item.ttlMaq;
-                                item_.ttlMat = item.ttlMat;
-                                item_.ttlSrv = item.ttlSrv;
-                                item_.total = item.total;
+                                item_.flagINCP = item.flagINCP;
+                                item_.flagPRECP = item.flagPRECP;
+                                item_.valTLMAQ = item.valTLMAQ;
+                                item_.valTLMAT = item.valTLMAT;
+                                item_.valTLSRV = item.valTLSRV;
+                                item_.valTOTAL = item.valTOTAL;
                                 foreach (CotizacionServicio servicio in item.servicios)
                                 {
                                     if (servicio.idCotizacionServicio == 0)
@@ -231,7 +237,8 @@ namespace SGE.Negocios.Ventas
                                         servicio.idCotizacionItem = item.idCotizacionItem;
                                         daCotizacionServicio.Agregar(servicio);
                                     }
-                                    else {
+                                    else
+                                    {
                                         CotizacionServicio servicio_ = daCotizacionServicio.ObtenerPorId(servicio.idCotizacionServicio);
                                         servicio_.cantidad = servicio.cantidad;
                                         servicio_.precio = servicio.precio;
@@ -271,30 +278,35 @@ namespace SGE.Negocios.Ventas
             return true;
         }
 
-        public bool Eliminar(int idCotizacion)
+        public bool Eliminar(List<int> ids)
         {
             try
             {
                 daCotizacion = new daCotizacion();
                 daCotizacion.IniciarTransaccion();
-                daCotizacion.EliminarPorId(idCotizacion, constantes.esquemas.Ventas);
-                daCotizacionGrupo = new daCotizacionGrupo();
-                daCotizacionGrupo.AsignarSesion(daCotizacion);
-                List<object[]> filtros = new List<object[]>();
-                filtros.Add(new object[] { "idCotizacion", idCotizacion });
-                List<CotizacionGrupo> grupos = daCotizacionGrupo.ObtenerLista(filtros);
-                daCotizacionGrupo.EliminarPorIdCotizacion(idCotizacion);
-                daCotizacionItem = new daCotizacionItem();
-                daCotizacionItem.AsignarSesion(daCotizacion);
-                foreach (CotizacionGrupo grupo in grupos)
+                foreach (var idCotizacion in ids)
                 {
-                    filtros = new List<object[]>();
-                    filtros.Add(new object[] { "idCotizacionGrupo", grupo.idCotizacionGrupo });
-                    List<CotizacionItem> items = daCotizacionItem.ObtenerLista(filtros);
-                    daCotizacionItem.EliminarPorIdCotizacionGrupo(grupo.idCotizacionGrupo);
-                    foreach (CotizacionItem item in items)
+                    daCotizacion.EliminarPorId(idCotizacion, constantes.esquemas.Ventas);
+                    daCotizacionGrupo = new daCotizacionGrupo();
+                    daCotizacionGrupo.AsignarSesion(daCotizacion);
+                    List<object[]> filtros = new List<object[]>();
+                    filtros.Add(new object[] { "idCotizacion", idCotizacion });
+                    List<CotizacionGrupo> grupos = daCotizacionGrupo.ObtenerLista(filtros);
+                    daCotizacionGrupo.EliminarPorIdCotizacion(idCotizacion);
+                    daCotizacionItem = new daCotizacionItem();
+                    daCotizacionItem.AsignarSesion(daCotizacion);
+                    foreach (CotizacionGrupo grupo in grupos)
                     {
-                        daCotizacionServicio.EliminarPorIdCotizacionItem(item.idCotizacionItem);
+                        filtros = new List<object[]>();
+                        filtros.Add(new object[] { "idCotizacionGrupo", grupo.idCotizacionGrupo });
+                        List<CotizacionItem> items = daCotizacionItem.ObtenerLista(filtros);
+                        daCotizacionItem.EliminarPorIdCotizacionGrupo(grupo.idCotizacionGrupo);
+                        daCotizacionServicio = new daCotizacionServicio();
+                        daCotizacionServicio.AsignarSesion(daCotizacion);
+                        foreach (CotizacionItem item in items)
+                        {
+                            daCotizacionServicio.EliminarPorIdCotizacionItem(item.idCotizacionItem);
+                        }
                     }
                 }
                 daCotizacion.ConfirmarTransaccion();

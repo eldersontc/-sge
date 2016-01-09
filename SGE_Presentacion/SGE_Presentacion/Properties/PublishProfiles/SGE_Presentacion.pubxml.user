@@ -11,10 +11,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/SGE_Presentacion.dll">
-      <publishTime>01/07/2016 03:06:47</publishTime>
+      <publishTime>01/09/2016 02:27:43</publishTime>
     </File>
     <File Include="bin/SGE_Presentacion.pdb">
-      <publishTime>01/07/2016 03:06:47</publishTime>
+      <publishTime>01/09/2016 02:27:43</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>10/05/2015 22:46:27</publishTime>
@@ -40,6 +40,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Presentacion/app/controllers/lisSolicitudCotizacionController.js">
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
+    <File Include="Presentacion/app/controllers/venCotizacionController.js">
+      <publishTime>01/09/2016 01:55:25</publishTime>
+    </File>
     <File Include="Presentacion/app/controllers/venPlantillaController.js">
       <publishTime>01/06/2016 22:41:00</publishTime>
     </File>
@@ -47,7 +50,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/06/2016 11:51:49</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venSolCotizacionController.js">
-      <publishTime>01/07/2016 01:33:51</publishTime>
+      <publishTime>01/07/2016 17:36:58</publishTime>
     </File>
     <File Include="Presentacion/app/data/config.js">
       <publishTime>10/06/2015 00:46:17</publishTime>
@@ -85,11 +88,14 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Presentacion/app/views/lisSolicitudCotizacion.html">
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
+    <File Include="Presentacion/app/views/venCotizacion.html">
+      <publishTime>01/09/2016 02:27:39</publishTime>
+    </File>
     <File Include="Presentacion/app/views/venPlantilla.html">
-      <publishTime>01/06/2016 23:00:05</publishTime>
+      <publishTime>01/08/2016 19:28:19</publishTime>
     </File>
     <File Include="Presentacion/app/views/venSolCotizacion.html">
-      <publishTime>01/07/2016 03:06:41</publishTime>
+      <publishTime>01/08/2016 19:28:52</publishTime>
     </File>
     <File Include="Presentacion/favicon.ico">
       <publishTime>10/19/2015 14:03:37</publishTime>
@@ -308,7 +314,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2015 23:55:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/07/2016 03:06:50</publishTime>
+      <publishTime>01/09/2016 02:27:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

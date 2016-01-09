@@ -60,12 +60,14 @@
     <Content Include="Default.aspx" />
     <Content Include="Presentacion\app\app.js" />
     <Content Include="Presentacion\app\controllers\inicioController.js" />
+    <Content Include="Presentacion\app\controllers\venCotizacionController.js" />
     <Content Include="Presentacion\app\controllers\venPlantillaController.js" />
     <Content Include="Presentacion\app\controllers\venSolCotizacionController.js" />
     <Content Include="Presentacion\app\factories\factories.js" />
     <Content Include="Presentacion\app\main.js" />
     <Content Include="Presentacion\app\services\routeResolver.js" />
     <Content Include="Presentacion\app\views\inicio.html" />
+    <Content Include="Presentacion\app\views\venCotizacion.html" />
     <Content Include="Presentacion\app\views\venPlantilla.html" />
     <Content Include="Presentacion\app\views\venSolCotizacion.html" />
     <Content Include="Presentacion\favicon.ico" />

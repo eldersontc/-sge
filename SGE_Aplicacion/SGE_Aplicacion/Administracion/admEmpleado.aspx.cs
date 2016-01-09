@@ -67,6 +67,23 @@ namespace SGE.Aplicacion.Administracion
         }
 
         [WebMethod]
+        public static object ObtenerCotizadores(Sesion sesion)
+        {
+            object resultado = new { };
+            try
+            {
+                blEmpleado blEmpleado = new blEmpleado(sesion);
+                IList<Empleado> cotizadores = blEmpleado.ObtenerActivos();
+                resultado = new { correcto = true, cotizadores = cotizadores };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object Agregar(Sesion sesion, Empleado empleado)
         {
             object resultado = new { };
