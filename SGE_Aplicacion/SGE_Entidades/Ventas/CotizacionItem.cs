@@ -36,6 +36,8 @@ namespace SGE.Entidades.Ventas
         public virtual int valPLG { get; set; }
         public virtual bool flagGPR { get; set; }
         public virtual bool flagGIR { get; set; }
+        public virtual int valPZSP { get; set; }
+        public virtual int valPZSI { get; set; }
         public virtual MetodoImpresion metodoImpresion { get; set; }
         public virtual int valMAT { get; set; }
         public virtual int valDEM { get; set; }

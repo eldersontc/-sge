@@ -103,14 +103,14 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
-        public static object GenerarGraficoPrecorte(Sesion sesion, CotizacionItem item)
+        public static object GenerarPrecorte(Sesion sesion, CotizacionItem item)
         {
             object resultado = new { };
             try
             {
                 blCotizacion blCotizacion = new blCotizacion(sesion);
-                string imgBase64 = GenerarGraficoPrecorte(item);
-                resultado = new { correcto = true, imgBase64 = imgBase64 };
+                object[] datos = GenerarPrecorte(item);
+                resultado = new { correcto = true, imgBase64 = datos[0], valPZSP = datos[1] };
             }
             catch (Exception)
             {
@@ -119,10 +119,25 @@ namespace SGE.Aplicacion.Ventas
             return resultado;
         }
 
-        public static string GenerarGraficoPrecorte(CotizacionItem item)
+        [WebMethod]
+        public static object OptimizarPrecorte(Sesion sesion, CotizacionItem item)
         {
-            string imgBase64 = string.Empty;
+            object resultado = new { };
+            try
+            {
+                blCotizacion blCotizacion = new blCotizacion(sesion);
+                List<object[]> opciones = OptimizarPrecorte(item);
+                resultado = new { correcto = true, opciones = opciones };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
 
+        public static object[] GenerarPrecorte(CotizacionItem item)
+        {
             var xMAT = Convert.ToInt32(item.material.alto * 10);
             var yMAT = Convert.ToInt32(item.material.largo * 10);
 
@@ -150,11 +165,14 @@ namespace SGE.Aplicacion.Ventas
 
             g.DrawRectangle(p, new Rectangle(0, 0, yMAT - 1, yMAT - 1));
 
+            int valPZSP = 0;
+
             for (int x = xPZ; x <= xMAT; x += xPZ)
             {
                 for (int y = yPZ; y <= yMAT; y += yPZ)
                 {
                     g.DrawRectangle(p, new Rectangle(x - xPZ, y - yPZ, xPZ, yPZ));
+                    valPZSP++;
                 }
             }
 
@@ -162,9 +180,98 @@ namespace SGE.Aplicacion.Ventas
             b.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             byte[] byteImage = ms.ToArray();
-            imgBase64 = Convert.ToBase64String(byteImage);
+            string imgBase64 = Convert.ToBase64String(byteImage);
 
-            return imgBase64;
+            return new object[] { imgBase64, valPZSP };
+        }
+
+        public static List<object[]> OptimizarPrecorte(CotizacionItem item)
+        {
+            List<object[]> opciones = new List<object[]>();
+
+            var xMAT = Convert.ToInt32(item.material.alto * 10);
+            var yMAT = Convert.ToInt32(item.material.largo * 10);
+
+            var xPZ = Convert.ToInt32(item.valXFI * 10);
+            var yPZ = Convert.ToInt32(item.valYFI * 10);
+
+            var xPZG = yPZ;
+            var yPZG = xPZ;
+
+            int cantidad_columnas = Math.Max(yMAT, xMAT) / Math.Min(yPZ, xPZ);
+
+            List<bool[]> columnas = new List<bool[]>();
+
+            for (int i = 0; i < cantidad_columnas; i++)
+            {
+                bool[] obj = new bool[cantidad_columnas];
+                for (int j = 0; j < cantidad_columnas; j++)
+                {
+                    if (j <= i)
+                    {
+                        obj[j] = true;
+                    }
+                    else
+                    {
+                        obj[j] = false;
+                    }
+                }
+                columnas.Add(obj);
+            }
+
+            foreach (bool[] array in columnas)
+            {
+                Bitmap b;
+                b = new Bitmap(xMAT, yMAT);
+                Graphics g = Graphics.FromImage(b);
+                g.Clear(Color.White);
+
+                Pen MyPen = new Pen(System.Drawing.Color.Black, 1);
+                //Pen MyPen2 = new Pen(System.Drawing.Color.Red, 1);
+                g.DrawRectangle(MyPen, new Rectangle(0, 0, xMAT - 1, yMAT - 1));
+
+                int incremento_x = 0;
+                int incremento_y = 0;
+
+                int cantidad_piezas = 0;
+                int numero_columna = 0;
+
+                int sum_x = 0;
+                int sum_y = 0;
+
+                while (sum_x + incremento_x <= xMAT)
+                {
+                    incremento_x = array[numero_columna] ? xPZG : xPZ;
+                    incremento_y = array[numero_columna] ? yPZG : yPZ;
+                    while (sum_y + incremento_y <= yMAT)
+                    {
+                        g.DrawRectangle(MyPen, new Rectangle(sum_x, sum_y, incremento_x, incremento_y));
+                        sum_y += incremento_y;
+                        cantidad_piezas++;
+                    }
+                    sum_x += incremento_x;
+                    numero_columna++;
+                    sum_y = 0;
+                    if (numero_columna < array.Length)
+                    {
+                        incremento_x = array[numero_columna] ? xPZG : xPZ;
+                    }
+                }
+
+                if (cantidad_piezas > item.valPZSP) {
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    b.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    byte[] byteImage = ms.ToArray();
+                    string imgBase64 = Convert.ToBase64String(byteImage);
+
+                    opciones.Add(new object[] { cantidad_piezas, imgBase64 });
+                }
+            }
+
+            //var opciones1 = opciones.Distinct().ToList();
+
+            return opciones;
         }
     }
 }

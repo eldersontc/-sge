@@ -11,10 +11,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/SGE_Presentacion.dll">
-      <publishTime>01/09/2016 02:27:43</publishTime>
+      <publishTime>01/10/2016 02:03:17</publishTime>
     </File>
     <File Include="bin/SGE_Presentacion.pdb">
-      <publishTime>01/09/2016 02:27:43</publishTime>
+      <publishTime>01/10/2016 02:03:17</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>10/05/2015 22:46:27</publishTime>
@@ -41,7 +41,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venCotizacionController.js">
-      <publishTime>01/09/2016 01:55:25</publishTime>
+      <publishTime>01/10/2016 01:59:28</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venPlantillaController.js">
       <publishTime>01/06/2016 22:41:00</publishTime>
@@ -50,7 +50,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/06/2016 11:51:49</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venSolCotizacionController.js">
-      <publishTime>01/07/2016 17:36:58</publishTime>
+      <publishTime>01/09/2016 23:04:18</publishTime>
     </File>
     <File Include="Presentacion/app/data/config.js">
       <publishTime>10/06/2015 00:46:17</publishTime>
@@ -89,19 +89,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
     <File Include="Presentacion/app/views/venCotizacion.html">
-      <publishTime>01/09/2016 02:27:39</publishTime>
+      <publishTime>01/10/2016 02:03:08</publishTime>
     </File>
     <File Include="Presentacion/app/views/venPlantilla.html">
       <publishTime>01/08/2016 19:28:19</publishTime>
     </File>
     <File Include="Presentacion/app/views/venSolCotizacion.html">
-      <publishTime>01/08/2016 19:28:52</publishTime>
+      <publishTime>01/09/2016 23:05:17</publishTime>
     </File>
     <File Include="Presentacion/favicon.ico">
       <publishTime>10/19/2015 14:03:37</publishTime>
     </File>
     <File Include="Presentacion/index.html">
-      <publishTime>01/06/2016 22:35:24</publishTime>
+      <publishTime>01/09/2016 19:38:07</publishTime>
     </File>
     <File Include="Presentacion/login.html">
       <publishTime>01/05/2016 11:48:21</publishTime>
@@ -118,6 +118,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Presentacion/static/css/bootstrap.min.css">
       <publishTime>08/16/2015 18:49:40</publishTime>
     </File>
+    <File Include="Presentacion/static/css/css.css">
+      <publishTime>01/09/2016 19:26:05</publishTime>
+    </File>
     <File Include="Presentacion/static/css/font-awesome.min.css">
       <publishTime>01/05/2016 10:35:53</publishTime>
     </File>
@@ -125,10 +128,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/05/2016 10:36:12</publishTime>
     </File>
     <File Include="Presentacion/static/css/sge.css">
-      <publishTime>01/06/2016 19:28:44</publishTime>
+      <publishTime>01/09/2016 19:56:46</publishTime>
     </File>
     <File Include="Presentacion/static/css/sge.min.css">
-      <publishTime>01/06/2016 19:21:29</publishTime>
+      <publishTime>01/09/2016 19:56:26</publishTime>
     </File>
     <File Include="Presentacion/static/css/skins/skin-black-light.css">
       <publishTime>08/16/2015 18:49:40</publishTime>
@@ -217,6 +220,24 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Presentacion/static/fonts/fontawesome-webfont.woff2">
       <publishTime>01/05/2016 11:19:33</publishTime>
     </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6CzM2XYAq8cDhaXsrN8WXcA.woff2">
+      <publishTime>01/09/2016 19:18:51</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6E78GtRp3lhchupCJNw8t58.woff2">
+      <publishTime>01/09/2016 19:17:54</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6GQKuzMuncr0JB710wa2dPI.woff2">
+      <publishTime>01/09/2016 19:19:08</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6Lpx497t94oDua8KfAL9f-E.woff2">
+      <publishTime>01/09/2016 19:18:10</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6MAjkyiewWYrWZc50I8hK7I.woff2">
+      <publishTime>01/09/2016 19:18:19</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/fpTVHK8qsXbIeTHTrnQH6OXKTZYPNtG1yMB_YJSqlic.woff2">
+      <publishTime>01/09/2016 19:18:58</publishTime>
+    </File>
     <File Include="Presentacion/static/fonts/glyphicons-halflings-regular.eot">
       <publishTime>08/16/2015 18:49:40</publishTime>
     </File>
@@ -237,6 +258,51 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Presentacion/static/fonts/ionicons.woff">
       <publishTime>01/05/2016 11:23:05</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/M2Jd71oPJhLKp0zdtTvoM40tgx99jmYGv_xzYuwd1rU.woff2">
+      <publishTime>01/09/2016 19:18:35</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/M2Jd71oPJhLKp0zdtTvoM7YHq4FgHI02B8rPccK0FJQ.woff2">
+      <publishTime>01/09/2016 19:18:27</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/M2Jd71oPJhLKp0zdtTvoMxgy2Fsj5sj3EzlXpqVXRKo.woff2">
+      <publishTime>01/09/2016 19:18:43</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/ODelI1aHBYDBqgeIAH2zlC2Q8seG17bfDXYR_jUsrzg.woff2">
+      <publishTime>01/09/2016 19:16:39</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/ODelI1aHBYDBqgeIAH2zlNOAHFN6BivSraYkjhveRHY.woff2">
+      <publishTime>01/09/2016 19:16:30</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2">
+      <publishTime>01/09/2016 19:16:48</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGClYwVOhDRq2vbpGRTZ7bbs.woff2">
+      <publishTime>01/09/2016 19:17:04</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGCOFnW3Jk0f09zW_Yln67Ac.woff2">
+      <publishTime>01/09/2016 19:17:23</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGDovqjS_dXPZszO_XltPdNg.woff2">
+      <publishTime>01/09/2016 19:17:30</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGDRVvBvQIc1z78c__uoBcyI.woff2">
+      <publishTime>01/09/2016 19:16:15</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGD_j0nMiB9fPhg_k1wdK2h0.woff2">
+      <publishTime>01/09/2016 19:14:36</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGEo0As1BFRXtCDhS66znb_k.woff2">
+      <publishTime>01/09/2016 19:17:46</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGFKFh1TDTPrUZWzVp6FtpG8.woff2">
+      <publishTime>01/09/2016 19:17:13</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGFxe-GPfKKFmiXaJ_Q0GFr8.woff2">
+      <publishTime>01/09/2016 19:17:38</publishTime>
+    </File>
+    <File Include="Presentacion/static/fonts/toadOcfmlt9b38dHJxOBGOode0-EuMkY--TSyExeINg.woff2">
+      <publishTime>01/09/2016 19:16:23</publishTime>
     </File>
     <File Include="Presentacion/static/img/preload-64.gif">
       <publishTime>06/25/2015 15:56:08</publishTime>
@@ -314,7 +380,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2015 23:55:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/09/2016 02:27:48</publishTime>
+      <publishTime>01/10/2016 02:03:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

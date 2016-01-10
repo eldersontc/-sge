@@ -217,6 +217,8 @@ namespace SGE.Negocios.Ventas
                                 item_.valPLG = item.valPLG;
                                 item_.flagGPR = item.flagGPR;
                                 item_.flagGIR = item.flagGIR;
+                                item_.valPZSP = item.valPZSP;
+                                item_.valPZSI = item.valPZSI;
                                 item_.metodoImpresion = item.metodoImpresion;
                                 item_.valMAT = item.valMAT;
                                 item_.valDEM = item.valDEM;

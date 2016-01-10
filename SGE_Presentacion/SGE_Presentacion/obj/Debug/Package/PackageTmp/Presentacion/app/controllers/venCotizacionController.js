@@ -25,7 +25,8 @@ define(['app'], function (app) {
             urlObtenerServicios = URL_BASE + 'Ventas/venServicio.aspx/ObtenerActivos',
             urlObtenerMateriales = URL_BASE + 'Inventarios/invMaterial.aspx/ObtenerActivos',
             urlObtenerMaquinas = URL_BASE + 'Ventas/venMaquina.aspx/ObtenerActivos',
-            urlGenerarGraficoPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/GenerarGraficoPrecorte';
+            urlGenerarPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/GenerarPrecorte',
+            urlOptimizarPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/OptimizarPrecorte';
 
         // Personalizadas
         $scope.opcion = 1;
@@ -435,18 +436,68 @@ define(['app'], function (app) {
         };
 
         $scope.asignarItem = function (item) {
-            $scope.itemActivo = item;
+            $scope.item = item;
+            $scope.itemActivo = angular.copy(item);
+            if (angular.isDefined($scope.item.imgBase64P)) {
+                $scope.imgBase64 = 'data:image/jpeg;base64,' + $scope.item.imgBase64P;
+            } else {
+                $scope.imgBase64 = 'static/img/user2-160x160.jpg';
+            }
+            $scope.verOpciones = false;
         };
 
-        $scope.generarGraficoPrecorte = function (girar) {
+        $scope.asignarPieza = function (valXFI, valYFI) {
+            $scope.itemActivo.valXFI = valXFI;
+            $scope.itemActivo.valYFI = valYFI;
+        };
+
+        $scope.generarPrecorte = function (girar) {
             $scope.itemActivo.flagGPR = girar;
-            http.post(urlGenerarGraficoPrecorte, { item: $scope.itemActivo },
+            $scope.cargandoPrecorte = true;
+            http.post(urlGenerarPrecorte, { item: $scope.itemActivo },
 	            function (data) {
 	                $scope.imgBase64 = 'data:image/jpeg;base64,' + data.imgBase64;
+	                $scope.itemActivo.imgBase64P = data.imgBase64;
+	                $scope.itemActivo.valPZSP = data.valPZSP;
+	                $scope.cargandoPrecorte = false;
 	            },
 	            function () {
-	                //$scope.cargandoBusMaquina = false;
+	                $scope.cargandoPrecorte = false;
 	            });
+        };
+
+        $scope.optimizarPrecorte = function () {
+            $scope.verOpciones = true;
+            $scope.cargandoOptimizacion = true
+            http.post(urlOptimizarPrecorte, { item: $scope.itemActivo },
+	            function (data) {
+	                $scope.opciones = data.opciones;
+	                $scope.cargandoOptimizacion = false;
+	            },
+	            function () {
+	                $scope.cargandoOptimizacion = false;
+	            });
+        };
+
+        $scope.regresar = function () {
+            $scope.opciones = [];
+            $scope.verOpciones = false;
+        };
+
+        $scope.cambiarPrecorte = function (opcion) {
+            $scope.imgBase64 = 'data:image/jpeg;base64,' + opcion[1];
+            $scope.itemActivo.imgBase64P = opcion[1];
+            $scope.itemActivo.valPZSP = opcion[0];
+            $scope.verOpciones = false;
+        };
+
+        $scope.guardarItem = function () {
+            $scope.item.valXFI = $scope.itemActivo.valXFI;
+            $scope.item.valYFI = $scope.itemActivo.valYFI;
+            $scope.item.valDEM = $scope.itemActivo.valDEM;
+            $scope.item.valPZSP = $scope.itemActivo.valPZSP;
+            $scope.item.imgBase64P = $scope.itemActivo.imgBase64P;
+            $('#precorte').modal('hide');
         };
 
         // Init

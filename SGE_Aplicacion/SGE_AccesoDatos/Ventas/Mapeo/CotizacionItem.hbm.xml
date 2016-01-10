@@ -30,6 +30,8 @@
     <property name="valPLG" column="valPLG"/>
     <property name="flagGPR" column="flagGPR"/>
     <property name="flagGIR" column="flagGIR"/>
+    <property name="valPZSP" column="valPZSP"/>
+    <property name="valPZSI" column="valPZSI"/>
     <many-to-one name="metodoImpresion" column="idMetodoImpresion" class="MetodoImpresion" lazy="false"/>
     <property name="valMAT" column="valMAT"/>
     <property name="valDEM" column="valDEM"/>

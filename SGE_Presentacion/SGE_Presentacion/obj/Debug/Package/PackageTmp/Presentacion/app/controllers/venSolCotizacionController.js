@@ -4,7 +4,8 @@ define(['app'], function (app) {
 
     app.register.controller('venSolCotizacionController', ['$scope', 'http', function ($scope, http) {
 
-        var URL_BASE = 'http://localhost:52455/';
+        var URL_BASE = 'http://192.168.1.109/SGE_Aplicacion/';
+        //var URL_BASE = 'http://localhost:52455/';
 
         // URLs
         var urlObtenerTodos = URL_BASE + 'Ventas/venSolCotizacion.aspx/ObtenerTodos',
