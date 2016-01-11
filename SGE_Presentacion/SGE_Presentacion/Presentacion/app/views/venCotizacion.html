@@ -378,9 +378,9 @@
                                                                                     <div class="tab-content">
                                                                                         <div class="tab-pane active" id="tab__{{$parent.$index}}_{{$index}}_1">
                                                                                             <div class="horizontal-form">
-		                                                                                        <div class="form-body">
-								                                                                    <div class="row">
-								                        	                                            <div class="col-md-12">
+                                                                                                <div class="form-body">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="col-md-4">
                                                                                                                 <div class="form-group">
                                                                                                                     <label class="control-label">
@@ -390,124 +390,130 @@
                                                                                                                     <input type="text" class="form-control" data-ng-model="item.titulo" data-ng-required="true">
                                                                                                                 </div>
                                                                                                             </div>
-									                                                                        <div class="col-md-4">
-									                                                                            <div class="form-group">
-									                                                                                <label class="control-label"> SERVICIO
-									                                    	                                            <span class="required" aria-required="true" data-ng-show="item.flagSRV"> * </span>
-									                                                                                </label>
-									                                	                                            <div class="input-group">
+                                                                                                            <div class="col-md-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        SERVICIO
+									                                    	                                            <span class="required" aria-required="true" data-ng-show="item.flagSRV">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
                                                                                                                         <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagSRV" data-ng-change="limpiarSRV(item)"/>
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagSRV" data-ng-change="limpiarSRV(item)" />
                                                                                                                         </span>
-									                                		                                            <input type="text" class="form-control" data-ng-model="item.servicio.descripcion" data-ng-required="item.flagSRV" data-ng-disabled="!item.flagSRV" data-ng-readonly="true">
-									                                		                                            <span class="input-group-btn">
+                                                                                                                        <input type="text" class="form-control" data-ng-model="item.servicio.descripcion" data-ng-required="item.flagSRV" data-ng-disabled="!item.flagSRV" data-ng-readonly="true">
+                                                                                                                        <span class="input-group-btn">
                                                                                                                             <a class="btn btn-md btn-default" data-toggle="modal" href="#busServicio" data-ng-click="obtenerServicios(item)" data-ng-show="item.flagSRV">
                                                                                                                                 <i class="fa fa-search"></i>
                                                                                                                             </a>
                                                                                                                             <button type="button" class="btn btn-md btn-default" data-ng-show="!item.flagSRV" data-ng-disabled="true">
                                                                                                                                 <i class="fa fa-search"></i>
                                                                                                                             </button>
-									                                                                                    </span>
-									                                	                                            </div>
-									                                                                            </div>
-									                                                                        </div>
-									                                                                        <div class="col-md-4">
-									                                                                            <div class="form-group">
-									                                                                                <label class="control-label"> MATERIAL
-									                                    	                                            <span class="required" aria-required="true" data-ng-show="item.flagMAT"> * </span>
-									                                                                                </label>
-									                                	                                            <div class="input-group">
-                                                                                                                        <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagMAT" data-ng-change="limpiarMAT(item)"/>
                                                                                                                         </span>
-									                                		                                            <input type="text" class="form-control" data-ng-model="item.material.descripcion" data-ng-required="item.flagMAT" data-ng-disabled="!item.flagMAT" data-ng-readonly="true">
-									                                		                                            <span class="input-group-btn">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-4">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        MATERIAL
+									                                    	                                            <span class="required" aria-required="true" data-ng-show="item.flagMAT">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
+                                                                                                                        <span class="input-group-addon">
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagMAT" data-ng-change="limpiarMAT(item)" />
+                                                                                                                        </span>
+                                                                                                                        <input type="text" class="form-control" data-ng-model="item.material.descripcion" data-ng-required="item.flagMAT" data-ng-disabled="!item.flagMAT" data-ng-readonly="true">
+                                                                                                                        <span class="input-group-btn">
                                                                                                                             <a class="btn btn-md btn-default" data-toggle="modal" href="#busMaterial" data-ng-click="obtenerMateriales(item)" data-ng-show="item.flagMAT">
                                                                                                                                 <i class="fa fa-search"></i>
                                                                                                                             </a>
                                                                                                                             <button type="button" class="btn btn-md btn-default" data-ng-show="!item.flagMAT" data-ng-disabled="true">
                                                                                                                                 <i class="fa fa-search"></i>
                                                                                                                             </button>
-									                                                                                    </span>
-									                                	                                            </div>
-									                                                                            </div>
-									                                                                        </div>
-								                                                                        </div>
-								                                                                    </div>
-								                                                                    <div class="row">
-								                        	                                            <div class="col-md-12">
+                                                                                                                        </span>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="col-md-4">
-									                                                                            <div class="form-group">
-									                                                                                <label class="control-label"> MÁQUINA</label>
-									                                	                                            <div class="input-group">
-									                                		                                            <input type="text" class="form-control" data-ng-model="item.maquina.descripcion" data-ng-readonly="true">
-									                                		                                            <span class="input-group-btn">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">MÁQUINA</label>
+                                                                                                                    <div class="input-group">
+                                                                                                                        <input type="text" class="form-control" data-ng-model="item.maquina.descripcion" data-ng-readonly="true">
+                                                                                                                        <span class="input-group-btn">
                                                                                                                             <a class="btn btn-md btn-default" data-toggle="modal" href="#busMaquina" data-ng-click="obtenerMaquinas(item)">
                                                                                                                                 <i class="fa fa-search"></i>
                                                                                                                             </a>
-									                                                                                    </span>
-									                                	                                            </div>
-									                                                                            </div>
-									                                                                        </div>
-								                        		                                            <div class="col-md-2">
-									                            	                                            <div class="form-group">
-						                                                                                            <label class="control-label"> M. ABIERTA 
-                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagMA"> * </span>
-						                                                                                            </label>
-						                                                                                            <div class="input-group">
-                                                                                                                        <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagMA"/>
                                                                                                                         </span>
-						                                                	                                            <input type="number" class="form-control" placeholder="X" data-ng-model="item.valXMA" data-ng-required="item.flagMA" data-ng-disabled="!item.flagMA">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        M. ABIERTA 
+                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagMA">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
+                                                                                                                        <span class="input-group-addon">
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagMA" />
+                                                                                                                        </span>
+                                                                                                                        <input type="number" class="form-control" placeholder="X" data-ng-model="item.valXMA" data-ng-required="item.flagMA" data-ng-disabled="!item.flagMA">
                                                                                                                         <input type="number" class="form-control" placeholder="Y" data-ng-model="item.valYMA" data-ng-required="item.flagMA" data-ng-disabled="!item.flagMA">
-						                                                                                            </div>
-						                                                                                        </div>
-									                                                                        </div>
-									                                                                        <div class="col-md-2">
-									                            	                                            <div class="form-group">
-						                                                                                            <label class="control-label"> M. CERRADA 
-                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagMC"> * </span>
-						                                                                                            </label>
-						                                                                                            <div class="input-group">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        M. CERRADA 
+                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagMC">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
                                                                                                                         <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagMC"/>
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagMC" />
                                                                                                                         </span>
-						                                                	                                            <input type="number" class="form-control" placeholder="X" data-ng-model="item.valXMC" data-ng-required="item.flagMC" data-ng-disabled="!item.flagMC">
+                                                                                                                        <input type="number" class="form-control" placeholder="X" data-ng-model="item.valXMC" data-ng-required="item.flagMC" data-ng-disabled="!item.flagMC">
                                                                                                                         <input type="number" class="form-control" placeholder="Y" data-ng-model="item.valYMC" data-ng-required="item.flagMC" data-ng-disabled="!item.flagMC">
-						                                                                                            </div>
-						                                                                                        </div>
-									                                                                        </div>
-								                        		                                            <div class="col-md-2">
-									                            	                                            <div class="form-group">
-						                                                                                            <label class="control-label"> T y R 
-                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagTYR"> * </span>
-						                                                                                            </label>
-						                                                                                            <div class="input-group">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        T y R 
+                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagTYR">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
                                                                                                                         <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagTYR"/>
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagTYR" />
                                                                                                                         </span>
-						                                                	                                            <input type="number" class="form-control" placeholder="TIRA" data-ng-model="item.valTC" data-ng-required="item.flagTYR" data-ng-disabled="!item.flagTYR">
+                                                                                                                        <input type="number" class="form-control" placeholder="TIRA" data-ng-model="item.valTC" data-ng-required="item.flagTYR" data-ng-disabled="!item.flagTYR">
                                                                                                                         <input type="number" class="form-control" placeholder="RETIRA" data-ng-model="item.valRT" data-ng-required="item.flagTYR" data-ng-disabled="!item.flagTYR">
-						                                                                                            </div>
-						                                                                                        </div>
-									                                                                        </div>
-									                                                                        <div class="col-md-2">
-									                            	                                            <div class="form-group">
-						                                                                                            <label class="control-label"> FONDO 
-                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagFND"> * </span>
-						                                                                                            </label>
-						                                                                                            <div class="input-group">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2">
+                                                                                                                <div class="form-group">
+                                                                                                                    <label class="control-label">
+                                                                                                                        FONDO 
+                                                                                                                        <span class="required" aria-required="true" data-ng-show="item.flagFND">* </span>
+                                                                                                                    </label>
+                                                                                                                    <div class="input-group">
                                                                                                                         <span class="input-group-addon">
-                                                                                                                            <input type="checkbox" data-ng-model="item.flagFND"/>
+                                                                                                                            <input type="checkbox" data-ng-model="item.flagFND" />
                                                                                                                         </span>
-						                                                	                                            <input type="number" class="form-control" placeholder="FONDO" data-ng-model="item.valFND" data-ng-required="item.flagFND" data-ng-disabled="!item.flagFND">
-						                                                                                            </div>
-						                                                                                        </div>
-									                                                                        </div>
-								                                                                        </div>
-								                                                                    </div>
+                                                                                                                        <input type="number" class="form-control" placeholder="FONDO" data-ng-model="item.valFND" data-ng-required="item.flagFND" data-ng-disabled="!item.flagFND">
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
                                                                                                     <div class="row">
-								                        	                                            <div class="col-md-12">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="col-md-12">
                                                                                                                 <div class="form-group">
                                                                                                                     <label class="control-label">
@@ -518,26 +524,29 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-							                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="tab-pane" id="tab_{{$parent.$index}}_{{$index}}_2" data-ng-show="item.flagGRF">
                                                                                             <div class="horizontal-form">
                                                                                                 <div class="form-body">
-								                                                                    <div class="row">
-								                        	                                            <div class="col-md-12">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-md-12">
                                                                                                             <div class="col-md-2">
                                                                                                                 <div class="form-group">
-                                                                                                                    <a class="btn btn-primary" data-toggle="modal" href="#precorte" data-ng-click="asignarItem(item)">
+                                                                                                                    <a class="btn btn-primary" data-toggle="modal" href="#precorte" data-ng-click="abrirPrecorte(item)">
                                                                                                                         <i class="fa fa-table"></i>PRECORTE
                                                                                                                     </a>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div class="col-md-2">
                                                                                                                 <div class="form-group">
-                                                                                                                    <a class="btn btn-primary" data-toggle="modal" href="#impresion" data-ng-click="asignarItem(item)">
+                                                                                                                    <a class="btn btn-primary" data-toggle="modal" href="#impresion" data-ng-click="abrirImpresion(item)" data-ng-show="item.valPZSP > 0">
                                                                                                                         <i class="fa fa-table"></i>IMPRESIÓN
                                                                                                                     </a>
+                                                                                                                    <button type="button" class="btn btn-primary" data-ng-disabled="true" data-ng-show="item.valPZSP == 0">
+                                                                                                                        <i class="fa fa-table"></i>IMPRESIÓN
+                                                                                                                    </button>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
@@ -547,8 +556,8 @@
                                                                                         </div>
                                                                                         <div class="tab-pane" id="tab_{{$parent.$index}}_{{$index}}_3">
                                                                                             <div class="form-body">
-								                                                                <div class="row">
-								                        	                                        <div class="col-md-12">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-md-12">
                                                                                                         <div class="col-md-4">
                                                                                                             <div class="form-group">
                                                                                                                 <label class="control-label">
@@ -1110,28 +1119,28 @@
                                             <div class="overlay" data-ng-show="cargandoPrecorte">
                                                 <i class="fa fa-refresh fa-spin"></i>
                                             </div>
-                                            <img data-ng-src="{{imgBase64}}" class="img-responsive" width="400" height="400" style="border:1px solid #000000;">
+                                            <img data-ng-src="{{imgBase64}}" class="img-responsive" width="400" height="400" style="border: 1px solid #000000;">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-default" data-ng-click="generarPrecorte(false)">
+                                                    <button type="button" class="btn btn-default" data-ng-click="generarPrecorte(false,frmPrecorte)" data-ng-disabled="frmPrecorte.$invalid">
                                                         <i class="fa fa-eye"></i>VISUALIZAR
                                                     </button>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-default" data-ng-click="generarPrecorte(true)">
+                                                    <button type="button" class="btn btn-default" data-ng-click="generarPrecorte(true,frmPrecorte)" data-ng-disabled="frmPrecorte.$invalid">
                                                         <i class="fa fa-repeat"></i>GIRAR
                                                     </button>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-default" data-ng-click="optimizarPrecorte()" data-ng-show="itemActivo.valPZSP > 0">
+                                                    <button type="button" class="btn btn-default" data-ng-click="optimizarPrecorte()" data-ng-disabled="itemActivo.valPZSP == 0">
                                                         <i class="fa fa-dashboard"></i>OPTIMIZAR
                                                     </button>
                                                 </div>
@@ -1146,57 +1155,60 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-						                            <label class="control-label"> PIEZA
-                                                        <span class="required" aria-required="true"> * </span>
-						                            </label>
-						                            <div class="input-group">
-						                                <input type="number" class="form-control" placeholder="X" data-ng-model="itemActivo.valXFI" data-ng-required="true">
-                                                        <input type="number" class="form-control" placeholder="Y" data-ng-model="itemActivo.valYFI" data-ng-required="true">
-						                            </div>
-						                        </div>
+                                        <form name="frmPrecorte" novalidate>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            PIEZA
+                                                            <span class="required" aria-required="true">* </span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" placeholder="X" data-ng-model="itemActivo.valXFI" min="1" data-ng-required="true">
+                                                            <input type="number" class="form-control" placeholder="Y" data-ng-model="itemActivo.valYFI" min="1" data-ng-required="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-						                            <button type="button" class="btn btn-primary" data-ng-click="asignarPieza(10,18)">
+                                                    <button type="button" class="btn btn-primary" data-ng-click="asignarPieza(10,18)">
                                                         10 x 18
                                                     </button>
-						                        </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-						                            <label class="control-label"> DEMASIA </label>
+                                                    <label class="control-label">DEMASIA </label>
                                                     <div class="input-group">
                                                         <input type="number" data-ng-model="itemActivo.valDEM" class="form-control">
                                                     </div>
-						                        </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-						                            <label class="control-label"> {{itemActivo.valPZSP}} PIEZAS </label>
-						                        </div>
+                                                    <label class="control-label">{{itemActivo.valPZSP}} PIEZAS </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-						                            <label class="control-label"> 150 HJS MÁQUINA </label>
-						                        </div>
+                                                    <label class="control-label">150 HJS MÁQUINA </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-						                            <label class="control-label"> 2 PLGS DE: 5 + 5 = 150 HJS/RESMA </label>
-						                        </div>
+                                                    <label class="control-label">2 PLGS DE: 5 + 5 = 150 HJS/RESMA </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1213,22 +1225,22 @@
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <button type="button" class="btn btn-default" data-ng-click="regresar()"><i class="fa fa-mail-reply"></i>REGRESAR</button>
+                                                            <button type="button" class="btn btn-default" data-ng-click="regresarPrecorte()"><i class="fa fa-mail-reply"></i>REGRESAR</button>
                                                         </div>
                                                     </div>
                                                     <br />
                                                     <div class="row">
                                                         <div class="col-md-6" data-ng-repeat="opcion in opciones">
                                                             <div class="form-group">
-						                                        <label class="control-label"> {{opcion[0]}} PIEZAS </label>
+                                                                <label class="control-label">{{opcion[0]}} PIEZAS </label>
                                                                 <button type="button" class="btn btn-default" data-ng-click="cambiarPrecorte(opcion)">
-                                                                    <img data-ng-src="data:image/jpeg;base64,{{opcion[1]}}" class="img-responsive" width="300" height="300" style="border:1px solid #000000;">
+                                                                    <img data-ng-src="data:image/jpeg;base64,{{opcion[1]}}" class="img-responsive" width="300" height="300" style="border: 1px solid #000000;">
                                                                 </button>
-						                                    </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="alert alert-info" data-ng-show="opciones.length == 0">
-                                                        <i class="icon fa fa-info"></i> No se han encontrado optimizaciones.
+                                                        <i class="icon fa fa-info"></i>No se han encontrado optimizaciones.
                                                     </div>
                                                 </div>
                                             </div>
@@ -1240,9 +1252,172 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
-                <button type="button" class="btn btn-primary" data-ng-click="guardarItem()">ACEPTAR</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                    <button type="button" class="btn btn-primary" data-ng-click="guardarPrecorte(frmPrecorte)" data-ng-disabled="frmPrecorte.$invalid">ACEPTAR</button>
+                </div>
             </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="impresion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="box">
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-table"></i>GRÁFICO DE IMPRESIÓN</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="horizontal-form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-7">
+                                        <div class="box">
+                                            <div class="overlay" data-ng-show="cargandoImpresion">
+                                                <i class="fa fa-refresh fa-spin"></i>
+                                            </div>
+                                            <img data-ng-src="{{imgBase64}}" class="img-responsive" width="400" height="400" style="border: 1px solid #000000;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-default" data-ng-click="generarImpresion(false,frmImpresion)" data-ng-disabled="frmImpresion.$invalid">
+                                                        <i class="fa fa-eye"></i>VISUALIZAR
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-default" data-ng-click="generarImpresion(true,frmImpresion)" data-ng-disabled="frmImpresion.$invalid">
+                                                        <i class="fa fa-repeat"></i>GIRAR
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        {{itemActivo.valXFI}} X {{itemActivo.valYFI}} CM.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form name="frmImpresion" novalidate>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            M.ABIERTA
+                                                            <span class="required" aria-required="true">* </span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" placeholder="X" data-ng-model="itemActivo.valXMA" min="1" data-ng-required="true">
+                                                            <input type="number" class="form-control" placeholder="Y" data-ng-model="itemActivo.valYMA" min="1" data-ng-required="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            SEPARACIÓN
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" placeholder="X" data-ng-model="itemActivo.valSEPX">
+                                                            <input type="number" class="form-control" placeholder="Y" data-ng-model="itemActivo.valSEPY">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{itemActivo.valPZSI}} PIEZAS </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <label class="control-label">M.IMPRESIÓN </label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control input-md pull-right" data-ng-model="itemActivo.metodoImpresion.descripcion" data-ng-required="true" data-ng-readonly="true">
+                                                            <div class="input-group-btn">
+                                                                <a class="btn btn-md btn-default" data-toggle="modal" href="#busMetodoImpresion" data-ng-click="obtenerMetodosImpresion()">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" data-ng-show="itemActivo.metodoImpresion.fcPases > 0 && itemActivo.metodoImpresion.fcCambios > 0">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{itemActivo.metodoImpresion.fcPases}} PASES | {{itemActivo.metodoImpresion.fcCambios}} CAMBIOS </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                    <button type="button" class="btn btn-primary" data-ng-click="guardarImpresion(frmItem)" data-ng-disabled="frmItem.$invalid">ACEPTAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busMetodoImpresion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusMetodoImpresion">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>MÉTODO DE IMPRESIÓN</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">ELEGIR</th>
+                                    <th class="col-md-4">DESCRIPCIÓN</th>
+                                    <th class="col-md-1 text-center">ACTIVO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="metodo in metodos">
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-mail-forward" data-ng-click="asignarMetodoImpresion(metodo)"></button>
+                                    </td>
+                                    <td>{{metodo.descripcion}} </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="metodo.activo" data-ng-disabled="true" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                </div>
             </div>
         </div>
         <!-- /.modal-content -->

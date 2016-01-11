@@ -40,8 +40,8 @@ namespace SGE.Aplicacion.Ventas
             try
             {
                 blMetodoImpresion blMetodoImpresion = new blMetodoImpresion(sesion);
-                IList<MetodoImpresion> metodoes = blMetodoImpresion.ObtenerActivos();
-                resultado = new { correcto = true, metodoes = metodoes };
+                IList<MetodoImpresion> metodos = blMetodoImpresion.ObtenerActivos();
+                resultado = new { correcto = true, metodos = metodos };
             }
             catch (Exception)
             {

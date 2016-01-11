@@ -11,10 +11,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/SGE_Presentacion.dll">
-      <publishTime>01/10/2016 02:03:17</publishTime>
+      <publishTime>01/11/2016 01:04:51</publishTime>
     </File>
     <File Include="bin/SGE_Presentacion.pdb">
-      <publishTime>01/10/2016 02:03:17</publishTime>
+      <publishTime>01/11/2016 01:04:51</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>10/05/2015 22:46:27</publishTime>
@@ -41,7 +41,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venCotizacionController.js">
-      <publishTime>01/10/2016 01:59:28</publishTime>
+      <publishTime>01/11/2016 01:07:36</publishTime>
     </File>
     <File Include="Presentacion/app/controllers/venPlantillaController.js">
       <publishTime>01/06/2016 22:41:00</publishTime>
@@ -89,7 +89,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/25/2015 15:56:08</publishTime>
     </File>
     <File Include="Presentacion/app/views/venCotizacion.html">
-      <publishTime>01/10/2016 02:03:08</publishTime>
+      <publishTime>01/11/2016 00:10:12</publishTime>
     </File>
     <File Include="Presentacion/app/views/venPlantilla.html">
       <publishTime>01/08/2016 19:28:19</publishTime>
@@ -380,7 +380,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2015 23:55:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/10/2016 02:03:26</publishTime>
+      <publishTime>01/11/2016 01:07:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

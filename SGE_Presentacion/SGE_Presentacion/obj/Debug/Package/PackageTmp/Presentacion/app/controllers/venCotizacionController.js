@@ -4,8 +4,8 @@ define(['app'], function (app) {
 
     app.register.controller('venCotizacionController', ['$scope', 'http', function ($scope, http) {
 
-        var URL_BASE = 'http://192.168.1.109/SGE_Aplicacion/';
-        //var URL_BASE = 'http://localhost:52455/';
+        //var URL_BASE = 'http://192.168.1.109/SGE_Aplicacion/';
+        var URL_BASE = 'http://localhost:52455/';
 
         // URLs
         var urlObtenerTodos = URL_BASE + 'Ventas/venCotizacion.aspx/ObtenerTodos',
@@ -26,7 +26,9 @@ define(['app'], function (app) {
             urlObtenerMateriales = URL_BASE + 'Inventarios/invMaterial.aspx/ObtenerActivos',
             urlObtenerMaquinas = URL_BASE + 'Ventas/venMaquina.aspx/ObtenerActivos',
             urlGenerarPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/GenerarPrecorte',
-            urlOptimizarPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/OptimizarPrecorte';
+            urlOptimizarPrecorte = URL_BASE + 'Ventas/venCotizacion.aspx/OptimizarPrecorte',
+            urlObtenerMetodosImpresion = URL_BASE + 'Ventas/venMetodoImpresion.aspx/ObtenerActivos',
+            urlGenerarImpresion = URL_BASE + 'Ventas/venCotizacion.aspx/GenerarImpresion';
 
         // Personalizadas
         $scope.opcion = 1;
@@ -435,7 +437,7 @@ define(['app'], function (app) {
             $('#busMaquina').modal('hide');
         };
 
-        $scope.asignarItem = function (item) {
+        $scope.abrirPrecorte = function (item) {
             $scope.item = item;
             $scope.itemActivo = angular.copy(item);
             if (angular.isDefined($scope.item.imgBase64P)) {
@@ -451,35 +453,39 @@ define(['app'], function (app) {
             $scope.itemActivo.valYFI = valYFI;
         };
 
-        $scope.generarPrecorte = function (girar) {
-            $scope.itemActivo.flagGPR = girar;
-            $scope.cargandoPrecorte = true;
-            http.post(urlGenerarPrecorte, { item: $scope.itemActivo },
-	            function (data) {
-	                $scope.imgBase64 = 'data:image/jpeg;base64,' + data.imgBase64;
-	                $scope.itemActivo.imgBase64P = data.imgBase64;
-	                $scope.itemActivo.valPZSP = data.valPZSP;
-	                $scope.cargandoPrecorte = false;
-	            },
-	            function () {
-	                $scope.cargandoPrecorte = false;
-	            });
+        $scope.generarPrecorte = function (girar, form) {
+            if (form.$valid) {
+                $scope.itemActivo.flagGPR = girar;
+                $scope.cargandoPrecorte = true;
+                http.post(urlGenerarPrecorte, { item: $scope.itemActivo },
+                    function (data) {
+                        $scope.imgBase64 = 'data:image/jpeg;base64,' + data.imgBase64;
+                        $scope.itemActivo.imgBase64P = data.imgBase64;
+                        $scope.itemActivo.valPZSP = data.valPZSP;
+                        $scope.cargandoPrecorte = false;
+                    },
+                    function () {
+                        $scope.cargandoPrecorte = false;
+                    });
+            }
         };
 
         $scope.optimizarPrecorte = function () {
-            $scope.verOpciones = true;
-            $scope.cargandoOptimizacion = true
-            http.post(urlOptimizarPrecorte, { item: $scope.itemActivo },
-	            function (data) {
-	                $scope.opciones = data.opciones;
-	                $scope.cargandoOptimizacion = false;
-	            },
-	            function () {
-	                $scope.cargandoOptimizacion = false;
-	            });
+            if ($scope.itemActivo.valPZSP > 0) {
+                $scope.verOpciones = true;
+                $scope.cargandoOptimizacion = true
+                http.post(urlOptimizarPrecorte, { item: $scope.itemActivo },
+                    function (data) {
+                        $scope.opciones = data.opciones;
+                        $scope.cargandoOptimizacion = false;
+                    },
+                    function () {
+                        $scope.cargandoOptimizacion = false;
+                    });
+            }
         };
 
-        $scope.regresar = function () {
+        $scope.regresarPrecorte = function () {
             $scope.opciones = [];
             $scope.verOpciones = false;
         };
@@ -491,13 +497,67 @@ define(['app'], function (app) {
             $scope.verOpciones = false;
         };
 
-        $scope.guardarItem = function () {
-            $scope.item.valXFI = $scope.itemActivo.valXFI;
-            $scope.item.valYFI = $scope.itemActivo.valYFI;
-            $scope.item.valDEM = $scope.itemActivo.valDEM;
-            $scope.item.valPZSP = $scope.itemActivo.valPZSP;
-            $scope.item.imgBase64P = $scope.itemActivo.imgBase64P;
-            $('#precorte').modal('hide');
+        $scope.guardarPrecorte = function (form) {
+            if (form.$valid) {
+                $scope.item.valXFI = $scope.itemActivo.valXFI;
+                $scope.item.valYFI = $scope.itemActivo.valYFI;
+                $scope.item.valDEM = $scope.itemActivo.valDEM;
+                $scope.item.valPZSP = $scope.itemActivo.valPZSP;
+                $scope.item.imgBase64P = $scope.itemActivo.imgBase64P;
+                $('#precorte').modal('hide');
+            }
+        };
+
+        $scope.abrirImpresion = function (item) {
+            $scope.item = item;
+            $scope.itemActivo = angular.copy(item);
+            if (angular.isDefined($scope.item.imgBase64I)) {
+                $scope.imgBase64 = 'data:image/jpeg;base64,' + $scope.item.imgBase64I;
+            } else {
+                $scope.imgBase64 = 'static/img/user2-160x160.jpg';
+            }
+        };
+
+        $scope.obtenerMetodosImpresion = function () {
+            $scope.cargandoBusMetodoImpresion = true;
+            http.post(urlObtenerMetodosImpresion, {},
+	            function (data) {
+	                $scope.metodos = data.metodos;
+	                $scope.cargandoBusMetodoImpresion = false;
+	            },
+	            function () {
+	                $scope.cargandoBusMetodoImpresion = false;
+	            });
+        };
+
+        $scope.asignarMetodoImpresion = function (metodo) {
+            $scope.itemActivo.metodoImpresion = {
+                idMetodoImpresion: metodo.idMetodoImpresion,
+                descripcion: metodo.descripcion,
+                fcPases: metodo.fcPases,
+                fcCambios: metodo.fcCambios,
+                fcX: metodo.fcX,
+                fcY: metodo.fcY,
+                letras: metodo.letras
+            };
+            $('#busMetodoImpresion').modal('hide');
+        };
+
+        $scope.generarImpresion = function (girar, form) {
+            if (form.$valid) {
+                $scope.itemActivo.flagGIR = girar;
+                $scope.cargandoImpresion = true;
+                http.post(urlGenerarImpresion, { item: $scope.itemActivo },
+                    function (data) {
+                        $scope.imgBase64 = 'data:image/jpeg;base64,' + data.imgBase64;
+                        $scope.itemActivo.imgBase64I = data.imgBase64;
+                        $scope.itemActivo.valPZSI = data.valPZSI;
+                        $scope.cargandoImpresion = false;
+                    },
+                    function () {
+                        $scope.cargandoImpresion = false;
+                    });
+            }
         };
 
         // Init

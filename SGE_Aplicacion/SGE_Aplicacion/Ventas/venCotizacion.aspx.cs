@@ -102,41 +102,7 @@ namespace SGE.Aplicacion.Ventas
             return resultado;
         }
 
-        [WebMethod]
-        public static object GenerarPrecorte(Sesion sesion, CotizacionItem item)
-        {
-            object resultado = new { };
-            try
-            {
-                blCotizacion blCotizacion = new blCotizacion(sesion);
-                object[] datos = GenerarPrecorte(item);
-                resultado = new { correcto = true, imgBase64 = datos[0], valPZSP = datos[1] };
-            }
-            catch (Exception)
-            {
-                resultado = new { correcto = false };
-            }
-            return resultado;
-        }
-
-        [WebMethod]
-        public static object OptimizarPrecorte(Sesion sesion, CotizacionItem item)
-        {
-            object resultado = new { };
-            try
-            {
-                blCotizacion blCotizacion = new blCotizacion(sesion);
-                List<object[]> opciones = OptimizarPrecorte(item);
-                resultado = new { correcto = true, opciones = opciones };
-            }
-            catch (Exception)
-            {
-                resultado = new { correcto = false };
-            }
-            return resultado;
-        }
-
-        public static object[] GenerarPrecorte(CotizacionItem item)
+        private static object[] GenerarPrecorte(CotizacionItem item)
         {
             var xMAT = Convert.ToInt32(item.material.alto * 10);
             var yMAT = Convert.ToInt32(item.material.largo * 10);
@@ -163,7 +129,7 @@ namespace SGE.Aplicacion.Ventas
 
             Pen p = new Pen(System.Drawing.Color.Black, 1);
 
-            g.DrawRectangle(p, new Rectangle(0, 0, yMAT - 1, yMAT - 1));
+            g.DrawRectangle(p, new Rectangle(0, 0, xMAT - 1, yMAT - 1));
 
             int valPZSP = 0;
 
@@ -185,7 +151,23 @@ namespace SGE.Aplicacion.Ventas
             return new object[] { imgBase64, valPZSP };
         }
 
-        public static List<object[]> OptimizarPrecorte(CotizacionItem item)
+        [WebMethod]
+        public static object GenerarPrecorte(Sesion sesion, CotizacionItem item)
+        {
+            object resultado = new { };
+            try
+            {
+                object[] datos = GenerarPrecorte(item);
+                resultado = new { correcto = true, imgBase64 = datos[0], valPZSP = datos[1] };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        private static List<object[]> OptimizarPrecorte(CotizacionItem item)
         {
             List<object[]> opciones = new List<object[]>();
 
@@ -258,7 +240,8 @@ namespace SGE.Aplicacion.Ventas
                     }
                 }
 
-                if (cantidad_piezas > item.valPZSP) {
+                if (cantidad_piezas > item.valPZSP)
+                {
                     System.IO.MemoryStream ms = new System.IO.MemoryStream();
                     b.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
@@ -272,6 +255,129 @@ namespace SGE.Aplicacion.Ventas
             //var opciones1 = opciones.Distinct().ToList();
 
             return opciones;
+        }
+
+        [WebMethod]
+        public static object OptimizarPrecorte(Sesion sesion, CotizacionItem item)
+        {
+            object resultado = new { };
+            try
+            {
+                List<object[]> opciones = OptimizarPrecorte(item);
+                resultado = new { correcto = true, opciones = opciones };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        private static object[] GenerarImpresion(CotizacionItem item)
+        {
+            var xFI = Convert.ToInt32((Math.Max(item.valXFI, item.valYFI) * 10)) / item.metodoImpresion.fcX;
+            var yFI = Convert.ToInt32((Math.Min(item.valXFI, item.valYFI) * 10)) / item.metodoImpresion.fcY;
+
+            var valSEPX = Convert.ToInt32(item.valSEPX * 10);
+            var valSEPY = Convert.ToInt32(item.valSEPY * 10);
+
+            var xPZ = 0;
+            var yPZ = 0;
+
+            if (item.flagGIR)
+            {
+                xPZ = Convert.ToInt32(item.valYMA * 10);
+                yPZ = Convert.ToInt32(item.valXMA * 10);
+            }
+            else
+            {
+                xPZ = Convert.ToInt32(item.valXMA * 10);
+                yPZ = Convert.ToInt32(item.valYMA * 10);
+            }
+
+            Bitmap b_;
+            b_ = new Bitmap(xFI, yFI);
+
+            Graphics g_ = Graphics.FromImage(b_);
+            g_.Clear(Color.White);
+
+            Pen p_ = new Pen(System.Drawing.Color.Black, 1);
+
+            g_.DrawRectangle(p_, new Rectangle(0, 0, xFI - 1, yFI - 1));
+
+            int valPZSI = 0;
+
+            for (int x = xPZ; x <= xFI; x += xPZ)
+            {
+                for (int y = yPZ; y <= yFI; y += yPZ)
+                {
+                    g_.DrawRectangle(p_, new Rectangle(x - xPZ, y - yPZ, xPZ, yPZ));
+                    valPZSI++;
+                    y += valSEPY;
+                }
+                x += valSEPX;
+            }
+
+            Bitmap b;
+
+            if (item.metodoImpresion.fcX > 1 || item.metodoImpresion.fcY > 1)
+            {
+                xFI = Convert.ToInt32(Math.Max(item.valXFI, item.valYFI) * 10);
+                yFI = Convert.ToInt32(Math.Min(item.valXFI, item.valYFI) * 10);
+
+                b = new Bitmap(xFI, yFI);
+                Graphics g = Graphics.FromImage(b);
+
+                Font font = new System.Drawing.Font("Arial", 40, FontStyle.Regular);
+                Brush brush = new SolidBrush(System.Drawing.Color.Red);
+
+                if (item.metodoImpresion.fcX > 1)
+                {
+                    string[] letras = item.metodoImpresion.letras.Split(',');
+                    for (int i = 0; i < item.metodoImpresion.fcX; i++)
+                    {
+                        g.DrawImage(b_, i * b_.Width, 0);
+                        g.DrawString(letras[i], font, brush, (i * b_.Width), 0);
+                    }
+                    valPZSI = valPZSI * item.metodoImpresion.fcX;
+                }
+
+                if (item.metodoImpresion.fcY > 1)
+                {
+                    string[] letras = item.metodoImpresion.letras.Split(',');
+                    for (int i = 0; i < item.metodoImpresion.fcY; i++)
+                    {
+                        g.DrawImage(b_, 0, i * b_.Height);
+                        g.DrawString(letras[i], font, brush, (b_.Width / 2) - 20, (i * b_.Height));
+                    }
+                    valPZSI = valPZSI * item.metodoImpresion.fcY;
+                }
+            }
+            else { b = b_; }
+
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            b.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            byte[] byteImage = ms.ToArray();
+            string imgBase64 = Convert.ToBase64String(byteImage);
+
+            return new object[] { imgBase64, valPZSI };
+        }
+
+        [WebMethod]
+        public static object GenerarImpresion(Sesion sesion, CotizacionItem item)
+        {
+            object resultado = new { };
+            try
+            {
+                object[] datos = GenerarImpresion(item);
+                resultado = new { correcto = true, imgBase64 = datos[0], valPZSI = datos[1] };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
         }
     }
 }

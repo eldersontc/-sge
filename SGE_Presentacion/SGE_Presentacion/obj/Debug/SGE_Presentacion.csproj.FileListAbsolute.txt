@@ -7,4 +7,3 @@ D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.dll
 D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\bin\SGE_Presentacion.pdb
 D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.dll
 D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.pdb
-D:\PROY-GIT\xyzsge\SGE_Presentacion\SGE_Presentacion\obj\Debug\SGE_Presentacion.csprojResolveAssemblyReference.cache

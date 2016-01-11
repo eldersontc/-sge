@@ -159,7 +159,9 @@
     <EmbeddedResource Include="Ventas\Mapeo\ClienteContacto.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\ClienteDireccion.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\Cotizacion.hbm.xml" />
-    <EmbeddedResource Include="Ventas\Mapeo\CotizacionItem.hbm.xml" />
+    <EmbeddedResource Include="Ventas\Mapeo\CotizacionItem.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Mapeo\CotizacionServicio.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\FormaPago.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\Linea.hbm.xml" />
