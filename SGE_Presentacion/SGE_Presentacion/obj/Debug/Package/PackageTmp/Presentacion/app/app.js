@@ -64,7 +64,8 @@ define(['services/routeResolver'], function () {
                 subMenus: [
                     { nombre: 'PLANTILLA', url: 'venPlantilla', icono: 'user' },
                     { nombre: 'SOLICITUD DE COTIZACIÓN', url: 'venSolCotizacion', icono: 'user' },
-                    { nombre: 'COTIZACIÓN', url: 'venCotizacion', icono: 'user' }
+                    { nombre: 'COTIZACIÓN', url: 'venCotizacion', icono: 'user' },
+                    { nombre: 'PRESUPUESTO', url: 'venPresupuesto', icono: 'user' }
                 ]
             }
         ];

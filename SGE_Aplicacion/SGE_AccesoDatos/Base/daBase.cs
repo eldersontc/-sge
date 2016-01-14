@@ -107,7 +107,23 @@ namespace SGE.AccesoDatos.Base
             ICriteria criteria = sesion.CreateCriteria(typeof(T));
             foreach (Object[] filtro in filtros)
             {
-                criteria.Add(Restrictions.Eq(filtro[0].ToString(), filtro[1]));
+                if (filtro.Length == 2)
+                {
+                    criteria.Add(Restrictions.Eq(filtro[0].ToString(), filtro[1]));
+                }
+                else if (filtro.Length > 2) {
+                    switch (filtro[2].ToString())
+                    {
+                        case "IN":
+                            criteria.Add(Expression.In(filtro[0].ToString(), (int[])filtro[1]));
+                            break;
+                        case "NOT_IN":
+                             criteria.Add(Expression.Not(Expression.In(filtro[0].ToString(), (int[])filtro[1])));
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
             return (List<T>)criteria.List<T>();
         }

@@ -13,6 +13,7 @@ namespace SGE.Entidades.Ventas
         public virtual Numeracion numeracion { get; set; }
         public virtual string numero { get; set; }
         public virtual Cliente cliente { get; set; }
+        public virtual Empleado vendedor { get; set; }
         public virtual Moneda moneda { get; set; }
         public virtual DateTime fechaCreacion { get; set; }
         public virtual string instrucciones { get; set; }
@@ -20,5 +21,14 @@ namespace SGE.Entidades.Ventas
         public virtual int estado { get; set; }
         public virtual List<PresupuestoItem> items { get; set; }
         public virtual List<int> idsItems { get; set; }
+        public virtual string fechaCreacionStr
+        {
+            get { return (fechaCreacion == null) ? "" : fechaCreacion.ToShortDateString(); }
+        }
+
+        public Presupuesto() {
+            items = new List<PresupuestoItem>();
+            idsItems = new List<int>();
+        }
     }
 }

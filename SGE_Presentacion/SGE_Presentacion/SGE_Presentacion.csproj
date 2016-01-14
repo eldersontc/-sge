@@ -62,6 +62,7 @@
     <Content Include="Presentacion\app\controllers\inicioController.js" />
     <Content Include="Presentacion\app\controllers\venCotizacionController.js" />
     <Content Include="Presentacion\app\controllers\venPlantillaController.js" />
+    <Content Include="Presentacion\app\controllers\venPresupuestoController.js" />
     <Content Include="Presentacion\app\controllers\venSolCotizacionController.js" />
     <Content Include="Presentacion\app\factories\factories.js" />
     <Content Include="Presentacion\app\main.js" />
@@ -69,6 +70,7 @@
     <Content Include="Presentacion\app\views\inicio.html" />
     <Content Include="Presentacion\app\views\venCotizacion.html" />
     <Content Include="Presentacion\app\views\venPlantilla.html" />
+    <Content Include="Presentacion\app\views\venPresupuesto.html" />
     <Content Include="Presentacion\app\views\venSolCotizacion.html" />
     <Content Include="Presentacion\favicon.ico" />
     <Content Include="Presentacion\index.html" />
@@ -122,6 +124,7 @@
     <Content Include="Presentacion\static\js\icheck.min.js" />
     <Content Include="Presentacion\static\js\jQuery-2.1.4.min.js" />
     <Content Include="Presentacion\static\js\jquery-ui.min.js" />
+    <Content Include="Presentacion\static\js\jquery.fileDownload.js" />
     <Content Include="Presentacion\static\js\jquery.slimscroll.min.js" />
     <Content Include="Presentacion\static\js\moment.min.js" />
     <Content Include="Presentacion\static\js\require.min.js" />

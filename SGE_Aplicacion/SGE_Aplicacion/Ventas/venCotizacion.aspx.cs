@@ -35,6 +35,23 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
+        public static object ObtenerPendientes(Sesion sesion, int[] idsExcluir)
+        {
+            object resultado = new { };
+            try
+            {
+                blCotizacion blCotizacion = new blCotizacion(sesion);
+                List<Cotizacion> cotizaciones = blCotizacion.ObtenerPendientes(idsExcluir);
+                resultado = new { correcto = true, cotizaciones = cotizaciones };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
         public static object ObtenerPorId(Sesion sesion, int idCotizacion)
         {
             object resultado = new { };

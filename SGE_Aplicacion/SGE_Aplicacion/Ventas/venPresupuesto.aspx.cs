@@ -17,14 +17,31 @@ namespace SGE.Aplicacion.Ventas
         { }
 
         [WebMethod]
-        public static object ObtenerTodos(Sesion sesion)
+        public static object ObtenerTodos(Sesion sesion, Paginacion paginacion, Orden orden)
         {
             object resultado = new { };
             try
             {
                 blPresupuesto blPresupuesto = new blPresupuesto(sesion);
-                IList<Presupuesto> presupuestos = blPresupuesto.ObtenerTodos();
-                resultado = new { correcto = true, presupuestos = presupuestos };
+                object[] datos = blPresupuesto.ObtenerTodos(paginacion, orden);
+                resultado = new { correcto = true, presupuestos = datos[0], total = datos[1] };
+            }
+            catch (Exception)
+            {
+                resultado = new { correcto = false };
+            }
+            return resultado;
+        }
+
+        [WebMethod]
+        public static object ObtenerPorId(Sesion sesion, int idPresupuesto)
+        {
+            object resultado = new { };
+            try
+            {
+                blPresupuesto blPresupuesto = new blPresupuesto(sesion);
+                Presupuesto presupuesto = blPresupuesto.ObtenerPorId(idPresupuesto);
+                resultado = new { correcto = true, presupuesto = presupuesto };
             }
             catch (Exception)
             {
@@ -68,13 +85,13 @@ namespace SGE.Aplicacion.Ventas
         }
 
         [WebMethod]
-        public static object Eliminar(Sesion sesion, int idPresupuesto)
+        public static object Eliminar(Sesion sesion, List<int> ids)
         {
             object resultado = new { };
             try
             {
                 blPresupuesto blPresupuesto = new blPresupuesto(sesion);
-                blPresupuesto.Eliminar(idPresupuesto);
+                blPresupuesto.Eliminar(ids);
                 resultado = new { correcto = true };
             }
             catch (Exception)

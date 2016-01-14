@@ -17,14 +17,14 @@ namespace SGE.Negocios.Ventas
         daPresupuesto daPresupuesto;
         daPresupuestoItem daItemPresupuesto;
 
-        public IList<Presupuesto> ObtenerTodos()
+        public object[] ObtenerTodos(Paginacion paginacion, Orden orden)
         {
-            IList<Presupuesto> presupuestos;
+            object[] datos;
             try
             {
                 daPresupuesto = new daPresupuesto();
                 daPresupuesto.AbrirSesion();
-                presupuestos = daPresupuesto.ObtenerTodos();
+                datos = daPresupuesto.ObtenerPaginacion(new List<object[]>(), paginacion, orden);
             }
             catch (Exception)
             {
@@ -34,7 +34,7 @@ namespace SGE.Negocios.Ventas
             {
                 daPresupuesto.CerrarSesion();
             }
-            return presupuestos;
+            return datos;
         }
 
         public Presupuesto ObtenerPorId(int idPresupuesto)
@@ -43,6 +43,7 @@ namespace SGE.Negocios.Ventas
             try
             {
                 daPresupuesto = new daPresupuesto();
+                daPresupuesto.AbrirSesion();
                 presupuesto = daPresupuesto.ObtenerPorId(idPresupuesto);
                 daItemPresupuesto = new daPresupuestoItem();
                 daItemPresupuesto.AsignarSesion(daPresupuesto);
@@ -67,6 +68,11 @@ namespace SGE.Negocios.Ventas
             {
                 daPresupuesto = new daPresupuesto();
                 daPresupuesto.IniciarTransaccion();
+                if (string.IsNullOrEmpty(presupuesto.numero))
+                {
+                    presupuesto.numero = generarNumeracion(daPresupuesto, presupuesto.numeracion.idNumeracion);
+                }
+                presupuesto.fechaCreacion = DateTime.Now;
                 daPresupuesto.Agregar(presupuesto);
                 daItemPresupuesto = new daPresupuestoItem();
                 daItemPresupuesto.AsignarSesion(daPresupuesto);
@@ -97,6 +103,7 @@ namespace SGE.Negocios.Ventas
                 daPresupuesto.IniciarTransaccion();
                 Presupuesto presupuesto_ = daPresupuesto.ObtenerPorId(presupuesto.idPresupuesto);
                 presupuesto_.cliente = presupuesto.cliente;
+                presupuesto_.vendedor = presupuesto.vendedor;
                 presupuesto_.moneda = presupuesto.moneda;
                 presupuesto_.instrucciones = presupuesto.instrucciones;
                 presupuesto_.total = presupuesto.total;
@@ -112,15 +119,13 @@ namespace SGE.Negocios.Ventas
                     else 
                     {
                         PresupuestoItem item_ = daItemPresupuesto.ObtenerPorId(item.idPresupuestoItem);
-                        item_.cotizacion = item.cotizacion;
-                        item_.ttlCot = item.ttlCot;
                         item_.recargo = item.recargo;
                         item_.total = item.total;
                     }
                 }
                 foreach (int idItem in presupuesto.idsItems)
                 {
-                    daItemPresupuesto.EliminarPorId(idItem, constantes.esquemas.Administracion);
+                    daItemPresupuesto.EliminarPorId(idItem, constantes.esquemas.Ventas);
                 }
                 daPresupuesto.ConfirmarTransaccion();
             }
@@ -136,16 +141,19 @@ namespace SGE.Negocios.Ventas
             return true;
         }
 
-        public bool Eliminar(int idPresupuesto)
+        public bool Eliminar(List<int> ids)
         {
             try
             {
                 daPresupuesto = new daPresupuesto();
                 daPresupuesto.IniciarTransaccion();
-                daPresupuesto.EliminarPorId(idPresupuesto, constantes.esquemas.Ventas);
-                daItemPresupuesto = new daPresupuestoItem();
-                daItemPresupuesto.AsignarSesion(daPresupuesto);
-                daItemPresupuesto.EliminarPorIdPresupuesto(idPresupuesto);
+                foreach (int idPresupuesto in ids)
+                {
+                    daPresupuesto.EliminarPorId(idPresupuesto, constantes.esquemas.Ventas);
+                    daItemPresupuesto = new daPresupuestoItem();
+                    daItemPresupuesto.AsignarSesion(daPresupuesto);
+                    daItemPresupuesto.EliminarPorIdPresupuesto(idPresupuesto);
+                }
                 daPresupuesto.ConfirmarTransaccion();
             }
             catch (Exception)

@@ -65,6 +65,7 @@
     <Content Include="Administracion\admReporte.aspx" />
     <Content Include="Administracion\admUsuario.aspx" />
     <Content Include="Compras\comProveedor.aspx" />
+    <Content Include="Descarga\Descarga.aspx" />
     <Content Include="Facturacion\facFactura.aspx" />
     <Content Include="Facturacion\facGuiaRemision.aspx" />
     <Content Include="Finanzas\finCaja.aspx" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Compras\comProveedor.aspx.designer.cs">
       <DependentUpon>comProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Descarga\Descarga.aspx.cs">
+      <DependentUpon>Descarga.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Descarga\Descarga.aspx.designer.cs">
+      <DependentUpon>Descarga.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\facFactura.aspx.cs">
       <DependentUpon>facFactura.aspx</DependentUpon>

@@ -42,6 +42,7 @@ namespace SGE.Negocios.Administracion
             try
             {
                 daReporte = new daReporte();
+                daReporte.AbrirSesion();
                 reporte = daReporte.ObtenerPorId(idReporte);
                 daItemReporte = new daReporteItem();
                 daItemReporte.AsignarSesion(daReporte);

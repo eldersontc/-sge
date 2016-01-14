@@ -1,0 +1,545 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>PRESUPUESTO
+    <small>DOCUMENTOS</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/inicio"><i class="fa fa-home"></i>INICIO</a></li>
+        <li><a href="#">VENTAS</a></li>
+        <li class="active">PRESUPUESTO</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row" data-ng-show="opcion==1">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoLst">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-header">
+                    <h3 class="box-title"><i class="fa fa-list"></i>LISTADO</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" data-ng-click="nuevo()"><i class="fa fa-plus"></i>NUEVO</button>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-1">
+                            <a class="btn btn-primary" data-toggle="modal" href="#eliminar" data-ng-show="colSel.length > 0">
+                                <i class="fa fa-trash"></i>ELIMINAR
+                            </a>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">
+                                        <input type="checkbox" data-ng-model="chkTodos" data-ng-change="selTodos()" />
+                                    </th>
+                                    <th class="col-md-1 text-center">EDITAR</th>
+                                    <th class="col-md-1 text-center">PDF</th>
+                                    <th class="col-md-1">
+                                        <a data-ng-click="ordenar('numero')">NÚMERO <i class="fa fa-sort" data-ng-class="{'fa-sort-asc': columna == 'numero' && asc, 'fa-sort-desc': columna == 'numero' && !asc}"></i></a>
+                                    </th>
+                                    <th class="col-md-1">F.CREACIÓN
+                                    </th>
+                                    <th class="col-md-2">CLIENTE
+                                    </th>
+                                    <th class="col-md-2">VENDEDOR
+                                    </th>
+                                    <th class="col-md-1">
+                                        <a data-ng-click="ordenar('estado')">ESTADO <i class="fa fa-sort" data-ng-class="{'fa-sort-asc': columna == 'estado' && asc, 'fa-sort-desc': columna == 'estado' && !asc}"></i></a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="presupuesto in presupuestos">
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="presupuesto.sel" data-ng-change="selItem(presupuesto.sel, presupuesto.idpresupuesto)" />
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-edit" data-ng-click="editar(presupuesto)"></button>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-file-pdf-o" data-ng-click="pdf(presupuesto)"></button>
+                                    </td>
+                                    <td>{{presupuesto.numero}} </td>
+                                    <td>{{presupuesto.fechaCreacionStr}} </td>
+                                    <td>{{presupuesto.cliente.razonSocial}} </td>
+                                    <td>{{presupuesto.vendedor.nombre}} </td>
+                                    <td>{{presupuesto.estado}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <uib-pagination boundary-links="true" total-items="totalRegistros" data-ng-model="pagActual" max-size="pagVisibles" items-per-page="nroRegistros" data-ng-change="cambioPagina()" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+    <div class="row" data-ng-show="opcion==2||opcion==3">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="overlay" data-ng-show="procesandoReg">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-header">
+                    <h3 class="box-title"><i class="fa fa-{{opcion==2?'plus':'edit'}}"></i>{{opcion==2?'NUEVO':'EDITAR'}}</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">GENERAL</a></li>
+                            <li data-ng-show="formGnrl.$valid" data-ng-click="calcularTotal()"><a href="#tab_2" data-toggle="tab" aria-expanded="false">ITEMS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <form name="formGnrl" novalidate>
+                                    <div class="horizontal-form">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                CLIENTE
+	                                    	                <span class="required" aria-required="true">* </span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-md pull-right" data-ng-model="presupuesto.cliente.razonSocial" data-ng-required="true" data-ng-readonly="true">
+                                                                <div class="input-group-btn">
+                                                                    <a class="btn btn-md btn-default" data-toggle="modal" href="#busCliente" data-ng-click="obtenerClientes()">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                VENDEDOR
+	                                    	                <span class="required" aria-required="true">* </span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-md pull-right" data-ng-model="presupuesto.vendedor.nombre" data-ng-required="true" data-ng-readonly="true">
+                                                                <div class="input-group-btn">
+                                                                    <a class="btn btn-md btn-default" data-toggle="modal" href="#busVendedor" data-ng-click="obtenerVendedores()">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                NUMERACIÓN
+	                                    	                <span class="required" aria-required="true">* </span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-md pull-right" data-ng-model="presupuesto.numeracion.descripcion" data-ng-required="true" data-ng-readonly="true">
+                                                                <div class="input-group-btn">
+                                                                    <a class="btn btn-md btn-default" data-toggle="modal" href="#busNumeracion" data-ng-click="obtenerNumeraciones()">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                NÚMERO
+                                                            </label>
+                                                            <input type="text" class="form-control" data-ng-model="presupuesto.numero" data-ng-disabled="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                INSTRUCCIONES
+                                                            </label>
+                                                            <textarea class="form-control" rows="5" data-ng-model="presupuesto.instrucciones"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                MONEDA
+	                                    	                <span class="required" aria-required="true">* </span>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-md pull-right" data-ng-model="presupuesto.moneda.simbolo" data-ng-required="true" data-ng-readonly="true">
+                                                                <div class="input-group-btn">
+                                                                    <a class="btn btn-md btn-default" data-toggle="modal" href="#busMoneda" data-ng-click="obtenerMonedas()">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                F. CREACIÓN
+                                                            </label>
+                                                            <input type="text" class="form-control" data-ng-model="presupuesto.fechaCreacionStr" data-ng-disabled="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_2">
+                                <form name="formItm" novalidate>
+                                    <div class="horizontal-form">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <a class="btn btn-primary" data-toggle="modal" href="#busCotizacion" data-ng-click="obtenerCotizaciones()">
+                                                                <i class="fa fa-plus"></i>NUEVO
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr class="bg-gray">
+                                                                    <th colspan="4" class="col-md-6 text-center">COTIZACIÓN</th>
+                                                                    <th rowspan="2" class="col-md-1" style="vertical-align: middle;">RECARGO</th>
+                                                                    <th rowspan="2" class="col-md-1" style="vertical-align: middle;">TOTAL</th>
+                                                                    <th rowspan="2" class="col-md-1 text-center" style="vertical-align: middle;">ELIMINAR</th>
+                                                                </tr>
+                                                                <tr class="bg-gray">
+                                                                    <th class="col-md-2">NÚMERO</th>
+                                                                    <th class="col-md-2">DESCRIPCIÓN</th>
+                                                                    <th class="col-md-1">F.CREACIÓN</th>
+                                                                    <th class="col-md-1">TOTAL</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-ng-repeat="item in presupuesto.items">
+                                                                    <td>{{item.cotizacion.numero}}</td>
+                                                                    <td>{{item.cotizacion.descripcion}}</td>
+                                                                    <td>{{item.cotizacion.fechaCreacionStr}}</td>
+                                                                    <td>{{item.ttlCot}}</td>
+                                                                    <td>
+                                                                        <ng-form>
+                                                                            <input type="number" data-ng-model="item.recargo" data-ng-change="asignarTotal()" data-ng-required="true"/>
+                                                                        </ng-form>
+                                                                    </td>
+                                                                    <td>{{item.ttlCot + item.recargo}}</td>
+                                                                    <td class="text-center">
+                                                                        <button type="button" class="btn btn-primary fa fa-trash" data-ng-click="eliminarItem($index)"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-2 pull-right">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        TOTAL
+                                    </label>
+                                    <input type="number" class="form-control" data-ng-model="presupuesto.total" data-ng-disabled="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="button" class="btn btn-default" data-ng-click="cancelar()">CANCELAR</button>
+                        <button type="button" class="btn btn-primary" data-ng-disabled="formGnrl.$invalid || formItm.$invalid" data-ng-click="guardar(formGnrl,formItm)">
+                            <i class="fa fa-save"></i>GUARDAR
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
+<!-- Modals -->
+<div class="modal fade" id="eliminar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="eliminadoReg">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-trash"></i>ELIMINAR</h4>
+                </div>
+                <div class="modal-body">
+                    ¿ CONFIRMA LA ELIMINACIÓN ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+                    <button type="button" class="btn btn-primary" data-ng-click="eliminar()">ACEPTAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busCotizacion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusCotizacion">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>COTIZACIONES</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">
+                                        <input type="checkbox" data-ng-model="chkTodosCtz" data-ng-change="selTodosCtz()" />
+                                    </th>
+                                    <th class="col-md-2">NÚMERO</th>
+                                    <th class="col-md-1">F.CREACIÓN</th>
+                                    <th class="col-md-4">DESCRIPCIÓN</th>
+                                    <th class="col-md-4">CLIENTE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="cotizacion in cotizaciones">
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="cotizacion.sel" />
+                                    </td>
+                                    <td>{{cotizacion.numero}}</td>
+                                    <td>{{cotizacion.fechaCreacionStr}}</td>
+                                    <td>{{cotizacion.descripcion}}</td>
+                                    <td>{{cotizacion.cliente.razonSocial}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="agregarItems()">
+                        <i class="fa fa-plus"></i>AGREGAR
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busCliente" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusCliente">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>CLIENTES</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">ELEGIR</th>
+                                    <th class="col-md-4">RAZÓN SOCIAL</th>
+                                    <th class="col-md-1 text-center">ACTIVO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="cliente in clientes">
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-mail-forward" data-ng-click="asignarCliente(cliente)"></button>
+                                    </td>
+                                    <td>{{cliente.razonSocial}} </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="cliente.activo" data-ng-disabled="true" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busVendedor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusVendedor">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>VENDEDORES</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">ELEGIR</th>
+                                    <th class="col-md-4">NOMBRE</th>
+                                    <th class="col-md-1 text-center">ACTIVO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="vendedor in vendedores">
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-mail-forward" data-ng-click="asignarVendedor(vendedor)"></button>
+                                    </td>
+                                    <td>{{vendedor.nombre}} </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="vendedor.activo" data-ng-disabled="true" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busNumeracion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusNumeracion">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>NUMERACIONES</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">ELEGIR</th>
+                                    <th class="col-md-4">DESCRIPCIÓN</th>
+                                    <th class="col-md-1 text-center">ACTIVO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="numeracion in numeraciones">
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-mail-forward" data-ng-click="asignarNumeracion(numeracion)"></button>
+                                    </td>
+                                    <td>{{numeracion.descripcion}} </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="numeracion.activo" data-ng-disabled="true" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<div class="modal fade" id="busMoneda" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="box">
+                <div class="overlay" data-ng-show="cargandoBusMoneda">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="modal-header bg-light-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"><i class="fa fa-list"></i>MONEDAS</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="bg-gray">
+                                    <th class="col-md-1 text-center">ELEGIR</th>
+                                    <th class="col-md-4">SÍMBOLO</th>
+                                    <th class="col-md-1 text-center">ACTIVO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="moneda in monedas">
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary fa fa-mail-forward" data-ng-click="asignarMoneda(moneda)"></button>
+                                    </td>
+                                    <td>{{moneda.simbolo}} </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" data-ng-model="moneda.activo" data-ng-disabled="true" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

@@ -39,6 +39,29 @@ namespace SGE.Negocios.Ventas
             return datos;
         }
 
+        public List<Cotizacion> ObtenerPendientes(int[] idsExcluir)
+        {
+            List<Cotizacion> cotizaciones;
+            try
+            {
+                daCotizacion = new daCotizacion();
+                daCotizacion.AbrirSesion();
+                List<object[]> filtros = new List<object[]>();
+                filtros.Add(new object[] { "estado", 0 });
+                filtros.Add(new object[] { "idCotizacion", idsExcluir, "NOT_IN" });
+                cotizaciones = daCotizacion.ObtenerLista(filtros);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                daCotizacion.CerrarSesion();
+            }
+            return cotizaciones;
+        }
+
         public Cotizacion ObtenerPorId(int idCotizacion)
         {
             Cotizacion cotizacion;

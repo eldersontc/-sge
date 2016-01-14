@@ -38,31 +38,34 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/17/2013 22:08:54</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.dll">
-      <publishTime>01/11/2016 01:37:26</publishTime>
+      <publishTime>01/14/2016 13:42:47</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.pdb">
-      <publishTime>01/11/2016 01:37:26</publishTime>
+      <publishTime>01/14/2016 13:42:47</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.dll">
-      <publishTime>01/11/2016 01:37:27</publishTime>
+      <publishTime>01/14/2016 13:42:49</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.pdb">
-      <publishTime>01/11/2016 01:37:27</publishTime>
+      <publishTime>01/14/2016 13:42:49</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.dll">
-      <publishTime>01/11/2016 01:37:25</publishTime>
+      <publishTime>01/14/2016 13:42:46</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.pdb">
-      <publishTime>01/11/2016 01:37:25</publishTime>
+      <publishTime>01/14/2016 13:42:46</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.dll">
-      <publishTime>01/11/2016 01:37:27</publishTime>
+      <publishTime>01/14/2016 13:42:48</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.pdb">
-      <publishTime>01/11/2016 01:37:27</publishTime>
+      <publishTime>01/14/2016 13:42:48</publishTime>
     </File>
     <File Include="Compras/comProveedor.aspx">
       <publishTime>12/08/2015 21:53:58</publishTime>
+    </File>
+    <File Include="Descarga/Descarga.aspx">
+      <publishTime>01/14/2016 12:33:42</publishTime>
     </File>
     <File Include="Facturacion/facFactura.aspx">
       <publishTime>12/08/2015 21:36:23</publishTime>
@@ -146,7 +149,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>12/08/2015 21:25:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/11/2016 01:37:30</publishTime>
+      <publishTime>01/14/2016 13:42:55</publishTime>
     </File>
   </ItemGroup>
 </Project>
