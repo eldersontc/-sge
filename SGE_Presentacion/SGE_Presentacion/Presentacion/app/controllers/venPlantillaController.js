@@ -20,6 +20,7 @@ define(['app'], function (app) {
 	    $scope.opcion = 1;
 	    $scope.chkTodos = false;
 	    $scope.colSel = [];
+	    $scope.tab = 0;
 
 	    // Paginación
 	    $scope.nroRegistros = '10';
@@ -86,9 +87,14 @@ define(['app'], function (app) {
 	    	}
 	    };
 		
+	    $scope.clickTab = function (tab) {
+	        $scope.tab = tab;
+	    };
+
 	    $scope.nuevo = function () {
 	    	$scope.opcion = 2;
-	    	$scope.plantilla = { linea: { }, grupos: [] };
+	    	$scope.plantilla = { linea: {}, items: [{ titulo: 'SIN TÍTULO' }] };
+	    	$scope.tab = 0;
 	    };
 
 	    $scope.editar = function (plantilla) {
@@ -98,6 +104,7 @@ define(['app'], function (app) {
 	            function (data) {
 	                $scope.plantilla = data.plantilla;
 	                $scope.procesandoReg = false;
+	                $scope.tab = 0;
 	            }, 
 	            function () {
 	                $scope.procesandoReg = false;
@@ -108,30 +115,17 @@ define(['app'], function (app) {
 	    	$scope.opcion = 1;
 	    };
 
-	    $scope.nuevoGrupo = function () {
-	        $scope.plantilla.grupos.push({ titulo: 'SIN TÍTULO', items: [] });
+	    $scope.nuevoItem = function () {
+	        $scope.plantilla.items.push({ titulo: 'SIN TÍTULO' });
+	        $scope.tab = $scope.plantilla.items.length - 1;
 	    };
-
-	    $scope.nuevoItem = function (grupo) {
-	        grupo.items.push({ titulo: 'SIN TÍTULO' });
-	    };
-
-	    $scope.eliminarGrupo = function (index) {
-	    	var grupo = $scope.plantilla.grupos.splice(index, 1)[0];
-	    	if (angular.isDefined(grupo.idPlantillaGrupo)) {
-	    		$scope.plantilla.idsGrupos.push(grupo.idPlantillaGrupo);
-	    	}
-	    };
-
-	    $scope.eliminarItem = function (grupo, index) {
-	    	var item = grupo.items.splice(index, 1)[0];
+        
+	    $scope.eliminarItem = function () {
+	    	var item = $scope.plantilla.items.splice($scope.tab, 1)[0];
 	    	if (angular.isDefined(item.idPlantillaItem)) {
-	    		grupo.idsItems.push(item.idPlantillaItem);
+	    		$scope.plantilla.idsItems.push(item.idPlantillaItem);
 	    	}
-	    };
-
-	    $scope.limpiarSRV = function (item) {
-	        if (!item.flagSRV) item.servicio = null;
+	    	$scope.tab = $scope.tab - 1;
 	    };
 
 	    $scope.limpiarMAT = function (item) {
@@ -181,24 +175,6 @@ define(['app'], function (app) {
 	    $scope.asignarLinea = function (linea) {
 	        $scope.plantilla.linea = { idLinea: linea.idLinea, descripcion: linea.descripcion };
 	        $('#busLinea').modal('hide');
-	    };
-
-	    $scope.obtenerServicios = function (item) {
-	        $scope.itemActivo = item;
-	        $scope.cargandoBusServicio = true;
-	        http.post(urlObtenerServicios, {},
-	            function (data) {
-	                $scope.servicios = data.servicios;
-	                $scope.cargandoBusServicio = false;
-	            },
-	            function () {
-	                $scope.cargandoBusServicio = false;
-	            });
-	    };
-
-	    $scope.asignarServicio = function (servicio) {
-	        $scope.itemActivo.servicio = { idServicio: servicio.idServicio, descripcion: servicio.descripcion };
-	        $('#busServicio').modal('hide');
 	    };
 
 	    $scope.obtenerMateriales = function (item) {

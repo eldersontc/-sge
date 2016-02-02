@@ -10,9 +10,9 @@ namespace SGE.AccesoDatos.Ventas
 {
     public class daPlantillaItem : daBase<PlantillaItem>
     {
-        public void EliminarPorIdPlantillaGrupo(int idPlantillaGrupo)
+        public void EliminarPorIdPlantilla(int idPlantilla)
         {
-            string sql = string.Format("DELETE Ventas.PlantillaItem WHERE idPlantillaGrupo = {0}", idPlantillaGrupo);
+            string sql = string.Format("DELETE Ventas.PlantillaItem WHERE idPlantilla = {0}", idPlantilla);
             Ejecutar(sql);
         }
     }

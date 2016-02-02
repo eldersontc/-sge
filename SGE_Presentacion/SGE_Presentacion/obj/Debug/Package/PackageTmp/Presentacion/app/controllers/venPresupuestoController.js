@@ -273,7 +273,7 @@ define(['app'], function (app) {
         };
 
         $scope.pdf = function (presupuesto) {
-            $.fileDownload(urlDescargarPdf, { httpMethod: "POST", data: { r:11, i: 1 } })
+            $.fileDownload(urlDescargarPdf, { httpMethod: "POST", data: { r: 11, i: presupuesto.idPresupuesto } })
                     .done(function () {
                         console.log('done');
                     })

@@ -38,28 +38,28 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/17/2013 22:08:54</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.dll">
-      <publishTime>01/14/2016 13:42:47</publishTime>
+      <publishTime>01/27/2016 00:43:30</publishTime>
     </File>
     <File Include="bin/SGE.AccesoDatos.pdb">
-      <publishTime>01/14/2016 13:42:47</publishTime>
+      <publishTime>01/27/2016 00:43:30</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.dll">
-      <publishTime>01/14/2016 13:42:49</publishTime>
+      <publishTime>01/27/2016 00:43:32</publishTime>
     </File>
     <File Include="bin/SGE.Aplicacion.pdb">
-      <publishTime>01/14/2016 13:42:49</publishTime>
+      <publishTime>01/27/2016 00:43:32</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.dll">
-      <publishTime>01/14/2016 13:42:46</publishTime>
+      <publishTime>01/27/2016 00:43:30</publishTime>
     </File>
     <File Include="bin/SGE.Entidades.pdb">
-      <publishTime>01/14/2016 13:42:46</publishTime>
+      <publishTime>01/27/2016 00:43:30</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.dll">
-      <publishTime>01/14/2016 13:42:48</publishTime>
+      <publishTime>01/27/2016 00:43:31</publishTime>
     </File>
     <File Include="bin/SGE.Negocios.pdb">
-      <publishTime>01/14/2016 13:42:48</publishTime>
+      <publishTime>01/27/2016 00:43:31</publishTime>
     </File>
     <File Include="Compras/comProveedor.aspx">
       <publishTime>12/08/2015 21:53:58</publishTime>
@@ -149,7 +149,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>12/08/2015 21:25:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/14/2016 13:42:55</publishTime>
+      <publishTime>01/27/2016 00:43:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -107,7 +107,6 @@
     <Compile Include="Ventas\daMaquina.cs" />
     <Compile Include="Ventas\daMetodoImpresion.cs" />
     <Compile Include="Ventas\daPlantilla.cs" />
-    <Compile Include="Ventas\daPlantillaGrupo.cs" />
     <Compile Include="Ventas\daPlantillaItem.cs" />
     <Compile Include="Ventas\daPresupuesto.cs" />
     <Compile Include="Ventas\daPresupuestoItem.cs" />
@@ -173,9 +172,6 @@
     <EmbeddedResource Include="Ventas\Mapeo\SolCotizacion.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\SolCotizacionGrupo.hbm.xml" />
     <EmbeddedResource Include="Ventas\Mapeo\SolCotizacionItem.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Ventas\Mapeo\PlantillaGrupo.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ventas\Mapeo\CotizacionGrupo.hbm.xml" />

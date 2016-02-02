@@ -4,16 +4,13 @@
     <id name="idPlantillaItem">
       <generator class="identity" />
     </id>
-    <property name="idPlantillaGrupo" column="idPlantillaGrupo"/>
+    <property name="idPlantilla" column="idPlantilla"/>
     <property name="titulo" column="titulo"/>
-    <many-to-one name="servicio" column="idServicio" class="SGE.Entidades.Ventas.Servicio" lazy="false"/>
     <many-to-one name="material" column="idMaterial" class="SGE.Entidades.Inventarios.Material" lazy="false"/>
     <property name="flagMA" column="flagMA"/>
     <property name="flagMC" column="flagMC"/>
-    <property name="flagTYR" column="flagTYR"/>
     <property name="flagGRF" column="flagGRF"/>
-    <property name="flagMAT" column="flagMAT"/>
-    <property name="flagSRV" column="flagSRV"/>
-    <property name="flagFND" column="flagFND"/>
+    <property name="flagPGS" column="flagPGS"/>
+    <property name="flagCPS" column="flagCPS"/>
   </class>
 </hibernate-mapping>

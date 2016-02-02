@@ -104,7 +104,6 @@
     <Compile Include="Ventas\Maquina.cs" />
     <Compile Include="Ventas\MetodoImpresion.cs" />
     <Compile Include="Ventas\Plantilla.cs" />
-    <Compile Include="Ventas\PlantillaGrupo.cs" />
     <Compile Include="Ventas\PlantillaItem.cs" />
     <Compile Include="Ventas\Presupuesto.cs" />
     <Compile Include="Ventas\PresupuestoItem.cs" />

@@ -93,7 +93,6 @@
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">GENERAL</a></li>
-                                <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">GRUPOS</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
@@ -136,190 +135,102 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.tab-pane -->
-                                <div class="tab-pane" id="tab_2">
-                                    <div class="horizontal-form">
-                                        <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="col-md-2">
                                                         <div class="form-group">
-                                                            <button class="btn btn-primary" data-ng-click="nuevoGrupo()">
-                                                                <i class="fa fa-plus"></i>NUEVO GRUPO
+                                                            <button class="btn btn-primary" data-ng-click="nuevoItem()">
+                                                                <i class="fa fa-plus"></i>NUEVO ITEM
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="box-group" id="accordionGrupo">
-                                        <div class="panel box box-primary" data-ng-repeat="grupo in plantilla.grupos">
-                                            <div class="box-header with-border">
-                                                <h4 class="box-title">
-                                                    <a data-toggle="collapse" data-parent="#accordionGrupo" href="#collapse_{{$index}}">{{grupo.titulo}}</a>
-                                                </h4>
-                                                <button type="button" class="btn btn-default pull-right fa fa-trash" data-ng-click="eliminarGrupo($index)"></button>
-                                            </div>
-                                            <div id="collapse_{{$index}}" class="panel-collapse collapse in">
-                                                <div class="box-body">
-                                                    <div class="nav-tabs-custom">
-                                                        <ul class="nav nav-tabs">
-                                                            <li class="active"><a href="#tab_{{$index}}_1" data-toggle="tab" aria-expanded="true">GENERAL</a></li>
-                                                            <li class=""><a href="#tab_{{$index}}_2" data-toggle="tab" aria-expanded="false">ITEMS</a></li>
-                                                        </ul>
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane active" id="tab_{{$index}}_1">
-                                                                <div class="horizontal-form">
+                                            <div class="row" data-ng-show="plantilla.items.length > 0">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-12">
+                                                        <div class="nav-tabs-custom">
+                                                            <ul class="nav nav-tabs">
+                                                                <li data-ng-repeat="item in plantilla.items" data-ng-class="{'active':$index==tab}" data-ng-click="clickTab($index)">
+                                                                    <a href="#tab_{{$index}}" data-toggle="tab" aria-expanded="true">{{item.titulo}}</a>
+                                                                </li>
+                                                                <div class="pull-right">
+                                                                    <button type="button" class="btn btn-default fa fa-trash" data-ng-click="eliminarItem()"></button>
+                                                                </div>
+                                                            </ul>
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane" data-ng-repeat="item in plantilla.items" data-ng-class="{'active':$index==tab}" id="tab_{{$index}}">
                                                                     <div class="form-body">
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
+								                                        <div class="row">
+								                        	                <div class="col-md-12">
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label class="control-label">
                                                                                             TÍTULO
 	                                    	                                                <span class="required" aria-required="true">* </span>
                                                                                         </label>
-                                                                                        <input type="text" class="form-control" data-ng-model="grupo.titulo" data-ng-required="true">
+                                                                                        <input type="text" class="form-control" data-ng-model="item.titulo" data-ng-required="true">
                                                                                     </div>
                                                                                 </div>
+                                                                                <div class="col-md-6">
+									                                                <div class="form-group">
+									                                                    <label class="control-label"> MATERIAL </label>
+									                                	                <div class="input-group">
+									                                		                <input type="text" class="form-control" data-ng-model="item.material.descripcion" data-ng-readonly="true">
+									                                		                <span class="input-group-btn">
+                                                                                                <a class="btn btn-md btn-default" data-toggle="modal" href="#busMaterial" data-ng-click="obtenerMateriales(item)">
+                                                                                                    <i class="fa fa-search"></i>
+                                                                                                </a>
+									                                                        </span>
+									                                	                </div>
+									                                                </div>
+									                                            </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-pane" id="tab_{{$index}}_2">
-                                                                <div class="horizontal-form">
-                                                                    <div class="form-body">
                                                                         <div class="row">
-                                                                            <div class="col-md-12">
+								                        	                <div class="col-md-12">
+								                        		                <div class="col-md-2">
+									                            	                <div class="form-group">
+						                                                                <label class="control-label"> M. ABIERTA </label>
+						                                                                <div class="input-group">
+						                                                	                <input type="checkbox" data-ng-model="item.flagMA"/>
+						                                                                </div>
+						                                                            </div>
+									                                            </div>
+									                                            <div class="col-md-2">
+									                            	                <div class="form-group">
+						                                                                <label class="control-label"> M. CERRADA </label>
+						                                                                <div class="input-group">
+						                                                	                <input type="checkbox" data-ng-model="item.flagMC"/>
+						                                                                </div>
+						                                                            </div>
+									                                            </div>
+									                                            <div class="col-md-2">
+									                            	                <div class="form-group">
+						                                                                <label class="control-label"> GRAFICAR </label>
+						                                                                <div class="input-group">
+						                                                	                <input type="checkbox" data-ng-model="item.flagGRF"/>
+						                                                                </div>
+						                                                            </div>
+									                                            </div>
                                                                                 <div class="col-md-2">
-                                                                                    <div class="form-group">
-                                                                                        <button class="btn btn-primary" data-ng-click="nuevoItem(grupo)">
-                                                                                            <i class="fa fa-plus"></i>NUEVO ITEM
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-group" id="accordionItem">
-                                                                    <div class="panel box box-primary" data-ng-repeat="item in grupo.items">
-                                                                        <div class="box-header with-border">
-                                                                            <h4 class="box-title">
-                                                                                <a data-toggle="collapse" data-parent="#accordionItem" href="#collapse_{{$parent.$index}}_{{$index}}">{{item.titulo}}</a>
-                                                                            </h4>
-                                                                            <button type="button" class="btn btn-default pull-right fa fa-trash" data-ng-click="eliminarItem(grupo,$index)"></button>
-                                                                        </div>
-                                                                        <div id="collapse_{{$parent.$index}}_{{$index}}" class="panel-collapse collapse in">
-                                                                            <div class="box-body">
-		                                                                        <div class="form-body">
-								                                                    <div class="row">
-								                        	                            <div class="col-md-12">
-                                                                                            <div class="col-md-4">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="control-label">
-                                                                                                        TÍTULO
-	                                    	                                                            <span class="required" aria-required="true">* </span>
-                                                                                                    </label>
-                                                                                                    <input type="text" class="form-control" data-ng-model="item.titulo" data-ng-required="true">
-                                                                                                </div>
-                                                                                            </div>
-									                                                        <div class="col-md-4">
-									                                                            <div class="form-group">
-									                                                                <label class="control-label"> SERVICIO
-									                                    	                            <span class="required" aria-required="true" data-ng-show="item.flagSRV"> * </span>
-									                                                                </label>
-									                                	                            <div class="input-group">
-                                                                                                        <span class="input-group-addon">
-                                                                                                            <input type="checkbox" data-ng-model="item.flagSRV" data-ng-change="limpiarSRV(item)"/>
-                                                                                                        </span>
-									                                		                            <input type="text" class="form-control" data-ng-model="item.servicio.descripcion" data-ng-required="item.flagSRV" data-ng-disabled="!item.flagSRV" data-ng-readonly="true">
-									                                		                            <span class="input-group-btn">
-                                                                                                            <a class="btn btn-md btn-default" data-toggle="modal" href="#busServicio" data-ng-click="obtenerServicios(item)" data-ng-show="item.flagSRV">
-                                                                                                                <i class="fa fa-search"></i>
-                                                                                                            </a>
-                                                                                                            <button type="button" class="btn btn-md btn-default" data-ng-show="!item.flagSRV" data-ng-disabled="true">
-                                                                                                                <i class="fa fa-search"></i>
-                                                                                                            </button>
-									                                                                    </span>
-									                                	                            </div>
-									                                                            </div>
-									                                                        </div>
-									                                                        <div class="col-md-4">
-									                                                            <div class="form-group">
-									                                                                <label class="control-label"> MATERIAL
-									                                    	                            <span class="required" aria-required="true" data-ng-show="item.flagMAT"> * </span>
-									                                                                </label>
-									                                	                            <div class="input-group">
-                                                                                                        <span class="input-group-addon">
-                                                                                                            <input type="checkbox" data-ng-model="item.flagMAT" data-ng-change="limpiarMAT(item)"/>
-                                                                                                        </span>
-									                                		                            <input type="text" class="form-control" data-ng-model="item.material.descripcion" data-ng-required="item.flagMAT" data-ng-disabled="!item.flagMAT" data-ng-readonly="true">
-									                                		                            <span class="input-group-btn">
-                                                                                                            <a class="btn btn-md btn-default" data-toggle="modal" href="#busMaterial" data-ng-click="obtenerMateriales(item)" data-ng-show="item.flagMAT">
-                                                                                                                <i class="fa fa-search"></i>
-                                                                                                            </a>
-                                                                                                            <button type="button" class="btn btn-md btn-default" data-ng-show="!item.flagMAT" data-ng-disabled="true">
-                                                                                                                <i class="fa fa-search"></i>
-                                                                                                            </button>
-									                                                                    </span>
-									                                	                            </div>
-									                                                            </div>
-									                                                        </div>
-								                                                        </div>
-								                                                    </div>
-								                                                    <div class="row">
-								                        	                            <div class="col-md-12">
-								                        		                            <div class="col-md-2">
-									                            	                            <div class="form-group">
-						                                                                            <label class="control-label"> M. ABIERTA </label>
-						                                                                            <div class="input-group">
-						                                                	                            <input type="checkbox" data-ng-model="item.flagMA"/>
-						                                                                            </div>
-						                                                                        </div>
-									                                                        </div>
-									                                                        <div class="col-md-2">
-									                            	                            <div class="form-group">
-						                                                                            <label class="control-label"> M. CERRADA </label>
-						                                                                            <div class="input-group">
-						                                                	                            <input type="checkbox" data-ng-model="item.flagMC"/>
-						                                                                            </div>
-						                                                                        </div>
-									                                                        </div>
-								                        		                            <div class="col-md-2">
-									                            	                            <div class="form-group">
-						                                                                            <label class="control-label"> T y R </label>
-						                                                                            <div class="input-group">
-						                                                	                            <input type="checkbox" data-ng-model="item.flagTYR"/>
-						                                                                            </div>
-						                                                                        </div>
-									                                                        </div>
-									                                                        <div class="col-md-2">
-									                            	                            <div class="form-group">
-						                                                                            <label class="control-label"> GRAFICAR </label>
-						                                                                            <div class="input-group">
-						                                                	                            <input type="checkbox" data-ng-model="item.flagGRF"/>
-						                                                                            </div>
-						                                                                        </div>
-									                                                        </div>
-									                                                        <div class="col-md-2">
-									                            	                            <div class="form-group">
-						                                                                            <label class="control-label"> FONDO </label>
-						                                                                            <div class="input-group">
-						                                                	                            <input type="checkbox" data-ng-model="item.flagFND"/>
-						                                                                            </div>
-						                                                                        </div>
-									                                                        </div>
-								                                                        </div>
-								                                                    </div>
-							                                                    </div>
-                                                                            </div>
-                                                                        </div>
+									                            	                <div class="form-group">
+						                                                                <label class="control-label"> PÁGINAS </label>
+						                                                                <div class="input-group">
+						                                                	                <input type="checkbox" data-ng-model="item.flagPGS"/>
+						                                                                </div>
+						                                                            </div>
+									                                            </div>
+									                                            <div class="col-md-2">
+									                            	                <div class="form-group">
+						                                                                <label class="control-label"> COPIAS </label>
+						                                                                <div class="input-group">
+						                                                	                <input type="checkbox" data-ng-model="item.flagCPS"/>
+						                                                                </div>
+						                                                            </div>
+									                                            </div>
+								                                            </div>
+								                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -329,8 +240,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /.tab-pane -->
                                 </div>
+                                <!-- /.tab-pane -->
                                 <!-- /.tab-content -->
                             </div>
                         </div>

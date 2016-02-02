@@ -4,8 +4,8 @@ define(['app'], function (app) {
 
     app.register.controller('venCotizacionController', ['$scope', 'http', function ($scope, http) {
 
+        //var URL_BASE = 'http://192.168.1.102/SGE_Aplicacion/';
         var URL_BASE = 'http://localhost/SGE_Aplicacion/';
-        //var URL_BASE = 'http://localhost:52455/';
 
         // URLs
         var urlObtenerTodos = URL_BASE + 'Ventas/venCotizacion.aspx/ObtenerTodos',
@@ -443,7 +443,7 @@ define(['app'], function (app) {
             if (angular.isDefined($scope.item.imgBase64P)) {
                 $scope.imgBase64 = 'data:image/jpeg;base64,' + $scope.item.imgBase64P;
             } else {
-                $scope.imgBase64 = 'static/img/user2-160x160.jpg';
+                $scope.imgBase64 = '_static/img/user2-160x160.jpg';
             }
             $scope.verOpciones = false;
         };
@@ -514,7 +514,7 @@ define(['app'], function (app) {
             if (angular.isDefined($scope.item.imgBase64I)) {
                 $scope.imgBase64 = 'data:image/jpeg;base64,' + $scope.item.imgBase64I;
             } else {
-                $scope.imgBase64 = 'static/img/user2-160x160.jpg';
+                $scope.imgBase64 = '_static/img/user2-160x160.jpg';
             }
         };
 

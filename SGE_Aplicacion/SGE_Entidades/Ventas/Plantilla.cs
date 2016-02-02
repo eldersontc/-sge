@@ -12,12 +12,12 @@ namespace SGE.Entidades.Ventas
         public virtual string descripcion { get; set; }
         public virtual Linea linea { get; set; }
         public virtual bool activo { get; set; }
-        public virtual List<PlantillaGrupo> grupos { get; set; }
-        public virtual List<int> idsGrupos { get; set; }
+        public virtual List<PlantillaItem> items { get; set; }
+        public virtual List<int> idsItems { get; set; }
 
         public Plantilla() {
-            grupos = new List<PlantillaGrupo>();
-            idsGrupos = new List<int>();
+            items = new List<PlantillaItem>();
+            idsItems = new List<int>();
         }
     }
 }
